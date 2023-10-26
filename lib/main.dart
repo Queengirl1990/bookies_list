@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("HomeScreen"),
+        title: Text("BookiesList"),
         backgroundColor: Color(0xFFAC5859),
       ),
       body: Center(
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             primary: Color(0xFFAC5859),
           ),
-          child: Text("Gehe zu UnreadBooks"),
+          child: Text("Gehe zu deinem SuB"),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -101,7 +101,7 @@ class UnreadBooksScreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Text("UnreadBooks"),
+        title: Text("Stapel ungelesener Bücher"),
         backgroundColor: Color(0xFFAC5859),
       ),
       body: ListView(
