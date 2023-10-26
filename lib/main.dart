@@ -39,7 +39,13 @@ class HomeScreen extends StatelessWidget {
 }
 
 class UnreadBooksScreen extends StatelessWidget {
-  final List<String> productNames = ['Außerhalb der Schatten I', 'Vampires of Vensaya', 'Das Biest in ihm', 'Keep my silent heart', 'Ravenhall Academy I'];
+  final List<String> productNames = [
+    'Außerhalb der Schatten I',
+    'Vampires of Vensaya',
+    'Das Biest in ihm',
+    'Keep my silent heart',
+    'Ravenhall Academy I'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +67,8 @@ class UnreadBooksScreen extends StatelessWidget {
               leading: Icon(Icons.book),
               title: Text(productName),
               onTap: () {
-                Navigator.pushNamed(context, '/bookDetails', arguments:'Buchdetails $productName');
+                Navigator.pushNamed(context, '/bookDetails',
+                    arguments: 'Buchdetails $productName');
               },
             ),
           );
@@ -75,6 +82,23 @@ class BookDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String info = ModalRoute.of(context)!.settings.arguments as String;
+    String bookTitle = info.replaceAll('Buchdetails ', '');
+    String imagePath = '';
+
+    if (bookTitle == 'Außerhalb der Schatten I') {
+      imagePath = 'https://bilder.buecher.de/produkte/61/61374/61374779n.jpg';
+    } else if (bookTitle == 'Vampires of Vensaya') {
+      imagePath =
+          'https://www.inforius-bilder.de/bild/?I=i9VAgp4zcKxSzWi5lnhuWtsPfe6L09SBfd%2Boa0pjO6A%3D';
+    } else if (bookTitle == 'Das Biest in ihm') {
+      imagePath =
+          'https://www.jugendbuch-couch.de/fileadmin/_processed_/7/4/csm_Das_Biest_c4b693978e.jpg';
+    } else if (bookTitle == 'Keep my silent heart') {
+      imagePath =
+          'https://medien.umbreitkatalog.de/bildzentrale_original/978/375/653/2568.jpg';
+    } else if (bookTitle == 'Ravenhall Academy I') {
+      imagePath =
+          'https://www.carlsen.de/sites/default/files/produkt/cover/verborgene-magie_4.jpg';}
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -90,6 +114,12 @@ class BookDetailsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            if (imagePath.isNotEmpty)
+              Image.network(
+                imagePath,
+                width: 100, // Ändere die Breite nach Bedarf
+                height: 150, // Ändere die Höhe nach Bedarf
+              ),
             Text(info),
             ElevatedButton(
               onPressed: () {
@@ -106,3 +136,4 @@ class BookDetailsScreen extends StatelessWidget {
     );
   }
 }
+
