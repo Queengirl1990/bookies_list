@@ -23,60 +23,93 @@ class HomeScreen extends StatelessWidget {
         title: Text("BookiesList"),
         backgroundColor: Color(0xFFAC5859),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/unreadBooks');
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFAC5859),
+      body: Container(
+        color: Color(0xFFAC5859), // Hintergrundfarbe des Body
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/unreadBooks');
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white, // Hintergrundfarbe der Buttons
+                onPrimary: Colors.black, // Schriftfarbe des Buttontextes
+                elevation: 5, // Schattenstärke
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0), // Eckenradius
+                ),
+              ),
+              child: Text("Stapel ungelesener Bücher"),
             ),
-            child: Text("Gehe zu deinem SuB"),
-          ),
-          ElevatedButton(
-            onPressed: () {
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFAC5859),
+            ElevatedButton(
+              onPressed: () {
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: Text("Wunschliste"),
             ),
-            child: Text("Wunschliste"),
-          ),
-          ElevatedButton(
-            onPressed: () {
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFAC5859),
+            ElevatedButton(
+              onPressed: () {
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: Text("Sonderband"),
             ),
-            child: Text("Sonderband"),
-          ),
-          ElevatedButton(
-            onPressed: () {
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFAC5859),
+            ElevatedButton(
+              onPressed: () {
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: Text("Verschenken"),
             ),
-            child: Text("Verschenken"),
-          ),
-          ElevatedButton(
-            onPressed: () {
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFAC5859),
+            ElevatedButton(
+              onPressed: () {
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: Text("Neue Liste anlegen"),
             ),
-            child: Text("Neue Liste anlegen"),
-          ),
-          ElevatedButton(
-            onPressed: () {
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFAC5859),
+            ElevatedButton(
+              onPressed: () {
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: Text("Zufallsgenerator"),
             ),
-            child: Text("Zufallsgenerator"),
-          ),
-        ],
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
@@ -200,14 +233,21 @@ class BookDetailsScreen extends StatelessWidget {
                 height: 150,
               ),
             Text(info),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/'); // Navigiere zum HomeScreen
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFFAC5859),
+            Container(
+              width: 150, // Setzen Sie hier die gewünschte Breite ein
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/'); // Navigiere zum HomeScreen
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFFAC5859),
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+                child: Text("Zurück zum HomeScreen"),
               ),
-              child: Text("Zurück zum HomeScreen"),
             ),
           ],
         ),
