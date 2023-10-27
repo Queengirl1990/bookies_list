@@ -25,59 +25,54 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch, // Änderung hier
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(context, '/unreadBooks');
             },
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFAC5859),
+              backgroundColor: Color(0xFFAC5859),
             ),
             child: Text("Gehe zu deinem SuB"),
           ),
           ElevatedButton(
             onPressed: () {
-              // Füge deine Logik für "Wunschliste" hier ein
             },
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFAC5859),
+              backgroundColor: Color(0xFFAC5859),
             ),
             child: Text("Wunschliste"),
           ),
           ElevatedButton(
             onPressed: () {
-              // Füge deine Logik für "Sonderband" hier ein
             },
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFAC5859),
+              backgroundColor: Color(0xFFAC5859),
             ),
             child: Text("Sonderband"),
           ),
           ElevatedButton(
             onPressed: () {
-              // Füge deine Logik für "Verschenken" hier ein
             },
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFAC5859),
+              backgroundColor: Color(0xFFAC5859),
             ),
             child: Text("Verschenken"),
           ),
           ElevatedButton(
             onPressed: () {
-              // Füge deine Logik für "Neue Liste anlegen" hier ein
             },
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFAC5859),
+              backgroundColor: Color(0xFFAC5859),
             ),
             child: Text("Neue Liste anlegen"),
           ),
           ElevatedButton(
             onPressed: () {
-              // Füge deine Logik für "Zufallsgenerator" hier ein
             },
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFAC5859),
+              backgroundColor: Color(0xFFAC5859),
             ),
             child: Text("Zufallsgenerator"),
           ),
@@ -107,8 +102,12 @@ class HomeScreen extends StatelessWidget {
 }
 
 class UnreadBooksScreen extends StatelessWidget {
-  final List<Map<String, String>> books = [
-    // ... (your book data here)
+  final List<String> productNames = [
+    'Außerhalb der Schatten I',
+    'Vampires of Vensaya',
+    'Das Biest in ihm',
+    'Keep my silent heart',
+    'Ravenhall Academy I',
   ];
 
   @override
@@ -125,23 +124,13 @@ class UnreadBooksScreen extends StatelessWidget {
         backgroundColor: Color(0xFFAC5859),
       ),
       body: ListView(
-        children: books.map((book) {
+        children: productNames.map((productName) {
           return Card(
             child: ListTile(
               leading: Icon(Icons.book),
-              title: Text(book['title']!),
-              subtitle: Text('${book['author']}, ${book['year']}'),
+              title: Text(productName),
               onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  '/bookDetails',
-                  arguments: {
-                    'title': book['title'],
-                    'author': book['author'],
-                    'year': book['year'],
-                    'image': book['image'],
-                  },
-                );
+                Navigator.pushNamed(context, '/bookDetails', arguments: 'Buchdetails $productName');
               },
             ),
           );
@@ -173,11 +162,21 @@ class UnreadBooksScreen extends StatelessWidget {
 class BookDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Map<String, dynamic> bookInfo = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    String title = bookInfo['title'];
-    String author = bookInfo['author'];
-    String year = bookInfo['year'];
-    String image = bookInfo['image'];
+    String info = ModalRoute.of(context)!.settings.arguments as String;
+    String bookTitle = info.replaceAll('Buchdetails ', '');
+    String imagePath = '';
+
+    if (bookTitle == 'Außerhalb der Schatten I') {
+      imagePath = 'https://bilder.buecher.de/produkte/61/61374/61374779n.jpg';
+    } else if (bookTitle == 'Vampires of Vensaya') {
+      imagePath = 'https://www.inforius-bilder.de/bild/?I=i9VAgp4zcKxSzWi5lnhuWtsPfe6L09SBfd%2Boa0pjO6A%3D';
+    } else if (bookTitle == 'Das Biest in ihm') {
+      imagePath = 'https://www.jugendbuch-couch.de/fileadmin/_processed_/7/4/csm_Das_Biest_c4b693978e.jpg';
+    } else if (bookTitle == 'Keep my silent heart') {
+      imagePath = 'https://medien.umbreitkatalog.de/bildzentrale_original/978/375/653/2568.jpg';
+    } else if (bookTitle == 'Ravenhall Academy I') {
+      imagePath = 'https://www.carlsen.de/sites/default/files/produkt/cover/verborgene-magie_4.jpg';
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -194,21 +193,13 @@ class BookDetailsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (image != null && image.isNotEmpty)
-              Stack(
-                alignment: Alignment.topLeft,
-                children: [
-                  Image.network(
-                    image,
-                    width: 100,
-                    height: 150,
-                  ),
-                ],
+            if (imagePath.isNotEmpty)
+              Image.network(
+                imagePath,
+                width: 100,
+                height: 150,
               ),
-            Text('Buchdetails:'),
-            Text('Titel: $title'),
-            Text('Autor: $author'),
-            Text('Erscheinungsjahr: $year'),
+            Text(info),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/'); // Navigiere zum HomeScreen
