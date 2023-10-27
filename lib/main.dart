@@ -53,6 +53,54 @@ class HomeScreen extends StatelessWidget {
           }
         },
       ),
+      // Button noch ohne Navi
+      persistentFooterButtons: [
+        ElevatedButton(
+          onPressed: () {
+            // navigation einfügen
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Color(0xFFAC5859),
+          ),
+          child: Text("Wunschliste"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            // navigation einfügen
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Color(0xFFAC5859),
+          ),
+          child: Text("Sonderband"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            //navigation einfügen
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Color(0xFFAC5859),
+          ),
+          child: Text("Verschenken"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            // navigation einfügen
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Color(0xFFAC5859),
+          ),
+          child: Text("Neue Liste anlegen"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            // navigation einfügen
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Color(0xFFAC5859),
+          ),
+          child: Text("Zufallsgenerator"),
+        ),
+      ],
     );
   }
 }
@@ -174,7 +222,7 @@ class BookDetailsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (image.isNotEmpty)
+            if (image != null && image.isNotEmpty)
               Stack(
                 alignment: Alignment.topLeft,
                 children: [
