@@ -23,16 +23,65 @@ class HomeScreen extends StatelessWidget {
         title: Text("BookiesList"),
         backgroundColor: Color(0xFFAC5859),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/unreadBooks');
-          },
-          style: ElevatedButton.styleFrom(
-            primary: Color(0xFFAC5859),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch, // Änderung hier
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/unreadBooks');
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xFFAC5859),
+            ),
+            child: Text("Gehe zu deinem SuB"),
           ),
-          child: Text("Gehe zu deinem SuB"),
-        ),
+          ElevatedButton(
+            onPressed: () {
+              // Füge deine Logik für "Wunschliste" hier ein
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xFFAC5859),
+            ),
+            child: Text("Wunschliste"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Füge deine Logik für "Sonderband" hier ein
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xFFAC5859),
+            ),
+            child: Text("Sonderband"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Füge deine Logik für "Verschenken" hier ein
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xFFAC5859),
+            ),
+            child: Text("Verschenken"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Füge deine Logik für "Neue Liste anlegen" hier ein
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xFFAC5859),
+            ),
+            child: Text("Neue Liste anlegen"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Füge deine Logik für "Zufallsgenerator" hier ein
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xFFAC5859),
+            ),
+            child: Text("Zufallsgenerator"),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
@@ -53,90 +102,13 @@ class HomeScreen extends StatelessWidget {
           }
         },
       ),
-      // Button noch ohne Navi
-      persistentFooterButtons: [
-        ElevatedButton(
-          onPressed: () {
-            // navigation einfügen
-          },
-          style: ElevatedButton.styleFrom(
-            primary: Color(0xFFAC5859),
-          ),
-          child: Text("Wunschliste"),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            // navigation einfügen
-          },
-          style: ElevatedButton.styleFrom(
-            primary: Color(0xFFAC5859),
-          ),
-          child: Text("Sonderband"),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            //navigation einfügen
-          },
-          style: ElevatedButton.styleFrom(
-            primary: Color(0xFFAC5859),
-          ),
-          child: Text("Verschenken"),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            // navigation einfügen
-          },
-          style: ElevatedButton.styleFrom(
-            primary: Color(0xFFAC5859),
-          ),
-          child: Text("Neue Liste anlegen"),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            // navigation einfügen
-          },
-          style: ElevatedButton.styleFrom(
-            primary: Color(0xFFAC5859),
-          ),
-          child: Text("Zufallsgenerator"),
-        ),
-      ],
     );
   }
 }
 
 class UnreadBooksScreen extends StatelessWidget {
   final List<Map<String, String>> books = [
-    {
-      'title': 'Außerhalb der Schatten',
-      'author': 'MJ Hard',
-      'year': '2020',
-      'image': 'https://bilder.buecher.de/produkte/61/61374/61374779n.jpg',
-    },
-    {
-      'title': 'Vampires of Vensaya',
-      'author': 'Michael Jeremy Hard',
-      'year': '2020',
-      'image': 'https://www.inforius-bilder.de/bild/?I=i9VAgp4zcKxSzWi5lnhuWtsPfe6L09SBfd%2Boa0pjO6A%3D',
-    },
-    {
-      'title': 'Das Biest in ihm',
-      'author': 'Serena Valentino',
-      'year': '2019',
-      'image': 'https://www.jugendbuch-couch.de/fileadmin/_processed_/7/4/csm_Das_Biest_c4b693978e.jpg',
-    },
-    {
-      'title': 'Keep my silent heart',
-      'author': 'Sazou G.',
-      'year': '2022',
-      'image': 'https://medien.umbreitkatalog.de/bildzentrale_original/978/375/653/2568.jpg',
-    },
-    {
-      'title': 'Ravenhall Academy I',
-      'author': 'Julia Kuhn',
-      'year': '2023',
-      'image': 'https://www.carlsen.de/sites/default/files/produkt/cover/verborgene-magie_4.jpg',
-    },
+    // ... (your book data here)
   ];
 
   @override
