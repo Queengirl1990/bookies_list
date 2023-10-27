@@ -20,95 +20,109 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false, // kein Pfeil in der AppBar
         title: Text("BookiesList"),
         backgroundColor: Color(0xFFAC5859),
       ),
-      body: Container(
-        color: Color(0xFFAC5859), // Hintergrundfarbe des Body
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/unreadBooks');
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white, // Hintergrundfarbe der Buttons
-                onPrimary: Colors.black, // Schriftfarbe des Buttontextes
-                elevation: 5, // Schattenstärke
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0), // Eckenradius
+      body: SafeArea(
+        child: Container(
+          color: Color(0xFFAC5859), // Bodyfarbe
+          padding: EdgeInsets.symmetric(horizontal: 20), // Seitlicher Abstand
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/unreadBooks');
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white, // Hintergrundfarbe Buttons
+                  onPrimary: Colors.black, // Schriftfarbe Buttontextes
+                  elevation: 5, // Schattenstärke
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0), // Eckenradius
+                  ),
                 ),
+                child: Text("Stapel ungelesener Bücher"),
               ),
-              child: Text("Stapel ungelesener Bücher"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.black,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Link einfügen
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                 ),
+                child: Text("Wunschliste"),
               ),
-              child: Text("Wunschliste"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.black,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Link einfügen
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                  elevation:5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                 ),
+                child: Text("Sonderband"),
               ),
-              child: Text("Sonderband"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.black,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Link einfügen
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                 ),
+                child: Text("Verschenken"),
               ),
-              child: Text("Verschenken"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.black,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Link einfügen
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                 ),
+                child: Text("Neue Liste anlegen"),
               ),
-              child: Text("Neue Liste anlegen"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.black,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Link einfügen
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                 ),
+                child: Text("Zufallsgenerator"),
               ),
-              child: Text("Zufallsgenerator"),
-            ),
-          ],
+              Image.network(
+                'https://www.horizont.net/news/media/16/Hugendubel--153956.jpeg',
+                width: 400, 
+                height: 100, 
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -147,12 +161,6 @@ class UnreadBooksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
         title: Text("Stapel ungelesener Bücher"),
         backgroundColor: Color(0xFFAC5859),
       ),
@@ -213,12 +221,6 @@ class BookDetailsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
         title: Text("BookDetails"),
         backgroundColor: Color(0xFFAC5859),
       ),
@@ -227,28 +229,12 @@ class BookDetailsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (imagePath.isNotEmpty)
-              Image.network(
+              Image.network( 
                 imagePath,
-                width: 100,
-                height: 150,
+                width: 300, 
+                height: 150, 
               ),
             Text(info),
-            Container(
-              width: 150, // Setzen Sie hier die gewünschte Breite ein
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/'); // Navigiere zum HomeScreen
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Color(0xFFAC5859),
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-                child: Text("Zurück zum HomeScreen"),
-              ),
-            ),
           ],
         ),
       ),
