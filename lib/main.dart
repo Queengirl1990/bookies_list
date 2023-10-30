@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -15,19 +16,37 @@ void main() {
   ));
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      if (index == 0) {
+        Navigator.pushNamed(context, '/');
+      } else if (index == 1) {
+        Navigator.pushNamed(context, '/unreadBooks');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // kein Pfeil in der AppBar
+        automaticallyImplyLeading: false,
         title: Text("BookiesList"),
         backgroundColor: Color(0xFFAC5859),
       ),
       body: SafeArea(
         child: Container(
-          color: Color(0xFFAC5859), // Bodyfarbe
-          padding: EdgeInsets.symmetric(horizontal: 20), // Seitlicher Abstand
+          color: Color(0xFFAC5859),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -37,11 +56,11 @@ class HomeScreen extends StatelessWidget {
                   Navigator.pushNamed(context, '/unreadBooks');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white, // Hintergrundfarbe Buttons
-                  onPrimary: Colors.black, // Schriftfarbe Buttontextes
-                  elevation: 5, // Schattenstärke
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                  elevation: 5,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0), // Eckenradius
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
                 child: Text("Stapel ungelesener Bücher"),
@@ -67,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,
                   onPrimary: Colors.black,
-                  elevation:5,
+                  elevation: 5,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
@@ -118,37 +137,38 @@ class HomeScreen extends StatelessWidget {
               ),
               Image.network(
                 'https://www.horizont.net/news/media/16/Hugendubel--153956.jpeg',
-                width: 400, 
-                height: 100, 
+                width: 400,
+                height: 100,
               ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Unread Books',
-          ),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: _selectedIndex,
+        backgroundColor: Color(0xFFAC5859),
+        color: Colors.white,
+        items: <Widget>[
+          Icon(Icons.home, size: 30),
+          Icon(Icons.book, size: 30),
         ],
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.pushNamed(context, '/');
-          } else if (index == 1) {
-            Navigator.pushNamed(context, '/unreadBooks');
-          }
-        },
+        onTap: _onItemTapped,
       ),
     );
   }
 }
 
 class UnreadBooksScreen extends StatelessWidget {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index, BuildContext context) {
+    if (index == 0) {
+      Navigator.pushNamed(context, '/');
+    } else if (index == 1) {
+      Navigator.pushNamed(context, '/unreadBooks');
+    }
+  }
+
   final List<String> productNames = [
     'Außerhalb der Schatten I',
     'Vampires of Vensaya',
@@ -164,6 +184,7 @@ class UnreadBooksScreen extends StatelessWidget {
         title: Text("Stapel ungelesener Bücher"),
         backgroundColor: Color(0xFFAC5859),
       ),
+      backgroundColor: Color(0xFFAC5859), // Hintergrundfarbe
       body: ListView(
         children: productNames.map((productName) {
           return Card(
@@ -171,83 +192,75 @@ class UnreadBooksScreen extends StatelessWidget {
               leading: Icon(Icons.book),
               title: Text(productName),
               onTap: () {
-                Navigator.pushNamed(context, '/bookDetails', arguments: 'Buchdetails $productName');
+                Navigator.pushNamed(context, '/bookDetails',
+                    arguments: 'Buchdetails $productName');
               },
             ),
           );
         }).toList(),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Unread Books',
-          ),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: _selectedIndex,
+        backgroundColor: Color(0xFFAC5859),
+        color: Colors.white,
+        items: <Widget>[
+          Icon(Icons.home, size: 30),
+          Icon(Icons.book, size: 30),
         ],
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.pushNamed(context, '/');
-          } else if (index == 1) {
-            Navigator.pushNamed(context, '/unreadBooks');
-          }
-        },
+        onTap: (index) => _onItemTapped(index, context),
       ),
     );
   }
 }
 
 class BookDetailsScreen extends StatelessWidget {
+  String _info = '';
+  String _bookTitle = '';
+  String _imagePath = '';
+
   @override
   Widget build(BuildContext context) {
-    String info = ModalRoute.of(context)!.settings.arguments as String;
-    String bookTitle = info.replaceAll('Buchdetails ', '');
-    String imagePath = '';
+    _info = ModalRoute.of(context)!.settings.arguments as String;
+    _bookTitle = _info.replaceAll('Buchdetails ', '');
 
-    if (bookTitle == 'Außerhalb der Schatten I') {
-      imagePath = 'https://bilder.buecher.de/produkte/61/61374/61374779n.jpg';
-    } else if (bookTitle == 'Vampires of Vensaya') {
-      imagePath = 'https://www.inforius-bilder.de/bild/?I=i9VAgp4zcKxSzWi5lnhuWtsPfe6L09SBfd%2Boa0pjO6A%3D';
-    } else if (bookTitle == 'Das Biest in ihm') {
-      imagePath = 'https://www.jugendbuch-couch.de/fileadmin/_processed_/7/4/csm_Das_Biest_c4b693978e.jpg';
-    } else if (bookTitle == 'Keep my silent heart') {
-      imagePath = 'https://medien.umbreitkatalog.de/bildzentrale_original/978/375/653/2568.jpg';
-    } else if (bookTitle == 'Ravenhall Academy I') {
-      imagePath = 'https://www.carlsen.de/sites/default/files/produkt/cover/verborgene-magie_4.jpg';
+    if (_bookTitle == 'Außerhalb der Schatten I') {
+      _imagePath = 'https://bilder.buecher.de/produkte/61/61374/61374779n.jpg';
+    } else if (_bookTitle == 'Vampires of Vensaya') {
+      _imagePath = 'https://www.inforius-bilder.de/bild/?I=i9VAgp4zcKxSzWi5lnhuWtsPfe6L09SBfd%2Boa0pjO6A%3D';
+    } else if (_bookTitle == 'Das Biest in ihm') {
+      _imagePath = 'https://www.jugendbuch-couch.de/fileadmin/_processed_/7/4/csm_Das_Biest_c4b693978e.jpg';
+    } else if (_bookTitle == 'Keep my silent heart') {
+      _imagePath = 'https://medien.umbreitkatalog.de/bildzentrale_original/978/375/653/2568.jpg';
+    } else if (_bookTitle == 'Ravenhall Academy I') {
+      _imagePath = 'https://www.carlsen.de/sites/default/files/produkt/cover/verborgene-magie_4.jpg';
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("BookDetails"),
+        title: Text("Buch Details"),
         backgroundColor: Color(0xFFAC5859),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (imagePath.isNotEmpty)
-              Image.network( 
-                imagePath,
-                width: 300, 
-                height: 150, 
+            if (_imagePath.isNotEmpty)
+              Image.network(
+                _imagePath,
+                width: 300,
+                height: 150,
               ),
-            Text(info),
+            Text(_info),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Unread Books',
-          ),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: 0,
+        backgroundColor: Color(0xFFAC5859),
+        color: Colors.white,
+        items: <Widget>[
+          Icon(Icons.home, size: 30),
+          Icon(Icons.book, size: 30),
         ],
         onTap: (index) {
           if (index == 0) {
