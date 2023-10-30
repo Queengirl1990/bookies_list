@@ -25,17 +25,56 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Bilder und Schriftarten"),
-        backgroundColor: Color(0xFFAC5859), // Hintergrundfarbe der AppBar
+        backgroundColor: Color(0xFFAC5859),
+        elevation: 0,
       ),
-      body: Container(
-        color: Color(0xFFAC5859), // Hintergrundfarbe des gesamten body
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      endDrawer: Drawer(
+        child: Container(
+          color: Color(0xFFAC5859),
+          child: ListView(
             children: [
-              MyCircularAvatar(),
-              SizedBox(height: 16),
-              MyCustomText(), // Hier muss die Instanz von MyCustomText mit () erstellt werden
+              UserAccountsDrawerHeader(
+                accountName: Text("Ihr Name"),
+                accountEmail: Text("ihre@email.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.person,
+                    color: Color(0xFFAC5859),
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text("Option 1"),
+                onTap: () {
+                  // Aktion für Option 1
+                },
+              ),
+              ListTile(
+                title: Text("Option 2"),
+                onTap: () {
+                  // Aktion für Option 2
+                },
+              ),
+              // Weitere Einträge für den Drawer hinzufügen
+            ],
+          ),
+        ),
+      ),
+      body: SafeArea(
+        child: Container(
+          color: Color(0xFFAC5859),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  MyCustomText(),
+                  MyCircularAvatar(),
+                ],
+              ),
             ],
           ),
         ),
@@ -48,12 +87,12 @@ class MyCircularAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
+      width: 50,
+      height: 50,
       decoration: BoxDecoration(
         image: DecorationImage(image: AssetImage('assets/images/avatar.png')),
-        border: Border.all(color: Colors.white, width: 5.0),
-        shape: BoxShape.circle, // Korrektur hier: shape statt borderRadius
+        border: Border.all(color: Colors.white, width: 2.0),
+        shape: BoxShape.circle,
       ),
     );
   }
@@ -66,7 +105,7 @@ class MyCustomText extends StatelessWidget {
       "Mein Profil",
       style: TextStyle(
         fontSize: 22.0,
-        fontFamily: "DancingScript-Regular",
+        fontFamily: "DancingScript-Bold",
         color: Colors.white,
       ),
     );
