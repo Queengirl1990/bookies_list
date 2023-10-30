@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false,
         title: Text("BookiesList"),
         backgroundColor: Color(0xFFAC5859),
-        elevation: 0,
+        elevation: 0, // Entfernt den Schatten am Ende der AppBar
       ),
       body: SafeArea(
         child: Container(
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.pushNamed(context, '/unreadBooks');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
+                  primary: Colors.white,
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
+                  primary: Colors.white,
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
+                  primary: Colors.white,
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -101,9 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
+                  primary: Colors.white,
                   onPrimary: Colors.black,
-                  elevation: 5,
+                  elevation:5,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
+                  primary: Colors.white,
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -129,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
+                  primary: Colors.white,
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -201,28 +201,46 @@ class UnreadBooksScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Stapel ungelesener Bücher"),
         backgroundColor: Color(0xFFAC5859),
-        elevation: 0,
+        elevation: 0, // Entfernt den Schatten am Ende der AppBar
       ),
       backgroundColor: Color(0xFFAC5859),
-      body: ListView(
-        children: books.keys.map((productName) {
-          final bookInfo = books[productName]!;
-          return Card(
-            child: ListTile(
-              leading: Icon(Icons.book),
-              title: Text(productName),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3, // Hier kannst du die Anzahl der Bücher pro Zeile anpassen
+        ),
+        itemCount: books.length,
+        itemBuilder: (BuildContext context, int index) {
+          final bookName = books.keys.elementAt(index);
+          final bookInfo = books[bookName];
+          if (bookInfo != null) {
+            final imagePath = bookInfo['image'] ?? '';
+            return GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/bookDetails',
-                    arguments: bookInfo);
+                Navigator.pushNamed(context, '/bookDetails', arguments: bookInfo);
               },
-            ),
-          );
-        }).toList(),
+              child: Card(
+                child: Column(
+                  children: [
+                    if (imagePath.isNotEmpty)
+                      Image.network(
+                        imagePath,
+                        width: 100,
+                        height: 150,
+                      ),
+                    Text(bookName),
+                  ],
+                ),
+              ),
+            );
+          } else {
+            return SizedBox.shrink();
+          }
+        },
       ),
       bottomNavigationBar: CurvedNavigationBar(
         index: 1,
         backgroundColor: Color(0xFFAC5859),
-        color: Colors.white,  // Verwendet die Standardfarbe Weiß
+        color: Colors.white,
         items: <Widget>[
           Icon(Icons.home, size: 30),
           Icon(Icons.book, size: 30),
@@ -247,7 +265,6 @@ class BookDetailsScreen extends StatelessWidget {
     final Map<String, String>? bookInfo = ModalRoute.of(context)!.settings.arguments as Map<String, String>?;
 
     if (bookInfo == null) {
-      // Wenn keine Informationen übergeben wurden, handle den Fall hier
       return Scaffold(
         body: Center(
           child: Text("Keine Buchinformationen vorhanden."),
@@ -264,7 +281,7 @@ class BookDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Buch Details"),
         backgroundColor: Color(0xFFAC5859),
-        elevation: 0,
+        elevation: 0, // Entfernt den Schatten am Ende der AppBar
       ),
       body: Center(
         child: Column(
@@ -285,7 +302,7 @@ class BookDetailsScreen extends StatelessWidget {
       bottomNavigationBar: CurvedNavigationBar(
         index: 0,
         backgroundColor: Color(0xFFAC5859),
-        color: Colors.white,  // Verwendet die Standardfarbe Weiß
+        color: Colors.white,
         items: <Widget>[
           Icon(Icons.home, size: 30),
           Icon(Icons.book, size: 30),
