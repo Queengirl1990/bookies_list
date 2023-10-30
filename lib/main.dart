@@ -17,6 +17,8 @@ void main() {
 }
 
 class HomeScreen extends StatefulWidget {
+  HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -56,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.pushNamed(context, '/unreadBooks');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -70,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -84,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -98,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -112,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -126,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Link einfügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  primary: Colors.white,  // Verwendet die Standardfarbe Weiß
                   onPrimary: Colors.black,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -147,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedIndex,
         backgroundColor: Color(0xFFAC5859),
-        color: Colors.white,
+        color: Colors.white,  // Verwendet die Standardfarbe Weiß
         items: <Widget>[
           Icon(Icons.home, size: 30),
           Icon(Icons.book, size: 30),
@@ -159,23 +161,38 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class UnreadBooksScreen extends StatelessWidget {
-  int _selectedIndex = 1;
-
-  void _onItemTapped(int index, BuildContext context) {
-    if (index == 0) {
-      Navigator.pushNamed(context, '/');
-    } else if (index == 1) {
-      Navigator.pushNamed(context, '/unreadBooks');
-    }
-  }
-
-  final List<String> productNames = [
-    'Außerhalb der Schatten I',
-    'Vampires of Vensaya',
-    'Das Biest in ihm',
-    'Keep my silent heart',
-    'Ravenhall Academy I',
-  ];
+  final Map<String, Map<String, String>> books = {
+    'Außerhalb der Schatten I': {
+      'title': 'Außerhalb der Schatten I',
+      'author': 'MJ Hard',
+      'year': '2020',
+      'image': 'https://bilder.buecher.de/produkte/61/61374/61374779n.jpg',
+    },
+    'Vampires of Vensaya': {
+      'title': 'Vampires of Vensaya',
+      'author': 'Michael Jeremy Hard',
+      'year': '2020',
+      'image': 'https://www.inforius-bilder.de/bild/?I=i9VAgp4zcKxSzWi5lnhuWtsPfe6L09SBfd%2Boa0pjO6A%3D',
+    },
+    'Das Biest in ihm': {
+      'title': 'Das Biest in ihm',
+      'author': 'Serena Valentino',
+      'year': '2019',
+      'image': 'https://www.jugendbuch-couch.de/fileadmin/_processed_/7/4/csm_Das_Biest_c4b693978e.jpg',
+    },
+    'Keep my silent heart': {
+      'title': 'Keep my silent heart',
+      'author': 'Sazou G.',
+      'year': '2022',
+      'image': 'https://medien.umbreitkatalog.de/bildzentrale_original/978/375/653/2568.jpg',
+    },
+    'Ravenhall Academy I': {
+      'title': 'Ravenhall Academy I',
+      'author': 'Julia Kuhn',
+      'year': '2023',
+      'image': 'https://www.carlsen.de/sites/default/files/produkt/cover/verborgene-magie_4.jpg',
+    },
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -184,25 +201,26 @@ class UnreadBooksScreen extends StatelessWidget {
         title: Text("Stapel ungelesener Bücher"),
         backgroundColor: Color(0xFFAC5859),
       ),
-      backgroundColor: Color(0xFFAC5859), // Hintergrundfarbe
+      backgroundColor: Color(0xFFAC5859),
       body: ListView(
-        children: productNames.map((productName) {
+        children: books.keys.map((productName) {
+          final bookInfo = books[productName]!;
           return Card(
             child: ListTile(
               leading: Icon(Icons.book),
               title: Text(productName),
               onTap: () {
                 Navigator.pushNamed(context, '/bookDetails',
-                    arguments: 'Buchdetails $productName');
+                    arguments: bookInfo);
               },
             ),
           );
         }).toList(),
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        index: _selectedIndex,
+        index: 1,
         backgroundColor: Color(0xFFAC5859),
-        color: Colors.white,
+        color: Colors.white,  // Verwendet die Standardfarbe Weiß
         items: <Widget>[
           Icon(Icons.home, size: 30),
           Icon(Icons.book, size: 30),
@@ -211,29 +229,34 @@ class UnreadBooksScreen extends StatelessWidget {
       ),
     );
   }
+
+  void _onItemTapped(int index, BuildContext context) {
+    if (index == 0) {
+      Navigator.pushNamed(context, '/');
+    } else if (index == 1) {
+      Navigator.pushNamed(context, '/unreadBooks');
+    }
+  }
 }
 
 class BookDetailsScreen extends StatelessWidget {
-  String _info = '';
-  String _bookTitle = '';
-  String _imagePath = '';
-
   @override
   Widget build(BuildContext context) {
-    _info = ModalRoute.of(context)!.settings.arguments as String;
-    _bookTitle = _info.replaceAll('Buchdetails ', '');
+    final Map<String, String>? bookInfo = ModalRoute.of(context)!.settings.arguments as Map<String, String>?;
 
-    if (_bookTitle == 'Außerhalb der Schatten I') {
-      _imagePath = 'https://bilder.buecher.de/produkte/61/61374/61374779n.jpg';
-    } else if (_bookTitle == 'Vampires of Vensaya') {
-      _imagePath = 'https://www.inforius-bilder.de/bild/?I=i9VAgp4zcKxSzWi5lnhuWtsPfe6L09SBfd%2Boa0pjO6A%3D';
-    } else if (_bookTitle == 'Das Biest in ihm') {
-      _imagePath = 'https://www.jugendbuch-couch.de/fileadmin/_processed_/7/4/csm_Das_Biest_c4b693978e.jpg';
-    } else if (_bookTitle == 'Keep my silent heart') {
-      _imagePath = 'https://medien.umbreitkatalog.de/bildzentrale_original/978/375/653/2568.jpg';
-    } else if (_bookTitle == 'Ravenhall Academy I') {
-      _imagePath = 'https://www.carlsen.de/sites/default/files/produkt/cover/verborgene-magie_4.jpg';
+    if (bookInfo == null) {
+      // Wenn keine Informationen übergeben wurden, handle den Fall hier
+      return Scaffold(
+        body: Center(
+          child: Text("Keine Buchinformationen vorhanden."),
+        ),
+      );
     }
+
+    final String bookTitle = bookInfo['title'] ?? '';
+    final String author = bookInfo['author'] ?? '';
+    final String year = bookInfo['year'] ?? '';
+    final String imagePath = bookInfo['image'] ?? '';
 
     return Scaffold(
       appBar: AppBar(
@@ -244,20 +267,22 @@ class BookDetailsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (_imagePath.isNotEmpty)
+            if (imagePath.isNotEmpty)
               Image.network(
-                _imagePath,
+                imagePath,
                 width: 300,
                 height: 150,
               ),
-            Text(_info),
+            Text("Buchtitel: $bookTitle"),
+            Text("Autor: $author"),
+            Text("Jahr: $year"),
           ],
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
         index: 0,
         backgroundColor: Color(0xFFAC5859),
-        color: Colors.white,
+        color: Colors.white,  // Verwendet die Standardfarbe Weiß
         items: <Widget>[
           Icon(Icons.home, size: 30),
           Icon(Icons.book, size: 30),
