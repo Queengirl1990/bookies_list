@@ -225,7 +225,7 @@ class UnreadBooksScreen extends StatelessWidget {
                       Image.network(
                         imagePath,
                         width: 100,
-                        height: 150,
+                        height: 80,
                       ),
                     Text(bookName),
                   ],
