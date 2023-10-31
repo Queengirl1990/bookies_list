@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
+const Color darkRed = Color(0xFFAC5859);
+const Color snowWhite = Color.fromARGB(250, 232, 232, 232);
+
 void main() {
   runApp(MaterialApp(
     title: 'Bookie List',
     theme: ThemeData(
-      primaryColor: Color(0xFFAC5859),
+      primaryColor: darkRed,
     ),
     initialRoute: '/',
     routes: {
@@ -43,12 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text("BookiesList"),
-        backgroundColor: Color(0xFFAC5859),
-        elevation: 0, // Entfernt den Schatten am Ende der AppBar
+        backgroundColor: darkRed,
+        elevation: 0,
       ),
       body: SafeArea(
         child: Container(
-          color: Color(0xFFAC5859),
+          color: darkRed,
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -58,13 +61,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/unreadBooks');
                 },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(snowWhite),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
                 child: Text("Stapel ungelesener Bücher"),
               ),
@@ -72,13 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   // Link einfügen
                 },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(snowWhite),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
                 child: Text("Wunschliste"),
               ),
@@ -86,13 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   // Link einfügen
                 },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(snowWhite),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
                 child: Text("Sonderband"),
               ),
@@ -100,13 +91,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   // Link einfügen
                 },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(snowWhite),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
                 child: Text("Verschenken"),
               ),
@@ -114,13 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   // Link einfügen
                 },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(snowWhite),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
                 child: Text("Neue Liste anlegen"),
               ),
@@ -128,20 +111,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   // Link einfügen
                 },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                ),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(snowWhite),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
                 child: Text("Zufallsgenerator"),
               ),
-              Image.network(
-                'https://www.horizont.net/news/media/16/Hugendubel--153956.jpeg',
-                width: 400,
+              SizedBox(height: 16),
+              Container(
                 height: 100,
+                decoration: BoxDecoration(
+                  color: snowWhite,
+                ),
+                child: Placeholder(),
               ),
             ],
           ),
@@ -149,8 +131,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedIndex,
-        backgroundColor: Color(0xFFAC5859),
-        color: Colors.white,
+        backgroundColor: darkRed,
+        color: snowWhite,
         items: <Widget>[
           Icon(Icons.home, size: 30),
           Icon(Icons.book, size: 30),
@@ -200,16 +182,16 @@ class UnreadBooksScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Stapel ungelesener Bücher"),
-        backgroundColor: Color(0xFFAC5859),
-        elevation: 0, // Entfernt den Schatten am Ende der AppBar
+        backgroundColor: darkRed,
+        elevation: 0,
       ),
-      backgroundColor: Color(0xFFAC5859),
+      backgroundColor: darkRed,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3, // Hier kannst du die Anzahl der Bücher pro Zeile anpassen
+              crossAxisCount: 3,
             ),
             itemCount: books.length,
             itemBuilder: (BuildContext context, int index) {
@@ -226,8 +208,8 @@ class UnreadBooksScreen extends StatelessWidget {
                       children: [
                         if (imagePath.isNotEmpty)
                           Image.network(
-                            imagePath, 
-                            fit: BoxFit.cover, // Das Bild füllt den verfügbaren Bereich aus
+                            imagePath,
+                            fit: BoxFit.cover,
                           ),
                       ],
                     ),
@@ -242,8 +224,8 @@ class UnreadBooksScreen extends StatelessWidget {
       ),
       bottomNavigationBar: CurvedNavigationBar(
         index: 1,
-        backgroundColor: Color(0xFFAC5859),
-        color: Colors.white,
+        backgroundColor: darkRed,
+        color: snowWhite,
         items: <Widget>[
           Icon(Icons.home, size: 30),
           Icon(Icons.book, size: 30),
@@ -283,8 +265,8 @@ class BookDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Buch Details"),
-        backgroundColor: Color(0xFFAC5859),
-        elevation: 0, // Entfernt den Schatten am Ende der AppBar
+        backgroundColor: darkRed,
+        elevation: 0,
       ),
       body: SafeArea(
         child: Padding(
@@ -308,8 +290,8 @@ class BookDetailsScreen extends StatelessWidget {
       ),
       bottomNavigationBar: CurvedNavigationBar(
         index: 0,
-        backgroundColor: Color(0xFFAC5859),
-        color: Colors.white,
+        backgroundColor: darkRed,
+        color: snowWhite,
         items: <Widget>[
           Icon(Icons.home, size: 30),
           Icon(Icons.book, size: 30),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const Color darkRed = Color(0xFFAC5859);
+
 void main() {
   runApp(const Mapz());
 }
@@ -37,7 +39,7 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
             currentPageIndex = index;
           });
         },
-        indicatorColor: Colors.amber[800]!,
+        indicatorColor: darkRed, // Hier änderst du die Farbe auf darkRed
         selectedIndex: currentPageIndex,
         destinations: const <NavigationDestination>[
           NavigationDestination(
@@ -45,15 +47,15 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.map),
-            label: 'Map',
+            icon: Icon(Icons.menu_book), // Ändere das Icon für SuB
+            label: 'SuB',
           ),
           NavigationDestination(
-            icon: Icon(Icons.local_activity),
+            icon: Icon(Icons.settings), // Ändere das Icon für Settings
             label: 'Stats',
           ),
           NavigationDestination(
-            icon: Icon(Icons.group),
+            icon: Icon(Icons.help_outline), // Ändere das Icon für Profile
             label: 'Profile',
           ),
         ],
