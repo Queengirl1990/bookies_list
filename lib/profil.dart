@@ -25,7 +25,7 @@ class MyHomePage extends StatelessWidget {
     TextStyle appBarTextStyle = TextStyle(
       fontFamily: 'DancingScript',
       fontWeight: FontWeight.bold,
-      fontSize: 24, // Ändere die Schriftgröße nach Bedarf
+      fontSize: 24,
     );
 
     return Scaffold(
