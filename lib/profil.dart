@@ -22,15 +22,23 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    TextStyle appBarTextStyle = TextStyle(
+      fontFamily: 'DancingScript',
+      fontWeight: FontWeight.bold,
+      fontSize: 24, // Ändere die Schriftgröße nach Bedarf
+    );
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bilder und Schriftarten"),
+        title: Text(
+          "Mein Profil",
+          style: appBarTextStyle, // Hier wird der Textstil angewendet
+        ),
         backgroundColor: Color(0xFFAC5859),
         elevation: 0,
       ),
-      endDrawer: Drawer(
+      drawer: Drawer(
         child: Container(
-          color: Color(0xFFAC5859),
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
@@ -40,7 +48,6 @@ class MyHomePage extends StatelessWidget {
                   backgroundColor: Colors.white,
                   child: Icon(
                     Icons.person,
-                    color: Color(0xFFAC5859),
                   ),
                 ),
               ),
@@ -69,9 +76,8 @@ class MyHomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end, // Avatar rechts ausrichten
                 children: [
-                  MyCustomText(),
                   MyCircularAvatar(),
                 ],
               ),
@@ -87,26 +93,28 @@ class MyCircularAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.topRight, // Positionierung des Avatars
+      margin: EdgeInsets.only(top: 20, right: 20), // Abstand vom oberen und rechten Rand
       width: 50,
       height: 50,
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/images/avatar.png')),
-        border: Border.all(color: Colors.white, width: 2.0),
         shape: BoxShape.circle,
+        boxShadow: [ // Schatten hinzufügen
+          BoxShadow(
+            color: Colors.black.withOpacity(0.5), // Farbe und Deckkraft des Schattens
+            spreadRadius: 2, // Streubreite des Schattens
+            blurRadius: 5, // Unschärferadius des Schattens
+            offset: Offset(0, 0), // Verschiebung des Schattens (horizontal, vertikal)
+          ),
+        ],
       ),
-    );
-  }
-}
-
-class MyCustomText extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      "Mein Profil",
-      style: TextStyle(
-        fontSize: 22.0,
-        fontFamily: "DancingScript-Bold",
-        color: Colors.white,
+      child: ClipOval(
+        child: Image.asset(
+          'assets/images/avatar.png',
+          width: 50,
+          height: 50,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
