@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// Definiere eine Konstante für die Farbe
+const Color darkRed = Color(0xFFAC5859);
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Color(0xFFAC5859),
+        primaryColor: darkRed, // Verwende die definierte Farbe
       ),
       home: MyHomePage(),
     );
@@ -34,7 +37,7 @@ class MyHomePage extends StatelessWidget {
           "Mein Profil",
           style: appBarTextStyle, // Hier wird der Textstil angewendet
         ),
-        backgroundColor: Color(0xFFAC5859),
+        backgroundColor: darkRed, // Verwende die definierte Farbe
         elevation: 0,
       ),
       drawer: Drawer(
@@ -70,7 +73,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Container(
-          color: Color(0xFFAC5859),
+          color: darkRed, // Verwende die definierte Farbe
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
