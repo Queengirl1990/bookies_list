@@ -88,9 +88,6 @@ class NavigationBar extends StatefulWidget {
 class _NavigationBarState extends State<NavigationBar> {
   @override
   Widget build(BuildContext context) {
-    // Implement the navigation bar widget here
-    // You may use widget.destinations and widget.selectedIndex
-    // to build the navigation bar items.
     return BottomNavigationBar(
       items: widget.destinations.map((destination) {
         return BottomNavigationBarItem(
@@ -132,11 +129,11 @@ class MapPage extends StatelessWidget {
           ),
           Text(
             'Map Page',
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           Text(
             'Coming Soon!',
-            style: Theme.of(context).textTheme.subtitle1,
+            style: Theme.of(context).textTheme.titleSmall,
           ),
         ],
       ),
@@ -182,11 +179,11 @@ class ProfilePage extends StatelessWidget {
           ),
           Text(
             'Profile Page',
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           Text(
             'Coming Soon!',
-            style: Theme.of(context).textTheme.subtitle1,
+            style: Theme.of(context).textTheme.titleSmall,
           ),
         ],
       ),
@@ -205,47 +202,43 @@ class StyledPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Home",
+            Text(
+              "BookiesList",
               style: TextStyle(
-                fontSize: 28,
+                fontFamily: 'DancingScript',
                 fontWeight: FontWeight.w900,
+                fontSize: 28,
               ),
             ),
-            const Text(
+            Text(
               "Statistics",
               style: TextStyle(
+                fontFamily: 'DancingScript',
+                fontWeight: FontWeight.normal,
                 fontSize: 20,
-                fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 20),
-            // Status Boxen
-            Row(
-              children: [
-                _statusBox("123", "Commits", Icons.stacked_bar_chart),
-                const SizedBox(width: 10),
-                _statusBox("456", "Lines Code", Icons.code),
-              ],
-            ),
+            _statusBox("63%", "Aktualisieren"),
             const SizedBox(height: 20),
             const SizedBox(
               height: 150,
               child: Placeholder(),
             ),
             const SizedBox(height: 40),
-            const Text(
+            Text(
               "New Activities",
               style: TextStyle(
+                fontFamily: 'DancingScript',
+                fontWeight: FontWeight.normal,
                 fontSize: 20,
-                fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 10),
             const SizedBox(
               height: 400,
               child: Placeholder(),
-            )
+            ),
           ],
         ),
       ),
@@ -253,34 +246,97 @@ class StyledPage extends StatelessWidget {
   }
 }
 
-Widget _statusBox(String number, String explanation, IconData iconData) {
-  return Expanded(
-    child: Container(
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        color: const Color.fromARGB(255, 39, 39, 46),
-      ),
-      child: Row(
-        children: [
-          Icon(
-            iconData,
-            size: 40.0,
-            color: Colors.orange,
+Widget _statusBox(String progress, String buttonText) {
+  return Container(
+    padding: EdgeInsets.all(10), // Hinzugefügt, um Abstand um die beiden Container zu schaffen
+    child: Row(
+      children: [
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25),
+              color: const Color.fromARGB(255, 39, 39, 46),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Life after you",
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                Text(
+                  "Mandy J. Hard",
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.normal,
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                ),
+                Text(
+                  "Kategorie",
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.normal,
+                    fontSize: 10,
+                    color: Colors.grey,
+                  ),
+                ),
+                Text(
+                  "New Adult",
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.normal,
+                    fontSize: 10,
+                    color: Colors.grey,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                LinearProgressIndicator(
+                  value: 0.63,
+                  backgroundColor: Colors.white,
+                  valueColor: AlwaysStoppedAnimation(Colors.blue),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    // Aktion beim Klicken des Buttons
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black),
+                  ),
+                  child: Text(
+                    buttonText,
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          const SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                number,
-                style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w900),
+        ),
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(15),
+            child: AspectRatio(
+              aspectRatio: 1.0, // Bild wird im Verhältnis 1:1 angezeigt
+              child: Image.asset(
+                "assets/images/life_after.jpg",
+                fit: BoxFit.contain, // Das Bild passt sich dem Container an
               ),
-              Text(explanation),
-            ],
-          )
-        ],
-      ),
+            ),
+          ),
+        ),
+      ],
     ),
   );
 }

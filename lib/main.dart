@@ -45,7 +45,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text("BookiesList"),
+        title: const Text(
+          "BookiesList",
+          style: TextStyle(
+            fontFamily: 'DancingScript',
+            fontWeight: FontWeight.w900,
+            fontSize: 28,
+          ),
+        ),
         backgroundColor: darkRed,
         elevation: 0,
       ),
@@ -65,7 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundColor: MaterialStateProperty.all(snowWhite),
                   foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
-                child: Text("Stapel ungelesener Bücher"),
+                child: const Text(
+                  "Stapel ungelesener Bücher",
+                  style: TextStyle(
+                    fontFamily: 'DancingScript',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -75,7 +88,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundColor: MaterialStateProperty.all(snowWhite),
                   foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
-                child: Text("Wunschliste"),
+                child: const Text(
+                  "Wunschliste",
+                  style: TextStyle(
+                    fontFamily: 'DancingScript',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -85,7 +104,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundColor: MaterialStateProperty.all(snowWhite),
                   foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
-                child: Text("Sonderband"),
+                child: const Text(
+                  "Sonderband",
+                  style: TextStyle(
+                    fontFamily: 'DancingScript',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -95,7 +120,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundColor: MaterialStateProperty.all(snowWhite),
                   foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
-                child: Text("Verschenken"),
+                child: const Text(
+                  "Verschenken",
+                  style: TextStyle(
+                    fontFamily: 'DancingScript',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -105,7 +136,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundColor: MaterialStateProperty.all(snowWhite),
                   foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
-                child: Text("Neue Liste anlegen"),
+                child: const Text(
+                  "Neue Liste anlegen",
+                  style: TextStyle(
+                    fontFamily: 'DancingScript',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -115,9 +152,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundColor: MaterialStateProperty.all(snowWhite),
                   foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
-                child: Text("Zufallsgenerator"),
+                child: const Text(
+                  "Zufallsgenerator",
+                  style: TextStyle(
+                    fontFamily: 'DancingScript',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 height: 100,
                 decoration: BoxDecoration(
