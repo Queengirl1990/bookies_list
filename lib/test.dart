@@ -129,11 +129,11 @@ class MapPage extends StatelessWidget {
           ),
           Text(
             'Map Page',
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headline6,
           ),
           Text(
             'Coming Soon!',
-            style: Theme.of(context).textTheme.titleSmall,
+            style: Theme.of(context).textTheme.subtitle2,
           ),
         ],
       ),
@@ -179,11 +179,11 @@ class ProfilePage extends StatelessWidget {
           ),
           Text(
             'Profile Page',
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headline6,
           ),
           Text(
             'Coming Soon!',
-            style: Theme.of(context).textTheme.titleSmall,
+            style: Theme.of(context).textTheme.subtitle2,
           ),
         ],
       ),
@@ -211,7 +211,7 @@ class StyledPage extends StatelessWidget {
               ),
             ),
             Text(
-              "Statistics",
+              "Aktueller Lesestoff",
               style: TextStyle(
                 fontFamily: 'DancingScript',
                 fontWeight: FontWeight.normal,
@@ -219,7 +219,7 @@ class StyledPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            _statusBox("63%", "Aktualisieren"),
+            _statusBox("Aktualisieren"),
             const SizedBox(height: 20),
             const SizedBox(
               height: 150,
@@ -246,97 +246,99 @@ class StyledPage extends StatelessWidget {
   }
 }
 
-Widget _statusBox(String progress, String buttonText) {
+Widget _statusBox(String buttonText) {
   return Container(
-    padding: EdgeInsets.all(10), // Hinzugefügt, um Abstand um die beiden Container zu schaffen
+    width: double.infinity,
+    padding: const EdgeInsets.all(15),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(25),
+      color: const Color.fromARGB(255, 39, 39, 46),
+    ),
     child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(15),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              color: const Color.fromARGB(255, 39, 39, 46),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Life after you",
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
-                ),
-                Text(
-                  "Mandy J. Hard",
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.normal,
-                    fontSize: 12,
-                    color: Colors.grey,
-                  ),
-                ),
-                Text(
-                  "Kategorie",
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.normal,
-                    fontSize: 10,
-                    color: Colors.grey,
-                  ),
-                ),
-                Text(
-                  "New Adult",
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.normal,
-                    fontSize: 10,
-                    color: Colors.grey,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                LinearProgressIndicator(
-                  value: 0.63,
-                  backgroundColor: Colors.white,
-                  valueColor: AlwaysStoppedAnimation(Colors.blue),
-                ),
-                const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    // Aktion beim Klicken des Buttons
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black),
-                  ),
-                  child: Text(
-                    buttonText,
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 10,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(15),
-            child: AspectRatio(
-              aspectRatio: 1.0, // Bild wird im Verhältnis 1:1 angezeigt
-              child: Image.asset(
-                "assets/images/life_after.jpg",
-                fit: BoxFit.contain, // Das Bild passt sich dem Container an
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Life after you",
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
               ),
             ),
-          ),
+            const SizedBox(height: 5),
+            Text(
+              "Mandy J. Hard",
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.normal,
+                fontSize: 12,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              "Kategorie",
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.normal,
+                fontSize: 10,
+                color: Colors.grey,
+              ),
+            ),
+            Text(
+              "New Adult",
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.normal,
+                fontSize: 10,
+                color: Colors.grey,
+              ),
+            ),
+            Text(
+              '350 von 415 Seiten',
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.normal,
+                fontSize: 14,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                // Aktion beim Klicken des Buttons
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.black),
+              ),
+              child: Text(
+                buttonText,
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(width: 10),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 50,
+              height: 120,
+              child: Image.asset('assets/images/life_after.jpg'),
+            ),
+          ],
         ),
       ],
     ),
   );
 }
+// image muss noch weiter nach rechts

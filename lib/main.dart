@@ -19,6 +19,80 @@ void main() {
   ));
 }
 
+Widget _statusBox(String progress, String buttonText) {
+  return Container(
+    padding: const EdgeInsets.all(15),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(25),
+      color: const Color.fromARGB(255, 39, 39, 46),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Life after you",
+          style: TextStyle(
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
+        ),
+        Text(
+          "Mandy J. Hard",
+          style: TextStyle(
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.normal,
+            fontSize: 12,
+            color: Colors.grey,
+          ),
+        ),
+        Text(
+          "Kategorie",
+          style: TextStyle(
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.normal,
+            fontSize: 10,
+            color: Colors.grey,
+          ),
+        ),
+        Text(
+          "New Adult",
+          style: TextStyle(
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.normal,
+            fontSize: 10,
+            color: Colors.grey,
+          ),
+        ),
+        const SizedBox(height: 10),
+        LinearProgressIndicator(
+          value: 0.63,
+          backgroundColor: Colors.white,
+          valueColor: AlwaysStoppedAnimation(Colors.blue),
+        ),
+        const SizedBox(height: 10),
+        ElevatedButton(
+          onPressed: () {
+            // Aktion beim Klicken des Buttons
+          },
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.black),
+          ),
+          child: Text(
+            buttonText,
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.bold,
+              fontSize: 10,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -61,9 +135,9 @@ class _HomeScreenState extends State<HomeScreen> {
           color: darkRed,
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              _statusBox("63%", "Button Text"), // Hier fügst du die StatusBox ein
+              SizedBox(height: 20), // Abstand zwischen der StatusBox und den Buttons
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/unreadBooks');
@@ -254,6 +328,7 @@ class UnreadBooksScreen extends StatelessWidget {
                             imagePath,
                             fit: BoxFit.cover,
                           ),
+                        Text(bookName),
                       ],
                     ),
                   ),
