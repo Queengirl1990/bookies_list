@@ -302,7 +302,7 @@ Widget _statusBox(String buttonText) {
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.normal,
-                fontSize: 14,
+                fontSize: 10,
                 color: Colors.white,
               ),
             ),
@@ -312,7 +312,7 @@ Widget _statusBox(String buttonText) {
                 // Aktion beim Klicken des Buttons
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.black),
+                backgroundColor: MaterialStateProperty.all(Colors.white),
               ),
               child: Text(
                 buttonText,
@@ -320,7 +320,7 @@ Widget _statusBox(String buttonText) {
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
             ),
