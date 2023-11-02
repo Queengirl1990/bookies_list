@@ -40,52 +40,20 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: darkRed, // Verwende die definierte Farbe
         elevation: 0,
       ),
-      drawer: Drawer(
-        child: Container(
-          child: ListView(
-            children: [
-              UserAccountsDrawerHeader(
-                accountName: Text("Ihr Name"),
-                accountEmail: Text("ihre@email.com"),
-                currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Icon(
-                    Icons.person,
-                  ),
-                ),
-              ),
-              ListTile(
-                title: Text("Option 1"),
-                onTap: () {
-                  // Aktion für Option 1
-                },
-              ),
-              ListTile(
-                title: Text("Option 2"),
-                onTap: () {
-                  // Aktion für Option 2
-                },
-              ),
-              // Weitere Einträge für den Drawer hinzufügen
-            ],
-          ),
-        ),
-      ),
-      body: SafeArea(
-        child: Container(
-          color: darkRed, // Verwende die definierte Farbe
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end, // Avatar rechts ausrichten
-                children: [
-                  MyCircularAvatar(),
-                ],
-              ),
-            ],
-          ),
+      body: Container(
+        color: darkRed, // Verwende die definierte Farbe
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end, // Avatar rechts ausrichten
+              children: [
+                MyCircularAvatar(),
+              ],
+            ),
+            // Weitere Widgets hier hinzufügen
+          ],
         ),
       ),
     );
@@ -97,7 +65,7 @@ class MyCircularAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topRight, // Positionierung des Avatars
-      margin: EdgeInsets.only(top: 20, right: 20), // Abstand vom oberen und rechten Rand
+      margin: const EdgeInsets.only(top: 20, right: 20), // Abstand vom oberen und rechten Rand
       width: 50,
       height: 50,
       decoration: BoxDecoration(
@@ -107,7 +75,7 @@ class MyCircularAvatar extends StatelessWidget {
             color: Colors.black.withOpacity(0.5), // Farbe und Deckkraft des Schattens
             spreadRadius: 2, // Streubreite des Schattens
             blurRadius: 5, // Unschärferadius des Schattens
-            offset: Offset(0, 0), // Verschiebung des Schattens (horizontal, vertikal)
+            offset: const Offset(0, 0), // Verschiebung des Schattens (horizontal, vertikal)
           ),
         ],
       ),

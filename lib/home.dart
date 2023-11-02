@@ -16,7 +16,12 @@ class Bookies extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const BookiesList(),
-      theme: ThemeData.light(),
+      theme: ThemeData.light().copyWith(
+        appBarTheme: AppBarTheme(
+          color: darkRed,
+          elevation: 0,
+        ),
+      ),
     );
   }
 }
@@ -30,6 +35,13 @@ class BookiesList extends StatefulWidget {
 
 class _BookiesListState extends State<BookiesList> {
   int currentPageIndex = 0;
+
+  Widget MyCircularAvatar() {
+    return CircleAvatar(
+      backgroundImage: AssetImage('assets/images/avatar.png'),
+      radius: 30,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +63,24 @@ class _BookiesListState extends State<BookiesList> {
           Icon(Icons.help_outline, size: 30, color: Colors.amber),
         ],
       ),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(50),
+        child: AppBar(
+          actions: [
+            Align(
+              alignment: Alignment.bottomRight,
+              child: MyCircularAvatar(),
+            ),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: Container(
           color: darkRed,
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 16),
               Container(
                 padding: const EdgeInsets.all(20),
                 color: darkRed,
@@ -69,7 +92,7 @@ class _BookiesListState extends State<BookiesList> {
                       style: TextStyle(
                         fontFamily: 'DancingScript',
                         fontWeight: FontWeight.normal,
-                        fontSize: 20,
+                        fontSize: 24,
                         color: snowWhite,
                       ),
                     ),
@@ -91,10 +114,15 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: const Text(
-                      "Stapel ungelesener Bücher",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    child: Container(
+                      width: 320, // Hier kannst du die Breite festlegen
+                      child: Center(
+                        child: Text(
+                          "Stapel ungelesener Bücher",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -106,10 +134,15 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: const Text(
-                      "Wunschliste",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    child: Container(
+                      width: 320, // Hier kannst du die Breite festlegen
+                      child: Center(
+                        child: Text(
+                          "Wunschliste",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -121,10 +154,15 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: const Text(
-                      "Sonderband",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    child: Container(
+                      width: 320, // Hier kannst du die Breite festlegen
+                      child: Center(
+                        child: Text(
+                          "Sonderband",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -136,10 +174,15 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: const Text(
-                      "Verschenken",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    child: Container(
+                      width: 320, // Hier kannst du die Breite festlegen
+                      child: Center(
+                        child: Text(
+                          "Verschenken",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -151,10 +194,15 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: const Text(
-                      "Neue Liste anlegen",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    child: Container(
+                      width: 320, // Hier kannst du die Breite festlegen
+                      child: Center(
+                        child: Text(
+                          "Neue Liste anlegen",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -166,16 +214,20 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: const Text(
-                      "Zufallsgenerator",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    child: Container(
+                      width: 320, // Hier kannst du die Breite festlegen
+                      child: Center(
+                        child: Text(
+                          "Zufallsgenerator",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
             ],
           ),
         ),
