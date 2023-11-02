@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'datenbank.dart'; // Import der datenbank.dart-Datei
+import 'datenbank.dart';
 
 const Color darkRed = Color(0xFFAC5859);
 const Color snowWhite = Color.fromARGB(250, 232, 232, 232);
@@ -16,6 +16,8 @@ void main() {
       '/': (context) => HomeScreen(),
       '/unreadBooks': (context) => UnreadBooksScreen(),
       '/bookDetails': (context) => BookDetailsScreen(),
+      '/settings': (context) => SettingsScreen(), // Hinzugefügt für Einstellungen
+      '/help': (context) => HelpScreen(), // Hinzugefügt für Hilfe
     },
   ));
 }
@@ -37,6 +39,10 @@ class _HomeScreenState extends State<HomeScreen> {
         Navigator.pushNamed(context, '/');
       } else if (index == 1) {
         Navigator.pushNamed(context, '/unreadBooks');
+      } else if (index == 2) {
+        Navigator.pushNamed(context, '/settings');
+      } else if (index == 3) {
+        Navigator.pushNamed(context, '/help');
       }
     });
   }
@@ -182,8 +188,10 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: darkRed,
         color: snowWhite,
         items: <Widget>[
-          Icon(Icons.home, size: 30),
-          Icon(Icons.book, size: 30),
+          Icon(Icons.home, size: 30),  // Home-Icon für den Homescreen
+          Icon(Icons.menu_book, size: 30),  // Statt Icons.book für UnreadBooksScreen
+          Icon(Icons.settings, size: 30),  // Einstellungen-Icon für die Einstellungsscreen
+          Icon(Icons.help_outline, size: 30),  // Hilfe-Icon für den Hilfe-Screen
         ],
         onTap: _onItemTapped,
       ),
@@ -246,8 +254,10 @@ class UnreadBooksScreen extends StatelessWidget {
         backgroundColor: darkRed,
         color: snowWhite,
         items: <Widget>[
-          Icon(Icons.home, size: 30),
-          Icon(Icons.book, size: 30),
+          Icon(Icons.home, size: 30),  // Home-Icon für den Homescreen
+          Icon(Icons.menu_book, size: 30),  // Statt Icons.book für UnreadBooksScreen
+          Icon(Icons.settings, size: 30),  // Einstellungen-Icon für die Einstellungsscreen
+          Icon(Icons.help_outline, size: 30),  // Hilfe-Icon für den Hilfe-Screen
         ],
         onTap: (index) => _onItemTapped(index, context),
       ),
@@ -259,6 +269,10 @@ class UnreadBooksScreen extends StatelessWidget {
       Navigator.pushNamed(context, '/');
     } else if (index == 1) {
       Navigator.pushNamed(context, '/unreadBooks');
+    } else if (index == 2) {
+      Navigator.pushNamed(context, '/settings');
+    } else if (index == 3) {
+      Navigator.pushNamed(context, '/help');
     }
   }
 }
@@ -312,14 +326,100 @@ class BookDetailsScreen extends StatelessWidget {
         backgroundColor: darkRed,
         color: snowWhite,
         items: <Widget>[
-          Icon(Icons.home, size: 30),
-          Icon(Icons.book, size: 30),
+          Icon(Icons.home, size: 30),  // Home-Icon für den Homescreen
+          Icon(Icons.menu_book, size: 30),  // Statt Icons.book für UnreadBooksScreen
+          Icon(Icons.settings, size: 30),  // Einstellungen-Icon für die Einstellungsscreen
+          Icon(Icons.help_outline, size: 30),  // Hilfe-Icon für den Hilfe-Screen
         ],
         onTap: (index) {
           if (index == 0) {
             Navigator.pushNamed(context, '/');
           } else if (index == 1) {
             Navigator.pushNamed(context, '/unreadBooks');
+          } else if (index == 2) {
+            Navigator.pushNamed(context, '/settings');
+          } else if (index == 3) {
+            Navigator.pushNamed(context, '/help');
+          }
+        },
+      ),
+    );
+  }
+}
+
+class SettingsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Einstellungen"),
+        backgroundColor: darkRed,
+        elevation: 0,
+      ),
+      body: SafeArea(
+        child: Center(
+          child: Text("Einstellungen werden hier angezeigt."),
+        ),
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: 2,
+        backgroundColor: darkRed,
+        color: snowWhite,
+        items: <Widget>[
+          Icon(Icons.home, size: 30),  // Home-Icon für den Homescreen
+          Icon(Icons.menu_book, size: 30),  // Statt Icons.book für UnreadBooksScreen
+          Icon(Icons.settings, size: 30),  // Einstellungen-Icon für die Einstellungsscreen
+          Icon(Icons.help_outline, size: 30),  // Hilfe-Icon für den Hilfe-Screen
+        ],
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.pushNamed(context, '/');
+          } else if (index == 1) {
+            Navigator.pushNamed(context, '/unreadBooks');
+          } else if (index == 2) {
+            Navigator.pushNamed(context, '/settings');
+          } else if (index == 3) {
+            Navigator.pushNamed(context, '/help');
+          }
+        },
+      ),
+    );
+  }
+}
+
+class HelpScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Hilfe"),
+        backgroundColor: darkRed,
+        elevation: 0,
+      ),
+      body: SafeArea(
+        child: Center(
+          child: Text("Hilfeinhalte werden hier angezeigt."),
+        ),
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: 3,
+        backgroundColor: darkRed,
+        color: snowWhite,
+        items: <Widget>[
+          Icon(Icons.home, size: 30),  // Home-Icon für den Homescreen
+          Icon(Icons.menu_book, size: 30),  // Statt Icons.book für UnreadBooksScreen
+          Icon(Icons.settings, size: 30),  // Einstellungen-Icon für die Einstellungsscreen
+          Icon(Icons.help_outline, size: 30),  // Hilfe-Icon für den Hilfe-Screen
+        ],
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.pushNamed(context, '/');
+          } else if (index == 1) {
+            Navigator.pushNamed(context, '/unreadBooks');
+          } else if (index == 2) {
+            Navigator.pushNamed(context, '/settings');
+          } else if (index == 3) {
+            Navigator.pushNamed(context, '/help');
           }
         },
       ),
