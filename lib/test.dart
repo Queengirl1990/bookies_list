@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
+const Color darkRed = Color(0xFFAC5859);
+const Color darkMode = Color(0xFF343131); // Neue Farbe für Dark Mode
 
 void main() {
   runApp(const Mapz());
@@ -11,7 +15,7 @@ class Mapz extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const NavigationWrapper(),
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(), // Dunkelmodus entfernt
     );
   }
 }
@@ -29,31 +33,21 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
+      bottomNavigationBar: CurvedNavigationBar(
+        index: currentPageIndex,
+        backgroundColor: darkRed, 
+        color: darkMode, 
+        buttonBackgroundColor: darkMode,
+        onTap: (int index) {
           setState(() {
             currentPageIndex = index;
           });
         },
-        indicatorColor: Colors.amber,
-        selectedIndex: currentPageIndex,
-        destinations: const <NavigationDestination>[
-          NavigationDestination(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.map),
-            label: 'Map',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.local_activity),
-            label: 'Stats',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.group),
-            label: 'Profile',
-          ),
+        items: const <Widget>[
+          Icon(Icons.home, size: 30, color: Colors.amber),
+          Icon(Icons.menu_book, size: 30, color: Colors.amber),
+          Icon(Icons.settings, size: 30, color: Colors.amber),
+          Icon(Icons.help_outline, size: 30, color: Colors.amber),
         ],
       ),
       body: SafeArea(
@@ -68,129 +62,6 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
   }
 }
 
-class NavigationBar extends StatefulWidget {
-  final List<NavigationDestination> destinations;
-  final int selectedIndex;
-  final Color indicatorColor;
-  final ValueChanged<int> onDestinationSelected;
-
-  const NavigationBar({
-    required this.destinations,
-    required this.selectedIndex,
-    required this.indicatorColor,
-    required this.onDestinationSelected,
-  });
-
-  @override
-  _NavigationBarState createState() => _NavigationBarState();
-}
-
-class _NavigationBarState extends State<NavigationBar> {
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: widget.destinations.map((destination) {
-        return BottomNavigationBarItem(
-          icon: destination.icon,
-          label: destination.label,
-        );
-      }).toList(),
-      currentIndex: widget.selectedIndex,
-      selectedItemColor: widget.indicatorColor,
-      onTap: widget.onDestinationSelected,
-    );
-  }
-}
-
-class NavigationDestination {
-  final Icon icon;
-  final String label;
-
-  const NavigationDestination({
-    required this.icon,
-    required this.label,
-  });
-}
-
-class MapPage extends StatelessWidget {
-  const MapPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const SizedBox(
-            width: 100,
-            height: 100,
-            child: Placeholder(),
-          ),
-          Text(
-            'Map Page',
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          Text(
-            'Coming Soon!',
-            style: Theme.of(context).textTheme.subtitle2,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class StatsPagewithlist extends StatefulWidget {
-  const StatsPagewithlist({Key? key}) : super(key: key);
-
-  @override
-  _StatsPagewithlistState createState() => _StatsPagewithlistState();
-}
-
-class _StatsPagewithlistState extends State<StatsPagewithlist> {
-  final List<String> items = List.generate(50, (i) => "Item $i");
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        return ListTile(title: Text(items[index]));
-      },
-    );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const SizedBox(
-            width: 100,
-            height: 100,
-            child: Placeholder(),
-          ),
-          Text(
-            'Profile Page',
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          Text(
-            'Coming Soon!',
-            style: Theme.of(context).textTheme.subtitle2,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class StyledPage extends StatelessWidget {
   const StyledPage({Key? key}) : super(key: key);
 
@@ -198,6 +69,7 @@ class StyledPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
+      color: darkRed, // Hintergrundfarbe auf darkRed ändern
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,6 +80,7 @@ class StyledPage extends StatelessWidget {
                 fontFamily: 'DancingScript',
                 fontWeight: FontWeight.w900,
                 fontSize: 28,
+                color: Colors.white,
               ),
             ),
             Text(
@@ -216,6 +89,7 @@ class StyledPage extends StatelessWidget {
                 fontFamily: 'DancingScript',
                 fontWeight: FontWeight.normal,
                 fontSize: 20,
+                color: Colors.white,
               ),
             ),
             const SizedBox(height: 20),
@@ -223,21 +97,22 @@ class StyledPage extends StatelessWidget {
             const SizedBox(height: 20),
             const SizedBox(
               height: 150,
-              child: Placeholder(),
+              child: Placeholder(color: Colors.white), // Hintergrund der Placeholder weiß
             ),
             const SizedBox(height: 40),
             Text(
-              "New Activities",
+              "Neue Aktivitäten",
               style: TextStyle(
                 fontFamily: 'DancingScript',
                 fontWeight: FontWeight.normal,
                 fontSize: 20,
+                color: Colors.white,
               ),
             ),
             const SizedBox(height: 10),
             const SizedBox(
               height: 400,
-              child: Placeholder(),
+              child: Placeholder(color: Colors.white), // Hintergrund der Placeholder weiß
             ),
           ],
         ),
@@ -248,11 +123,18 @@ class StyledPage extends StatelessWidget {
 
 Widget _statusBox(String buttonText) {
   return Container(
-    width: double.infinity,
     padding: const EdgeInsets.all(15),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(25),
-      color: const Color.fromARGB(255, 39, 39, 46),
+      color: Colors.white,
+      border: Border.all(color: Colors.grey), // Grauer Rand
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey, // Schattenfarbe
+          offset: const Offset(0, 2),
+          blurRadius: 4,
+        ),
+      ],
     ),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -266,6 +148,7 @@ Widget _statusBox(String buttonText) {
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
+                color: Colors.black, // Schriftfarbe Schwarz
               ),
             ),
             const SizedBox(height: 5),
@@ -303,7 +186,7 @@ Widget _statusBox(String buttonText) {
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.normal,
                 fontSize: 10,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
             const SizedBox(height: 10),
@@ -312,7 +195,7 @@ Widget _statusBox(String buttonText) {
                 // Aktion beim Klicken des Buttons
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white),
+                backgroundColor: MaterialStateProperty.all(Colors.white), 
               ),
               child: Text(
                 buttonText,
@@ -340,5 +223,94 @@ Widget _statusBox(String buttonText) {
       ],
     ),
   );
+  }
+
+
+class MapPage extends StatelessWidget {
+  const MapPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      color: darkRed, 
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const SizedBox(
+            width: 100,
+            height: 100,
+            child: Placeholder(color: Colors.white), // Hintergrund der Placeholder weiß
+          ),
+          Text(
+            'Coming Soon',
+            style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white), // Textfarbe auf Weiß ändern
+          ),
+          Text(
+            'Coming Soon!',
+            style: Theme.of(context).textTheme.subtitle2!.copyWith(color: Colors.white), // Textfarbe auf Weiß ändern
+          ),
+        ],
+      ),
+    );
+  }
 }
-// image muss noch weiter nach rechts
+
+class StatsPagewithlist extends StatefulWidget {
+  const StatsPagewithlist({Key? key}) : super(key: key);
+
+  @override
+  _StatsPagewithlistState createState() => _StatsPagewithlistState();
+}
+
+class _StatsPagewithlistState extends State<StatsPagewithlist> {
+  final List<String> items = List.generate(50, (i) => "Artikel $i");
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: darkRed, // Hintergrundfarbe auf darkRed ändern
+      child: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(
+              items[index],
+              style: TextStyle(color: Colors.white), // Textfarbe auf Weiß ändern
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      color: darkRed, // Hintergrundfarbe auf darkRed ändern
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const SizedBox(
+            width: 100,
+            height: 100,
+            child: Placeholder(color: Colors.white), // Hintergrund der Placeholder weiß
+          ),
+          Text(
+            'Profilseite',
+            style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white), // Textfarbe auf Weiß ändern
+          ),
+          Text(
+            'Demnächst verfügbar!',
+            style: Theme.of(context).textTheme.subtitle2!.copyWith(color: Colors.white), // Textfarbe auf Weiß ändern
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -24,6 +24,8 @@ void main() {
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
+    final PageController pageController = PageController(initialPage: 0);
+
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
