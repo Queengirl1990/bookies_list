@@ -2,32 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 const Color darkRed = Color(0xFFAC5859);
-const Color darkMode = Color(0xFF343131); // Neue Farbe für Dark Mode
+const Color snowWhite = Colors.white;
+const Color darkMode = Color(0xFF343131);
 
 void main() {
-  runApp(const Mapz());
+  runApp(const Bookies());
 }
 
-class Mapz extends StatelessWidget {
-  const Mapz({Key? key}) : super(key: key);
+class Bookies extends StatelessWidget {
+  const Bookies({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const NavigationWrapper(),
-      theme: ThemeData.light(), // Dunkelmodus entfernt
+      home: const BookiesList(),
+      theme: ThemeData.light(),
     );
   }
 }
 
-class NavigationWrapper extends StatefulWidget {
-  const NavigationWrapper({Key? key}) : super(key: key);
+class BookiesList extends StatefulWidget {
+  const BookiesList({Key? key}) : super(key: key);
 
   @override
-  State<NavigationWrapper> createState() => _NavigationWrapperState();
+  _BookiesListState createState() => _BookiesListState();
 }
 
-class _NavigationWrapperState extends State<NavigationWrapper> {
+class _BookiesListState extends State<BookiesList> {
   int currentPageIndex = 0;
 
   @override
@@ -35,8 +36,8 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
         index: currentPageIndex,
-        backgroundColor: darkRed, 
-        color: darkMode, 
+        backgroundColor: darkRed,
+        color: darkMode,
         buttonBackgroundColor: darkMode,
         onTap: (int index) {
           setState(() {
@@ -51,263 +52,235 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
         ],
       ),
       body: SafeArea(
-        child: <Widget>[
-          const StyledPage(),
-          const MapPage(),
-          const StatsPagewithlist(),
-          const ProfilePage(),
-        ][currentPageIndex],
+        child: Container(
+          color: darkRed,
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              const SizedBox(height: 16),
+              Container(
+                padding: const EdgeInsets.all(20),
+                color: darkRed,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Aktueller Lesestoff",
+                      style: TextStyle(
+                        fontFamily: 'DancingScript',
+                        fontWeight: FontWeight.normal,
+                        fontSize: 20,
+                        color: snowWhite,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    _statusBox("Aktualisieren"),
+                    const SizedBox(height: 16),
+                  ],
+                ),
+              ),
+              ButtonBar(
+                alignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/unreadBooks');
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(snowWhite),
+                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
+                    child: const Text(
+                      "Stapel ungelesener Bücher",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Link einfügen
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(snowWhite),
+                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
+                    child: const Text(
+                      "Wunschliste",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Link einfügen
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(snowWhite),
+                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
+                    child: const Text(
+                      "Sonderband",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Link einfügen
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(snowWhite),
+                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
+                    child: const Text(
+                      "Verschenken",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Link einfügen
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(snowWhite),
+                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
+                    child: const Text(
+                      "Neue Liste anlegen",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Link einfügen
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(snowWhite),
+                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
+                    child: const Text(
+                      "Zufallsgenerator",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
+        ),
       ),
     );
   }
-}
 
-class StyledPage extends StatelessWidget {
-  const StyledPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _statusBox(String buttonText) {
     return Container(
-      padding: const EdgeInsets.all(20),
-      color: darkRed, // Hintergrundfarbe auf darkRed ändern
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "BookiesList",
-              style: TextStyle(
-                fontFamily: 'DancingScript',
-                fontWeight: FontWeight.w900,
-                fontSize: 28,
-                color: Colors.white,
-              ),
-            ),
-            Text(
-              "Aktueller Lesestoff",
-              style: TextStyle(
-                fontFamily: 'DancingScript',
-                fontWeight: FontWeight.normal,
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 20),
-            _statusBox("Aktualisieren"),
-            const SizedBox(height: 20),
-            const SizedBox(
-              height: 150,
-              child: Placeholder(color: Colors.white), // Hintergrund der Placeholder weiß
-            ),
-            const SizedBox(height: 40),
-            Text(
-              "Neue Aktivitäten",
-              style: TextStyle(
-                fontFamily: 'DancingScript',
-                fontWeight: FontWeight.normal,
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 10),
-            const SizedBox(
-              height: 400,
-              child: Placeholder(color: Colors.white), // Hintergrund der Placeholder weiß
-            ),
-          ],
-        ),
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: snowWhite,
+        border: Border.all(color: Colors.grey),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            offset: const Offset(0, 2),
+            blurRadius: 4,
+          ),
+        ],
       ),
-    );
-  }
-}
-
-Widget _statusBox(String buttonText) {
-  return Container(
-    padding: const EdgeInsets.all(15),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(25),
-      color: Colors.white,
-      border: Border.all(color: Colors.grey), // Grauer Rand
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey, // Schattenfarbe
-          offset: const Offset(0, 2),
-          blurRadius: 4,
-        ),
-      ],
-    ),
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Life after you",
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
-                color: Colors.black, // Schriftfarbe Schwarz
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              "Mandy J. Hard",
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.normal,
-                fontSize: 12,
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              "Kategorie",
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.normal,
-                fontSize: 10,
-                color: Colors.grey,
-              ),
-            ),
-            Text(
-              "New Adult",
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.normal,
-                fontSize: 10,
-                color: Colors.grey,
-              ),
-            ),
-            Text(
-              '350 von 415 Seiten',
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.normal,
-                fontSize: 10,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                // Aktion beim Klicken des Buttons
-              },
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white), 
-              ),
-              child: Text(
-                buttonText,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Life after you",
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
-                  color: Colors.black,
+                  color: darkMode,
                 ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(width: 10),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 50,
-              height: 120,
-              child: Image.asset('assets/images/life_after.jpg'),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-  }
-
-
-class MapPage extends StatelessWidget {
-  const MapPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      color: darkRed, 
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const SizedBox(
-            width: 100,
-            height: 100,
-            child: Placeholder(color: Colors.white), // Hintergrund der Placeholder weiß
+              const SizedBox(height: 5),
+              Text(
+                "Mandy J. Hard",
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.normal,
+                  fontSize: 12,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                "Kategorie",
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.normal,
+                  fontSize: 10,
+                  color: Colors.grey,
+                ),
+              ),
+              Text(
+                "New Adult",
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.normal,
+                  fontSize: 10,
+                  color: Colors.grey,
+                ),
+              ),
+              Text(
+                '350 von 415 Seiten',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.normal,
+                  fontSize: 10,
+                  color: darkMode,
+                ),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  // Aktion einfügen
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(snowWhite),
+                ),
+                child: Text(
+                  buttonText,
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: darkMode,
+                  ),
+                ),
+              ),
+            ],
           ),
-          Text(
-            'Coming Soon',
-            style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white), // Textfarbe auf Weiß ändern
-          ),
-          Text(
-            'Coming Soon!',
-            style: Theme.of(context).textTheme.subtitle2!.copyWith(color: Colors.white), // Textfarbe auf Weiß ändern
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class StatsPagewithlist extends StatefulWidget {
-  const StatsPagewithlist({Key? key}) : super(key: key);
-
-  @override
-  _StatsPagewithlistState createState() => _StatsPagewithlistState();
-}
-
-class _StatsPagewithlistState extends State<StatsPagewithlist> {
-  final List<String> items = List.generate(50, (i) => "Artikel $i");
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: darkRed, // Hintergrundfarbe auf darkRed ändern
-      child: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(
-              items[index],
-              style: TextStyle(color: Colors.white), // Textfarbe auf Weiß ändern
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      color: darkRed, // Hintergrundfarbe auf darkRed ändern
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const SizedBox(
-            width: 100,
-            height: 100,
-            child: Placeholder(color: Colors.white), // Hintergrund der Placeholder weiß
-          ),
-          Text(
-            'Profilseite',
-            style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white), // Textfarbe auf Weiß ändern
-          ),
-          Text(
-            'Demnächst verfügbar!',
-            style: Theme.of(context).textTheme.subtitle2!.copyWith(color: Colors.white), // Textfarbe auf Weiß ändern
+          const SizedBox(width: 100),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 50,
+                height: 120,
+                child: Image.asset('assets/images/life_after.jpg'),
+              ),
+            ],
           ),
         ],
       ),
