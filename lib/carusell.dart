@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 void main() {
@@ -59,7 +60,7 @@ class HomePage extends StatelessWidget {
                       // Hier kannst du die Aktion für "Jetzt lesen" hinzufügen
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.lightGray, // Verwende die Farbe lightGray aus style.dart
+                      backgroundColor: lightGrey, 
                       elevation: 5,
                     ),
                     child: Text(
@@ -97,7 +98,7 @@ class HomePage extends StatelessWidget {
                   // Hier kannst du die Aktion für "Jetzt lesen" im Dialog hinzufügen
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.lightGray, // Verwende die Farbe lightGray aus style.dart
+                  backgroundColor: lightGrey, // Verwende die Farbe lightGray aus style.dart
                   elevation: 5,
                 ),
                 child: Text(

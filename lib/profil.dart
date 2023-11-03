@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'style.dart';
+import 'styles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -86,11 +86,11 @@ class MyProfilPage extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.favorite, size: 20, color: lightGray), 
+                  Icon(Icons.favorite, size: 20, color: lightGrey), 
                   SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGray), 
+                  Icon(Icons.favorite, size: 20, color: lightGrey), 
                   SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGray), 
+                  Icon(Icons.favorite, size: 20, color: lightGrey), 
                 ],
               ),
               const SizedBox( 
