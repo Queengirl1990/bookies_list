@@ -12,9 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: darkRed,
-      ),
       home: MyProfilPage(),
     );
   }
@@ -23,12 +20,6 @@ class MyApp extends StatelessWidget {
 class MyProfilPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    TextStyle appBarTextStyle = TextStyle(
-      fontFamily: 'DancingScript',
-      fontWeight: FontWeight.bold,
-      fontSize: 24,
-    );
-
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -41,7 +32,11 @@ class MyProfilPage extends StatelessWidget {
             ),
             Text(
               "Mein Profil",
-              style: appBarTextStyle,
+              style: TextStyle(
+                fontFamily: 'DancingScript',
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
             ),
           ],
         ),
@@ -81,7 +76,7 @@ class MyProfilPage extends StatelessWidget {
                 child: Text("Bearbeiten"),
               ),
               Container( //Container für die Linie
-                width: 320, 
+                width: 320,
                 child: Divider(
                   color: Colors.white,
                   height: 20,
@@ -90,18 +85,27 @@ class MyProfilPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.favorite, size: 20, color: lightGray),
+                  Icon(Icons.favorite, size: 20, color: lightGray), 
                   SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGray),
+                  Icon(Icons.favorite, size: 20, color: lightGray), 
                   SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGray),
+                  Icon(Icons.favorite, size: 20, color: lightGray), 
                 ],
               ),
-              Container(
-                width: 320, 
+              Container( 
+                width: 320,
                 child: Divider(
                   color: Colors.white,
                   height: 20,
+                ),
+              ),
+              Text(
+                "Schau dir mal wieder deine Lieblinge an",
+                style: TextStyle(
+                  fontFamily: 'DancingScript',
+                  fontWeight: FontWeight.normal,
+                  fontSize: 18,
+                  color: Colors.white,
                 ),
               ),
             ],
