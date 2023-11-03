@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'style.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Demo',
       home: MyProfilPage(),
     );
@@ -20,6 +18,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyProfilPage extends StatelessWidget {
+  const MyProfilPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,12 +27,12 @@ class MyProfilPage extends StatelessWidget {
         title: Row(
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 // Navigation
               },
             ),
-            Text(
+            const Text(
               "Mein Profil",
               style: TextStyle(
                 fontFamily: 'DancingScript',
@@ -50,10 +50,10 @@ class MyProfilPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 20),
-              MyCircularAvatar(),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const MyCircularAvatar(),
+              const SizedBox(height: 20),
+              const Text(
                 "Queengirl",
                 style: TextStyle(
                   fontFamily: 'DancingScript',
@@ -62,29 +62,28 @@ class MyProfilPage extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
                   // Aktion einbauen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
+                  foregroundColor: Colors.black, backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                   elevation: 5,
                 ),
-                child: Text("Bearbeiten"),
+                child: const Text("Bearbeiten"),
               ),
-              Container( //Container für die Linie
+              const SizedBox( //Container für die Linie
                 width: 320,
                 child: Divider(
                   color: Colors.white,
                   height: 20,
                 ),
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.favorite, size: 20, color: lightGray), 
@@ -94,14 +93,14 @@ class MyProfilPage extends StatelessWidget {
                   Icon(Icons.favorite, size: 20, color: lightGray), 
                 ],
               ),
-              Container( 
+              const SizedBox( 
                 width: 320,
                 child: Divider(
                   color: Colors.white,
                   height: 20,
                 ),
               ),
-              Text(
+              const Text(
                 "Schau dir mal wieder deine Lieblinge an",
                 style: TextStyle(
                   fontFamily: 'DancingScript',
@@ -119,6 +118,8 @@ class MyProfilPage extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
+  const MyCircularAvatar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

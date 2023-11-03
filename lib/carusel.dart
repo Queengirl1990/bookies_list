@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'style.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 void main() {
@@ -21,11 +20,13 @@ class HomePage extends StatelessWidget {
     // Füge hier weitere Bildpfade hinzu
   ];
 
+  HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Buchcover'),
+        title: const Text('Buchcover'),
       ),
       body: CarouselSlider.builder(
         itemCount: bookInfoList.length,
@@ -35,13 +36,13 @@ class HomePage extends StatelessWidget {
           enableInfiniteScroll: false,
           enlargeCenterPage: true,
           autoPlay: true,
-          autoPlayInterval: Duration(seconds: 3),
+          autoPlayInterval: const Duration(seconds: 3),
         ),
         itemBuilder: (BuildContext context, int index, int realIndex) {
           final bookInfo = bookInfoList[index];
           final imagePath = bookCoverAssets[index];
           return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 4),
             child: GestureDetector(
               onTap: () {
                 _showImageDialog(context, bookInfo, imagePath);
@@ -52,18 +53,18 @@ class HomePage extends StatelessWidget {
                     imagePath,
                     fit: BoxFit.cover,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: () {
                       // Hier kannst du die Aktion für "Jetzt lesen" hinzufügen
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.lightGray, // Verwende die Farbe lightGray aus style.dart
+                      backgroundColor: Colors.lightGray, // Verwende die Farbe lightGray aus style.dart
                       elevation: 5,
                     ),
                     child: Text(
                       bookInfo.buttonLabel,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ],
@@ -87,7 +88,7 @@ class HomePage extends StatelessWidget {
                 imagePath,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text('Titel: ${bookInfo.title}'),
               Text('Autor: ${bookInfo.author}'),
               Text('Genre: ${bookInfo.genre}'),
@@ -96,12 +97,12 @@ class HomePage extends StatelessWidget {
                   // Hier kannst du die Aktion für "Jetzt lesen" im Dialog hinzufügen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.lightGray, // Verwende die Farbe lightGray aus style.dart
+                  backgroundColor: Colors.lightGray, // Verwende die Farbe lightGray aus style.dart
                   elevation: 5,
                 ),
                 child: Text(
                   bookInfo.buttonLabel,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
             ],
@@ -111,7 +112,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Schließen'),
+              child: const Text('Schließen'),
             ),
           ],
         );

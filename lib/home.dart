@@ -17,7 +17,7 @@ class Bookies extends StatelessWidget {
     return MaterialApp(
       home: const BookiesList(),
       theme: ThemeData.light().copyWith(
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           color: darkRed,
           elevation: 0,
         ),
@@ -37,7 +37,7 @@ class _BookiesListState extends State<BookiesList> {
   int currentPageIndex = 0;
 
   Widget MyCircularAvatar() {
-    return CircleAvatar(
+    return const CircleAvatar(
       backgroundImage: AssetImage('assets/images/avatar.png'),
       radius: 30,
     );
@@ -77,7 +77,7 @@ class _BookiesListState extends State<BookiesList> {
       body: SafeArea(
         child: Container(
           color: darkRed,
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -87,7 +87,7 @@ class _BookiesListState extends State<BookiesList> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Aktueller Lesestoff",
                       style: TextStyle(
                         fontFamily: 'DancingScript',
@@ -114,7 +114,7 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: Container(
+                    child: const SizedBox(
                       width: 320, //Breite festlegen
                       child: Center(
                         child: Text(
@@ -134,7 +134,7 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: Container(
+                    child: const SizedBox(
                       width: 320,
                       child: Center(
                         child: Text(
@@ -154,7 +154,7 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: Container(
+                    child: const SizedBox(
                       width: 320, // Hier kannst du die Breite festlegen
                       child: Center(
                         child: Text(
@@ -174,7 +174,7 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: Container(
+                    child: const SizedBox(
                       width: 320, // Breite festlegen
                       child: Center(
                         child: Text(
@@ -194,7 +194,7 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: Container(
+                    child: const SizedBox(
                       width: 320, 
                       child: Center(
                         child: Text(
@@ -214,7 +214,7 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: Container(
+                    child: const SizedBox(
                       width: 320, 
                       child: Center(
                         child: Text(
@@ -242,10 +242,10 @@ class _BookiesListState extends State<BookiesList> {
         borderRadius: BorderRadius.circular(25),
         color: snowWhite,
         border: Border.all(color: Colors.grey),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.grey,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
             blurRadius: 4,
           ),
         ],
@@ -256,7 +256,7 @@ class _BookiesListState extends State<BookiesList> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Life after you",
                 style: TextStyle(
                   fontFamily: 'Roboto',
@@ -266,7 +266,7 @@ class _BookiesListState extends State<BookiesList> {
                 ),
               ),
               const SizedBox(height: 5),
-              Text(
+              const Text(
                 "Mandy J. Hard",
                 style: TextStyle(
                   fontFamily: 'Roboto',
@@ -276,7 +276,7 @@ class _BookiesListState extends State<BookiesList> {
                 ),
               ),
               const SizedBox(height: 5),
-              Text(
+              const Text(
                 "Kategorie",
                 style: TextStyle(
                   fontFamily: 'Roboto',
@@ -285,7 +285,7 @@ class _BookiesListState extends State<BookiesList> {
                   color: Colors.grey,
                 ),
               ),
-              Text(
+              const Text(
                 "New Adult",
                 style: TextStyle(
                   fontFamily: 'Roboto',
@@ -294,7 +294,7 @@ class _BookiesListState extends State<BookiesList> {
                   color: Colors.grey,
                 ),
               ),
-              Text(
+              const Text(
                 '350 von 415 Seiten',
                 style: TextStyle(
                   fontFamily: 'Roboto',
@@ -313,7 +313,7 @@ class _BookiesListState extends State<BookiesList> {
                 ),
                 child: Text(
                   buttonText,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
