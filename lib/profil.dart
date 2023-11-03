@@ -76,7 +76,7 @@ class MyProfilPage extends StatelessWidget {
                 ),
                 child: const Text("Bearbeiten"),
               ),
-              const SizedBox( //Container für die Linie
+              const SizedBox( //Container Linienbreite
                 width: 320,
                 child: Divider(
                   color: Colors.white,

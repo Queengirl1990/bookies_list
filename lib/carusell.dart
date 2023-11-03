@@ -9,19 +9,27 @@ void main() {
 }
 
 class HomePage extends StatelessWidget {
-  final List<BookInfo> bookInfoList = [
-    BookInfo('Das ist erst', 'Autorenname 1', 'Fantasy', 'Jetzt Lesen'),
-    BookInfo('Fourth Wings', 'Autorenname 2', 'Fantasy', 'Jetzt Lesen'),
-    // Füge hier weitere Buchinformationen hinzu
-  ];
+  final Map<String, BookInfo> bookInfoMap = {
+    'Außerhalb der Schatten I': BookInfo('Außerhalb der Schatten I', 'Mandy J. Hard', 'Fantasy', 'Jetzt Lesen'),
+    'Fourth Wings I': BookInfo('Fourth Wings I', 'Rebecca Yarros', 'Fantasy', 'Jetzt Lesen'),
+    'Huskyküsse': BookInfo('Huskyküsse', 'Maria Winter', 'Romantik', 'Jetzt Lesen'),
+    'Keep my silent Heart': BookInfo('Keep my silent Heart', 'Sazou G.', 'Romantik', 'Jetzt Lesen'),
+    'Wicca Creed I': BookInfo('Wicca Creed I', 'Marah Woolf', 'Fantasy', 'Jetzt Lesen'),
+    'Ravenhall Academy II': BookInfo('Ravenhall Academy II', 'Julia Kuhn', 'Fantasy', 'Jetzt Lesen'),
+    'Bad At Love': BookInfo('Bad At Love', 'Julia Kuhn', 'New Adult Roman', 'Jetzt Lesen'),
+  };
 
   final List<String> bookCoverAssets = [
     'assets/images/das-ist-erst.jpg',
     'assets/images/Fourth_wings.jpg',
-    // Füge hier weitere Bildpfade hinzu
+    'assets/images/Huskyküsse.jpg',
+    'assets/images/keep-my.jpg',
+    'assets/images/wiccacreed.jpeg',
+    'assets/images/erwachte-magie.jpg',
+    'assets/images/bad-at-love.jpeg',
   ];
 
-  HomePage({super.key});
+  HomePage({super.key, Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +38,7 @@ class HomePage extends StatelessWidget {
         title: const Text('Buchcover'),
       ),
       body: CarouselSlider.builder(
-        itemCount: bookInfoList.length,
+        itemCount: bookInfoMap.length,
         options: CarouselOptions(
           height: 200,
           viewportFraction: 0.6,
@@ -40,7 +48,7 @@ class HomePage extends StatelessWidget {
           autoPlayInterval: const Duration(seconds: 3),
         ),
         itemBuilder: (BuildContext context, int index, int realIndex) {
-          final bookInfo = bookInfoList[index];
+          final bookInfo = bookInfoMap.values.elementAt(index);
           final imagePath = bookCoverAssets[index];
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -60,7 +68,7 @@ class HomePage extends StatelessWidget {
                       // Hier kannst du die Aktion für "Jetzt lesen" hinzufügen
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: lightGrey, 
+                      backgroundColor: lightGrey,
                       elevation: 5,
                     ),
                     child: Text(
@@ -98,7 +106,7 @@ class HomePage extends StatelessWidget {
                   // Hier kannst du die Aktion für "Jetzt lesen" im Dialog hinzufügen
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: lightGrey, // Verwende die Farbe lightGray aus style.dart
+                  backgroundColor: lightGrey,
                   elevation: 5,
                 ),
                 child: Text(
