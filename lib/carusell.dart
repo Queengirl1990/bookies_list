@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+class BookInfo {
+  final String title;
+  final String author;
+  final String genre;
+  final String buttonLabel;
+
+  BookInfo(this.title, this.author, this.genre, this.buttonLabel);
+}
+
 void main() {
   runApp(MaterialApp(
     home: HomePage(),
@@ -29,7 +38,7 @@ class HomePage extends StatelessWidget {
     'assets/images/bad-at-love.jpeg',
   ];
 
-  HomePage({super.key, Key? key});
+  HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +49,12 @@ class HomePage extends StatelessWidget {
       body: CarouselSlider.builder(
         itemCount: bookInfoMap.length,
         options: CarouselOptions(
-          height: 200,
-          viewportFraction: 0.6,
+          height: 300,
+          viewportFraction: 0.4,
           enableInfiniteScroll: false,
           enlargeCenterPage: true,
           autoPlay: true,
-          autoPlayInterval: const Duration(seconds: 3),
+          autoPlayInterval: const Duration(seconds: 2),
         ),
         itemBuilder: (BuildContext context, int index, int realIndex) {
           final bookInfo = bookInfoMap.values.elementAt(index);
@@ -58,24 +67,15 @@ class HomePage extends StatelessWidget {
               },
               child: Column(
                 children: [
-                  Image.asset(
-                    imagePath,
-                    fit: BoxFit.cover,
+                  Container(
+                    width: 100,
+                    height: 150,
+                    child: Image.asset(
+                      imagePath,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Hier kannst du die Aktion für "Jetzt lesen" hinzufügen
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: lightGrey,
-                      elevation: 5,
-                    ),
-                    child: Text(
-                      bookInfo.buttonLabel,
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -101,22 +101,23 @@ class HomePage extends StatelessWidget {
               Text('Titel: ${bookInfo.title}'),
               Text('Autor: ${bookInfo.author}'),
               Text('Genre: ${bookInfo.genre}'),
-              ElevatedButton(
-                onPressed: () {
-                  // Hier kannst du die Aktion für "Jetzt lesen" im Dialog hinzufügen
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: lightGrey,
-                  elevation: 5,
-                ),
-                child: Text(
-                  bookInfo.buttonLabel,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ),
             ],
           ),
           actions: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                // Hier kannst du die Aktion für "Jetzt lesen" hinzufügen
+                Navigator.of(context).pop(); // Schließe den Dialog nach Klick auf "Jetzt lesen"
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: darkRed,
+                elevation: 5,
+              ),
+              child: Text(
+                bookInfo.buttonLabel,
+                style: const TextStyle(color: Colors.white),
+              ),
+            ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
@@ -128,13 +129,4 @@ class HomePage extends StatelessWidget {
       },
     );
   }
-}
-
-class BookInfo {
-  final String title;
-  final String author;
-  final String genre;
-  final String buttonLabel;
-
-  BookInfo(this.title, this.author, this.genre, this.buttonLabel);
 }
