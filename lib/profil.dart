@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: darkRed, // Verwende die definierte Farbe
+        primaryColor: darkRed,
       ),
       home: MyHomePage(),
     );
@@ -35,25 +35,21 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Mein Profil",
-          style: appBarTextStyle, // Hier wird der Textstil angewendet
+          style: appBarTextStyle,
         ),
-        backgroundColor: darkRed, // Verwende die definierte Farbe
+        backgroundColor: darkRed,
         elevation: 0,
       ),
-      body: Container(
-        color: darkRed, // Verwende die definierte Farbe
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end, // Avatar rechts ausrichten
-              children: [
-                MyCircularAvatar(),
-              ],
-            ),
-            // Weitere Widgets hier hinzufügen
-          ],
+      backgroundColor: darkRed, // Hintergrundfarbe des gesamten Bildschirms
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 20), // Platz oberhalb des Avatars
+              MyCircularAvatar(),
+              // Weitere Widgets hier hinzufügen
+            ],
+          ),
         ),
       ),
     );
@@ -64,26 +60,25 @@ class MyCircularAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.topRight, // Positionierung des Avatars
-      margin: const EdgeInsets.only(top: 20, right: 20), // Abstand vom oberen und rechten Rand
-      width: 50,
-      height: 50,
+      width: 100,
+      height: 100,
       decoration: BoxDecoration(
+        color: Colors.white, // Hintergrundfarbe des Avatars
         shape: BoxShape.circle,
-        boxShadow: [ // Schatten hinzufügen
+        boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.5), // Farbe und Deckkraft des Schattens
-            spreadRadius: 2, // Streubreite des Schattens
-            blurRadius: 5, // Unschärferadius des Schattens
-            offset: const Offset(0, 0), // Verschiebung des Schattens (horizontal, vertikal)
+            color: Colors.black.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: const Offset(0, 0),
           ),
         ],
       ),
       child: ClipOval(
         child: Image.asset(
           'assets/images/avatar.png',
-          width: 50,
-          height: 50,
+          width: 100,
+          height: 100,
           fit: BoxFit.cover,
         ),
       ),

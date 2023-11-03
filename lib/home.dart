@@ -57,10 +57,10 @@ class _BookiesListState extends State<BookiesList> {
           });
         },
         items: const <Widget>[
-          Icon(Icons.home, size: 30, color: Colors.amber),
-          Icon(Icons.menu_book, size: 30, color: Colors.amber),
-          Icon(Icons.settings, size: 30, color: Colors.amber),
-          Icon(Icons.help_outline, size: 30, color: Colors.amber),
+          Icon(Icons.home, size: 30, color: Colors.white),
+          Icon(Icons.menu_book, size: 30, color: Colors.white),
+          Icon(Icons.settings, size: 30, color: Colors.white),
+          Icon(Icons.help_outline, size: 30, color: Colors.white),
         ],
       ),
       appBar: PreferredSize(
@@ -115,7 +115,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: Container(
-                      width: 320, // Hier kannst du die Breite festlegen
+                      width: 320, //Breite festlegen
                       child: Center(
                         child: Text(
                           "Stapel ungelesener Bücher",
@@ -135,7 +135,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: Container(
-                      width: 320, // Hier kannst du die Breite festlegen
+                      width: 320,
                       child: Center(
                         child: Text(
                           "Wunschliste",
@@ -175,7 +175,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: Container(
-                      width: 320, // Hier kannst du die Breite festlegen
+                      width: 320, // Breite festlegen
                       child: Center(
                         child: Text(
                           "Verschenken",
@@ -195,7 +195,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: Container(
-                      width: 320, // Hier kannst du die Breite festlegen
+                      width: 320, 
                       child: Center(
                         child: Text(
                           "Neue Liste anlegen",
@@ -215,7 +215,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: Container(
-                      width: 320, // Hier kannst du die Breite festlegen
+                      width: 320, 
                       child: Center(
                         child: Text(
                           "Zufallsgenerator",
