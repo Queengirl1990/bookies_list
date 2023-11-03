@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-// Definiere eine Konstante für die Farbe
-const Color darkRed = Color(0xFFAC5859);
+import 'style.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,12 +15,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: darkRed,
       ),
-      home: MyHomePage(),
+      home: MyProfilPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyProfilPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle appBarTextStyle = TextStyle(
@@ -33,21 +31,75 @@ class MyHomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Mein Profil",
-          style: appBarTextStyle,
+        title: Row(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                // Aktion beim Drücken des Zurück-Icons
+              },
+            ),
+            Text(
+              "Mein Profil",
+              style: appBarTextStyle,
+            ),
+          ],
         ),
         backgroundColor: darkRed,
         elevation: 0,
       ),
-      backgroundColor: darkRed, // Hintergrundfarbe des gesamten Bildschirms
+      backgroundColor: darkRed,
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 20), // Platz oberhalb des Avatars
+              SizedBox(height: 20),
               MyCircularAvatar(),
-              // Weitere Widgets hier hinzufügen
+              SizedBox(height: 20),
+              Text(
+                "Queengirl",
+                style: TextStyle(
+                  fontFamily: 'DancingScript',
+                  fontWeight: FontWeight.normal,
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  // Aktion einbauen
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  elevation: 5,
+                ),
+                child: Text("Bearbeiten"),
+              ),
+              Container( //Container für die Linie
+                width: 320, 
+                child: Divider(
+                  color: lightGray,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.favorite, size: 24, color: lightGray),
+                  Icon(Icons.favorite, size: 24, color: lightGray),
+                  Icon(Icons.favorite, size: 24, color: lightGray),
+                ],
+              ),
+              Container(
+                width: 320, 
+                child: Divider(
+                  color: lightGray,
+                ),
+              ),
             ],
           ),
         ),
@@ -63,7 +115,7 @@ class MyCircularAvatar extends StatelessWidget {
       width: 100,
       height: 100,
       decoration: BoxDecoration(
-        color: Colors.white, // Hintergrundfarbe des Avatars
+        color: Colors.white,
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
