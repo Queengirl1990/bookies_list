@@ -36,7 +36,7 @@ class MyProfilPage extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: () {
-                // Aktion beim Drücken des Zurück-Icons
+                // Navigation
               },
             ),
             Text(
@@ -83,21 +83,25 @@ class MyProfilPage extends StatelessWidget {
               Container( //Container für die Linie
                 width: 320, 
                 child: Divider(
-                  color: lightGray,
+                  color: Colors.white,
+                  height: 20,
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.favorite, size: 24, color: lightGray),
-                  Icon(Icons.favorite, size: 24, color: lightGray),
-                  Icon(Icons.favorite, size: 24, color: lightGray),
+                  Icon(Icons.favorite, size: 20, color: lightGray),
+                  SizedBox(width: 10),
+                  Icon(Icons.favorite, size: 20, color: lightGray),
+                  SizedBox(width: 10),
+                  Icon(Icons.favorite, size: 20, color: lightGray),
                 ],
               ),
               Container(
                 width: 320, 
                 child: Divider(
-                  color: lightGray,
+                  color: Colors.white,
+                  height: 20,
                 ),
               ),
             ],
