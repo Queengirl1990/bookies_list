@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'sub.dart';
+import 'profil.dart'; // Stelle sicher, dass 'profil.dart' importiert ist
 import 'styles.dart'; // Importiere die 'styles.dart' Datei für Farben und Stile
 
 void main() {
@@ -20,7 +20,7 @@ class Bookies extends StatelessWidget {
       },
       theme: ThemeData.light().copyWith(
         appBarTheme: const AppBarTheme(
-          color: darkRed, 
+          color: darkRed,
           elevation: 0,
         ),
       ),
@@ -44,8 +44,8 @@ class UnreadBooksScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Ungelesene Bücher'),
       ),
-      body: Center(
-        child: const Text('Hier sind deine ungelesenen Bücher.'),
+      body: const Center(
+        child: Text('Hier sind deine ungelesenen Bücher.'),
       ),
     );
   }
@@ -53,13 +53,6 @@ class UnreadBooksScreen extends StatelessWidget {
 
 class _BookiesListState extends State<BookiesList> {
   int currentPageIndex = 0;
-
-  Widget MyCircularAvatar() {
-    return const CircleAvatar(
-      backgroundImage: AssetImage('assets/images/avatar.png'),
-      radius: 30,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +81,10 @@ class _BookiesListState extends State<BookiesList> {
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
           actions: [
-            Align(
-              alignment: Alignment.bottomRight,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyProfilPage()));
+              },
               child: MyCircularAvatar(),
             ),
           ],
@@ -97,7 +92,7 @@ class _BookiesListState extends State<BookiesList> {
       ),
       body: SafeArea(
         child: Container(
-          color: darkRed, 
+          color: darkRed,
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,11 +127,11 @@ class _BookiesListState extends State<BookiesList> {
                       Navigator.pushNamed(context, '/unreadBooks');
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(snowWhite), 
+                      backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
-                      width: 320, 
+                      width: 320,
                       child: Center(
                         child: Text(
                           "Stapel ungelesener Bücher",
@@ -152,7 +147,7 @@ class _BookiesListState extends State<BookiesList> {
                       // Link einfügen
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(snowWhite), 
+                      backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
@@ -176,7 +171,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
-                      width: 320, 
+                      width: 320,
                       child: Center(
                         child: Text(
                           "Sonderband",
@@ -196,7 +191,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
-                      width: 320, 
+                      width: 320,
                       child: Center(
                         child: Text(
                           "Verschenken",
@@ -216,7 +211,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
-                      width: 320, 
+                      width: 320,
                       child: Center(
                         child: Text(
                           "Neue Liste anlegen",
@@ -236,7 +231,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
-                      width: 320, 
+                      width: 320,
                       child: Center(
                         child: Text(
                           "Zufallsgenerator",
@@ -330,7 +325,7 @@ class _BookiesListState extends State<BookiesList> {
                   // Aktion einfügen
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(snowWhite), 
+                  backgroundColor: MaterialStateProperty.all(snowWhite),
                 ),
                 child: Text(
                   buttonText,
@@ -356,6 +351,33 @@ class _BookiesListState extends State<BookiesList> {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget MyCircularAvatar() {
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: const Offset(0, 0),
+          ),
+        ],
+      ),
+      child: ClipOval(
+        child: Image.asset(
+          'assets/images/avatar.png',
+          width: 100,
+          height: 100,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

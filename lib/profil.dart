@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
-  const MyCircularAvatar({Key? key});
+  const MyCircularAvatar();
 
   @override
   Widget build(BuildContext context) {

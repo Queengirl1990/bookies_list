@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'home.dart';
 import 'styles.dart';
 
 class UnreadBooksScreen extends StatefulWidget {
@@ -11,7 +10,7 @@ class UnreadBooksScreen extends StatefulWidget {
 }
 
 class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
-  int currentPageIndex = 1; 
+  int currentPageIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +26,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
         ),
         backgroundColor: darkRed,
       ),
+      backgroundColor: darkRed, // Hintergrundfarbe des Screens
       bottomNavigationBar: CurvedNavigationBar(
         index: currentPageIndex,
         backgroundColor: darkRed,
@@ -45,8 +45,16 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           Icon(Icons.help_outline, size: 30, color: Colors.white),
         ],
       ),
-      body: Center(
-        child: const Text("Inhalt der UnreadBooksScreen-Seite"),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: double.infinity, // Breite des Bildes auf die Bildschirmbreite einstellen
+            height: 120,
+            child: Image.asset('assets/images/life_after.jpg'),
+          ),
+          // Hier kannst du weitere Widgets für den Inhalt hinzufügen
+        ],
       ),
     );
   }
