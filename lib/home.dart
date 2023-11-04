@@ -355,30 +355,35 @@ class _BookiesListState extends State<BookiesList> {
     );
   }
 
-  Widget MyCircularAvatar() {
-    return Container(
-      width: 100,
-      height: 100,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 0),
+Widget MyCircularAvatar() {
+  return Row(
+    children: [
+      const SizedBox(width: 20), // Hier können Sie den gewünschten Abstand einstellen
+      Container(
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(1, 1),
+            ),
+          ],
+        ),
+        child: ClipOval(
+          child: Image.asset(
+            'assets/images/avatar.png',
+            width: 50,
+            height: 50,
+            fit: BoxFit.cover,
           ),
-        ],
-      ),
-      child: ClipOval(
-        child: Image.asset(
-          'assets/images/avatar.png',
-          width: 100,
-          height: 100,
-          fit: BoxFit.cover,
         ),
       ),
-    );
-  }
+    ],
+  );
+}
 }
