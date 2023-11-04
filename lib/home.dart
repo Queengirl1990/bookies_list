@@ -127,26 +127,31 @@ class _BookiesListState extends State<BookiesList> {
                       Navigator.pushNamed(context, '/unreadBooks');
                     },
                     style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),    // Obere linke Ecke
+                            topRight: Radius.circular(0),   // Obere rechte Ecke
+                            bottomLeft: Radius.circular(0), // Untere linke Ecke
+                            bottomRight: Radius.circular(20), // Untere rechte Ecke
+        ),
+      ),
+    ),
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: SizedBox(
                       width: 320,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25), // Anpassen Sie den Wert nach Bedarf
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Stapel ungelesener Bücher",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                      child: Center(
+                        child: Text(
+                          "Stapel ungelesener Bücher",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  ),
+),
                   ElevatedButton(
                     onPressed: () {
                       // Link einfügen
