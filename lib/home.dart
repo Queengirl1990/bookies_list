@@ -130,13 +130,18 @@ class _BookiesListState extends State<BookiesList> {
                       backgroundColor: MaterialStateProperty.all(snowWhite),
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
-                    child: const SizedBox(
+                    child: SizedBox(
                       width: 320,
-                      child: Center(
-                        child: Text(
-                          "Stapel ungelesener Bücher",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25), // Anpassen Sie den Wert nach Bedarf
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Stapel ungelesener Bücher",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -355,35 +360,35 @@ class _BookiesListState extends State<BookiesList> {
     );
   }
 
-Widget MyCircularAvatar() {
-  return Row(
-    children: [
-      const SizedBox(width: 20), // Hier können Sie den gewünschten Abstand einstellen
-      Container(
-        width: 50,
-        height: 50,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(1, 1),
+  Widget MyCircularAvatar() {
+    return Row(
+      children: [
+        const SizedBox(width: 20), //umrandung
+        Container(
+          width: 50,
+          height: 50,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: const Offset(1, 1),
+              ),
+            ],
+          ),
+          child: ClipOval(
+            child: Image.asset(
+              'assets/images/avatar.png',
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
             ),
-          ],
-        ),
-        child: ClipOval(
-          child: Image.asset(
-            'assets/images/avatar.png',
-            width: 50,
-            height: 50,
-            fit: BoxFit.cover,
           ),
         ),
-      ),
-    ],
-  );
-}
+      ],
+    );
+  }
 }

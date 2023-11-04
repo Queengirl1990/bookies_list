@@ -31,10 +31,6 @@ final List<String> bookCoverAssets = [
   'assets/images/bad-at-love.jpeg',
 ];
 
-void main() {
-  runApp(const MyApp());
-}
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -85,27 +81,19 @@ class MyProfilPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                // Navigation
-              },
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(50),
+        child: AppBar(
+          actions: [], // Leere die actions-Liste, um den Avatar in der AppBar zu entfernen
+          title: const Text(
+            "Mein Profil",
+            style: TextStyle(
+              fontFamily: 'DancingScript',
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
             ),
-            const Text(
-              "Mein Profil",
-              style: TextStyle(
-                fontFamily: 'DancingScript',
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
-              ),
-            ),
-          ],
+          ),
         ),
-        backgroundColor: darkRed,
-        elevation: 0,
       ),
       backgroundColor: darkRed,
       body: SingleChildScrollView(
@@ -130,7 +118,8 @@ class MyProfilPage extends StatelessWidget {
                   // Aktion einbauen
                 },
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black, backgroundColor: Colors.white,
+                  primary: Colors.white, // Hintergrundfarbe
+                  onPrimary: Colors.black, // Textfarbe
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -140,7 +129,7 @@ class MyProfilPage extends StatelessWidget {
               ),
               const SizedBox( //Container Linienbreite
                 width: 320,
-                child: Divider(
+                child: const Divider(
                   color: Colors.white,
                   height: 20,
                 ),
@@ -148,16 +137,16 @@ class MyProfilPage extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  const SizedBox(width: 10),
+                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  const SizedBox(width: 10),
+                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
                 ],
               ),
               const SizedBox( 
                 width: 320,
-                child: Divider(
+                child: const Divider(
                   color: Colors.white,
                   height: 20,
                 ),
@@ -245,19 +234,20 @@ class MyProfilPage extends StatelessWidget {
                 Navigator.of(context).pop(); 
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: darkRed,
+                primary: darkRed, // Hintergrundfarbe
+                onPrimary: Colors.white, // Textfarbe
                 elevation: 5,
               ),
               child: Text(
                 bookInfo.buttonLabel,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text(
+              child: Text(
                 'Schließen',
                 style: TextStyle(color: darkRed), 
               ),
