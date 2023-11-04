@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-
-const Color darkRed = Color(0xFFAC5859);
-const Color snowWhite = Colors.white;
-const Color darkMode = Color(0xFF343131);
+import 'sub.dart';
+import 'styles.dart'; // Importiere die 'styles.dart' Datei für Farben und Stile
 
 void main() {
   runApp(const Bookies());
@@ -15,10 +13,14 @@ class Bookies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const BookiesList(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const BookiesList(),
+        '/unreadBooks': (context) => const UnreadBooksScreen(),
+      },
       theme: ThemeData.light().copyWith(
         appBarTheme: const AppBarTheme(
-          color: darkRed,
+          color: darkRed, 
           elevation: 0,
         ),
       ),
@@ -31,6 +33,22 @@ class BookiesList extends StatefulWidget {
 
   @override
   _BookiesListState createState() => _BookiesListState();
+}
+
+class UnreadBooksScreen extends StatelessWidget {
+  const UnreadBooksScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Ungelesene Bücher'),
+      ),
+      body: Center(
+        child: const Text('Hier sind deine ungelesenen Bücher.'),
+      ),
+    );
+  }
 }
 
 class _BookiesListState extends State<BookiesList> {
@@ -54,6 +72,9 @@ class _BookiesListState extends State<BookiesList> {
         onTap: (int index) {
           setState(() {
             currentPageIndex = index;
+            if (index == 1) {
+              Navigator.pushNamed(context, '/unreadBooks');
+            }
           });
         },
         items: const <Widget>[
@@ -76,7 +97,7 @@ class _BookiesListState extends State<BookiesList> {
       ),
       body: SafeArea(
         child: Container(
-          color: darkRed,
+          color: darkRed, 
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,11 +132,11 @@ class _BookiesListState extends State<BookiesList> {
                       Navigator.pushNamed(context, '/unreadBooks');
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(snowWhite),
+                      backgroundColor: MaterialStateProperty.all(snowWhite), 
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
-                      width: 320, //Breite festlegen
+                      width: 320, 
                       child: Center(
                         child: Text(
                           "Stapel ungelesener Bücher",
@@ -131,7 +152,7 @@ class _BookiesListState extends State<BookiesList> {
                       // Link einfügen
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(snowWhite),
+                      backgroundColor: MaterialStateProperty.all(snowWhite), 
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
@@ -155,7 +176,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
-                      width: 320, // Hier kannst du die Breite festlegen
+                      width: 320, 
                       child: Center(
                         child: Text(
                           "Sonderband",
@@ -175,7 +196,7 @@ class _BookiesListState extends State<BookiesList> {
                       foregroundColor: MaterialStateProperty.all(Colors.black),
                     ),
                     child: const SizedBox(
-                      width: 320, // Breite festlegen
+                      width: 320, 
                       child: Center(
                         child: Text(
                           "Verschenken",
@@ -309,7 +330,7 @@ class _BookiesListState extends State<BookiesList> {
                   // Aktion einfügen
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(snowWhite),
+                  backgroundColor: MaterialStateProperty.all(snowWhite), 
                 ),
                 child: Text(
                   buttonText,
