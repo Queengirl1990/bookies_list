@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
               },
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     width: 100,
                     height: 150,
                     child: Image.asset(
@@ -128,5 +128,12 @@ class HomePage extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+class CarusellWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return HomePage();
   }
 }
