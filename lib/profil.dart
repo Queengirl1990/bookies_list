@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
-  const MyCircularAvatar();
+  const MyCircularAvatar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +84,7 @@ class MyProfilPage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
-          actions: [], // Leere die actions-Liste, um den Avatar in der AppBar zu entfernen
+          actions: const [], // Leere die actions-Liste, um den Avatar in der AppBar zu entfernen
           title: const Text(
             "Mein Profil",
             style: TextStyle(
@@ -118,8 +118,7 @@ class MyProfilPage extends StatelessWidget {
                   // Aktion einbauen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white, // Hintergrundfarbe
-                  onPrimary: Colors.black, // Textfarbe
+                  foregroundColor: Colors.black, backgroundColor: Colors.white, // Textfarbe
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -129,7 +128,7 @@ class MyProfilPage extends StatelessWidget {
               ),
               const SizedBox( //Container Linienbreite
                 width: 320,
-                child: const Divider(
+                child: Divider(
                   color: Colors.white,
                   height: 20,
                 ),
@@ -137,16 +136,16 @@ class MyProfilPage extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  const SizedBox(width: 10),
-                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  const SizedBox(width: 10),
-                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  SizedBox(width: 10),
+                  Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  SizedBox(width: 10),
+                  Icon(Icons.favorite, size: 20, color: lightGrey), 
                 ],
               ),
               const SizedBox( 
                 width: 320,
-                child: const Divider(
+                child: Divider(
                   color: Colors.white,
                   height: 20,
                 ),
@@ -234,20 +233,19 @@ class MyProfilPage extends StatelessWidget {
                 Navigator.of(context).pop(); 
               },
               style: ElevatedButton.styleFrom(
-                primary: darkRed, // Hintergrundfarbe
-                onPrimary: Colors.white, // Textfarbe
+                foregroundColor: Colors.white, backgroundColor: darkRed, // Textfarbe
                 elevation: 5,
               ),
               child: Text(
                 bookInfo.buttonLabel,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text(
+              child: const Text(
                 'Schließen',
                 style: TextStyle(color: darkRed), 
               ),

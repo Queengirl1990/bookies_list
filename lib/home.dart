@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'profil.dart'; // Stelle sicher, dass 'profil.dart' importiert ist
-import 'styles.dart'; // Importiere die 'styles.dart' Datei für Farben und Stile
+import 'profil.dart'; 
+import 'styles.dart'; 
 
 void main() {
   runApp(const Bookies());
@@ -83,7 +83,7 @@ class _BookiesListState extends State<BookiesList> {
           actions: [
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyProfilPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyProfilPage()));
               },
               child: MyCircularAvatar(),
             ),
@@ -91,78 +91,85 @@ class _BookiesListState extends State<BookiesList> {
         ),
       ),
       body: SafeArea(
-        child: Container(
-          color: darkRed,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(20),
-                color: darkRed,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "Aktueller Lesestoff",
-                      style: TextStyle(
-                        fontFamily: 'DancingScript',
-                        fontWeight: FontWeight.normal,
-                        fontSize: 24,
-                        color: snowWhite,
+        child: SingleChildScrollView(
+          child: Container(
+            color: darkRed,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  color: darkRed,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Aktueller Lesestoff",
+                        style: TextStyle(
+                          fontFamily: 'DancingScript',
+                          fontWeight: FontWeight.normal,
+                          fontSize: 24,
+                          color: snowWhite,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    _statusBox("Aktualisieren"),
-                    const SizedBox(height: 16),
-                  ],
+                      const SizedBox(height: 20),
+                      _statusBox("Aktualisieren"),
+                      const SizedBox(height: 16),
+                    ],
+                  ),
                 ),
-              ),
-              ButtonBar(
-                alignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/unreadBooks');
-                    },
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),    // Obere linke Ecke
-                            topRight: Radius.circular(0),   // Obere rechte Ecke
-                            bottomLeft: Radius.circular(0), // Untere linke Ecke
-                            bottomRight: Radius.circular(20), // Untere rechte Ecke
-        ),
-      ),
-    ),
-                      backgroundColor: MaterialStateProperty.all(snowWhite),
-                      foregroundColor: MaterialStateProperty.all(Colors.black),
-                    ),
-                    child: SizedBox(
-                      width: 320,
-                      child: Center(
+                ButtonBar(
+                  alignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  buttonMinWidth: 320, // buttonbreite
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/unreadBooks');
+                      },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite), 
+                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
                         child: Text(
                           "Stapel ungelesener Bücher",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  ),
-),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Link einfügen
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(snowWhite),
-                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                          ),
+                        ),
+                      ),
                     ),
-                    child: const SizedBox(
-                      width: 320,
-                      child: Center(
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite), 
+                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
                         child: Text(
                           "Wunschliste",
                           style: TextStyle(
@@ -171,18 +178,25 @@ class _BookiesListState extends State<BookiesList> {
                         ),
                       ),
                     ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Link einfügen
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(snowWhite),
-                      foregroundColor: MaterialStateProperty.all(Colors.black),
-                    ),
-                    child: const SizedBox(
-                      width: 320,
-                      child: Center(
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite), 
+                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
                         child: Text(
                           "Sonderband",
                           style: TextStyle(
@@ -191,18 +205,25 @@ class _BookiesListState extends State<BookiesList> {
                         ),
                       ),
                     ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Link einfügen
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(snowWhite),
-                      foregroundColor: MaterialStateProperty.all(Colors.black),
-                    ),
-                    child: const SizedBox(
-                      width: 320,
-                      child: Center(
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),    
+                              topRight: Radius.circular(0),  
+                              bottomLeft: Radius.circular(0), 
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite), 
+                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
                         child: Text(
                           "Verschenken",
                           style: TextStyle(
@@ -211,18 +232,25 @@ class _BookiesListState extends State<BookiesList> {
                         ),
                       ),
                     ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Link einfügen
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(snowWhite),
-                      foregroundColor: MaterialStateProperty.all(Colors.black),
-                    ),
-                    child: const SizedBox(
-                      width: 320,
-                      child: Center(
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite), 
+                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
                         child: Text(
                           "Neue Liste anlegen",
                           style: TextStyle(
@@ -231,18 +259,25 @@ class _BookiesListState extends State<BookiesList> {
                         ),
                       ),
                     ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Link einfügen
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(snowWhite),
-                      foregroundColor: MaterialStateProperty.all(Colors.black),
-                    ),
-                    child: const SizedBox(
-                      width: 320,
-                      child: Center(
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(0),   
+                              topRight: Radius.circular(20),   
+                              bottomLeft: Radius.circular(20), 
+                              bottomRight: Radius.circular(0), 
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite), 
+                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
                         child: Text(
                           "Zufallsgenerator",
                           style: TextStyle(
@@ -251,10 +286,37 @@ class _BookiesListState extends State<BookiesList> {
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(0),   
+                              topRight: Radius.circular(20),   
+                              bottomLeft: Radius.circular(20), 
+                              bottomRight: Radius.circular(0), 
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite), 
+                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Kalender",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -263,6 +325,7 @@ class _BookiesListState extends State<BookiesList> {
 
   Widget _statusBox(String buttonText) {
     return Container(
+      width: 320, // funktioniert nicht
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
