@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
-import 'home.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,81 +24,115 @@ class _LoginDemoState extends State<LoginDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkRed, // Hintergrundfarbe auf darkRed setzen
+      backgroundColor: darkRed, 
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 60.0),
-                child: Center(
-                  child: Container(
-                    width: 200,
-                    height: 150,
-                    child: Image.asset('assets/images/logo.png'), // Pfad zu Ihrem Asset
-                  ),
+              SizedBox(height: 50), 
+              Center(
+                child: Container(
+                  width: 200,
+                  height: 150,
+                  child: Image.asset('assets/images/logo.png'), // Pfad zu Ihrem Asset
                 ),
               ),
+              SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
-                child: TextField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white, // Hintergrundfarbe auf Weiß setzen
-                    border: OutlineInputBorder(),
-                    labelText: 'Email',
-                    hintText: 'Enter valid email id as abc@gmail.com',
+                child: Container(
+                  width: 320,
+                  height: 40, // Höhe der Eingabefelder anpassen
+                  decoration: BoxDecoration(
+                    color: Colors.white, // Hintergrundfarbe auf Weiß setzen
+                    borderRadius: BorderRadius.circular(20), // Runde Ecken
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.5), // Schattenfarbe
+                        offset: Offset(0, 3), // Versatz des Schattens
+                        blurRadius: 5, // Stärke des Schattens
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10), // Innenpolsterung anpassen
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        labelText: 'Email',
+                        hintText: 'Enter valid email id as abc@gmail.com',
+                      ),
+                    ),
                   ),
                 ),
               ),
+              SizedBox(height: 15), // Abstand zwischen den Eingabefeldern
               Padding(
-                padding: const EdgeInsets.only(
-                  left: 15.0,
-                  right: 15.0,
-                  top: 15,
-                  bottom: 0,
-                ),
-                child: TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white, // Hintergrundfarbe auf Weiß setzen
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
-                    hintText: 'Enter secure password',
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Container(
+                  width: 320,
+                  height: 40, // Höhe der Eingabefelder anpassen
+                  decoration: BoxDecoration(
+                    color: Colors.white, // Hintergrundfarbe auf Weiß setzen
+                    borderRadius: BorderRadius.circular(20), // Runde Ecken
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.5), // Schattenfarbe
+                        offset: Offset(0, 3), // Versatz des Schattens
+                        blurRadius: 5, // Stärke des Schattens
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10), // Innenpolsterung anpassen
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        labelText: 'Password',
+                        hintText: 'Enter secure password',
+                      ),
+                    ),
                   ),
                 ),
               ),
               TextButton(
                 onPressed: () {
-                  // TODO: FORGOT PASSWORD SCREEN GOES HERE
+                  // vergessen Screen
                 },
                 child: Text(
-                  'Forgot Password',
-                  style: TextStyle(color: Colors.blue, fontSize: 15),
+                  'Passwort vergessen',
+                  style: TextStyle(color: darkMode, fontSize: 15),
                 ),
               ),
               Container(
-                height: 50,
-                width: 250,
+                width: 320,
+                height: 40, 
                 decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(20),
+                  color: snowWhite, 
+                  borderRadius: BorderRadius.circular(20), 
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(255, 60, 60, 61).withOpacity(0.5), // Schattenfarbe
+                      offset: Offset(5, 5), // Versatz des Schattens
+                      blurRadius: 5, // Stärke des Schattens
+                    ),
+                  ],
                 ),
                 child: TextButton(
                   onPressed: () {
-                    // Hier können Sie die Aktion für die Login-Schaltfläche festlegen
+                    // Login
                   },
                   child: Text(
                     'Login',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
+                    style: TextStyle(color: darkMode, fontSize: 20), 
                   ),
                 ),
               ),
               SizedBox(
                 height: 130,
               ),
-              Text('New User? Create Account')
+              Text('Account erstellen')
             ],
           ),
         ),
@@ -107,4 +140,3 @@ class _LoginDemoState extends State<LoginDemo> {
     );
   }
 }
-
