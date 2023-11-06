@@ -1,3 +1,4 @@
+import 'package:bookieslist/home.dart';
 import 'package:flutter/material.dart';
 import 'styles.dart';
 
@@ -6,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginDemo extends StatefulWidget {
-  const LoginDemo({Key? key});
+  const LoginDemo({Key? key}) : super(key: key);
 
   @override
   _LoginDemoState createState() => _LoginDemoState();
@@ -50,10 +51,10 @@ class _LoginDemoState extends State<LoginDemo> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: darkMode,
-                        offset: const Offset(0, 3),
+                        offset: Offset(0, 3),
                         blurRadius: 5,
                       ),
                     ],
@@ -79,10 +80,10 @@ class _LoginDemoState extends State<LoginDemo> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: darkMode,
-                        offset: const Offset(0, 3),
+                        offset: Offset(0, 3),
                         blurRadius: 5,
                       ),
                     ],
@@ -115,32 +116,36 @@ class _LoginDemoState extends State<LoginDemo> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  // Login
-                },
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const BookiesList()),
+    );
+  },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                  ),
-                  minimumSize: Size(150, 30),
-                  elevation: 10,
-                ),
+    ),
+                  minimumSize: const Size(160, 30),
+                  elevation: 5,
+  ),
                 child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-              ),
+  ),
+),
+
               const SizedBox(height: 50), // Abstand hinzugefügt
               ElevatedButton(
                 onPressed: () {
                   // Account erstellen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  minimumSize: Size(320, 30),
+                  minimumSize: const Size(320, 30),
                 ),
                 child: const Text(
                   'Registrieren',
@@ -152,11 +157,11 @@ class _LoginDemoState extends State<LoginDemo> {
                   // Gmail login
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  minimumSize: Size(320, 30),
+                  minimumSize: const Size(320, 30),
                 ),
                 child: const Text(
                   'Login mit Gmail',
@@ -168,11 +173,11 @@ class _LoginDemoState extends State<LoginDemo> {
                   // Apple login
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  minimumSize: Size(320, 30),
+                  minimumSize: const Size(320, 30),
                 ),
                 child: const Text(
                   'Login mit Apple',
@@ -183,7 +188,7 @@ class _LoginDemoState extends State<LoginDemo> {
               Container(
                 width: 320,
                 height: 80, 
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/werbung.jpeg'),
                     fit: BoxFit.cover,

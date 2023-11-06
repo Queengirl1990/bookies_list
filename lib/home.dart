@@ -20,7 +20,7 @@ class Bookies extends StatelessWidget {
       },
       theme: ThemeData.light().copyWith(
         appBarTheme: const AppBarTheme(
-          color: darkRed,
+          backgroundColor: darkRed,
           elevation: 0,
         ),
       ),
