@@ -267,10 +267,10 @@ class _BookiesListState extends State<BookiesList> {
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(0),   
+                              topLeft: Radius.circular(20),   
                               topRight: Radius.circular(20),   
                               bottomLeft: Radius.circular(20), 
-                              bottomRight: Radius.circular(0), 
+                              bottomRight: Radius.circular(20), 
                             ),
                           ),
                         ),
@@ -294,10 +294,10 @@ class _BookiesListState extends State<BookiesList> {
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(0),   
+                              topLeft: Radius.circular(20),   
                               topRight: Radius.circular(20),   
                               bottomLeft: Radius.circular(20), 
-                              bottomRight: Radius.circular(0), 
+                              bottomRight: Radius.circular(20), 
                             ),
                           ),
                         ),
