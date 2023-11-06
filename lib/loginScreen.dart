@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginDemo extends StatefulWidget {
-  const LoginDemo({super.key});
+  const LoginDemo({Key? key});
 
   @override
   _LoginDemoState createState() => _LoginDemoState();
@@ -28,17 +28,17 @@ class _LoginDemoState extends State<LoginDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkRed, 
+      backgroundColor: darkRed,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const SizedBox(height: 50), 
+              const SizedBox(height: 50),
               Center(
                 child: SizedBox(
-                  width: 200,
-                  height: 150,
-                  child: Image.asset('assets/images/logo.png'), 
+                  width: 100,
+                  height: 100,
+                  child: Image.asset('assets/images/logo.png'),
                 ),
               ),
               const SizedBox(height: 20),
@@ -46,20 +46,20 @@ class _LoginDemoState extends State<LoginDemo> {
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Container(
                   width: 320,
-                  height: 40, 
+                  height: 30,
                   decoration: BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(20), 
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: const Color.fromARGB(255, 65, 66, 66).withOpacity(0.5), 
-                        offset: const Offset(0, 3), 
-                        blurRadius: 5, 
+                        color: darkMode,
+                        offset: const Offset(0, 3),
+                        blurRadius: 5,
                       ),
                     ],
                   ),
                   child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10), 
+                    padding: EdgeInsets.symmetric(horizontal: 10),
                     child: TextField(
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -70,73 +70,126 @@ class _LoginDemoState extends State<LoginDemo> {
                   ),
                 ),
               ),
-              const SizedBox(height: 15), 
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Container(
                   width: 320,
-                  height: 40, 
+                  height: 30,
                   decoration: BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(20), 
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: const Color.fromARGB(255, 65, 66, 66).withOpacity(0.5), 
-                        offset: const Offset(0, 3), 
-                        blurRadius: 5, 
+                        color: darkMode,
+                        offset: const Offset(0, 3),
+                        blurRadius: 5,
                       ),
                     ],
                   ),
                   child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10), 
+                    padding: EdgeInsets.symmetric(horizontal: 10),
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        labelText: 'Password',
-                        hintText: 'Enter secure password',
+                        labelText: 'Passwort',
+                        hintText: 'Passwort eingeben',
                       ),
                     ),
                   ),
                 ),
               ),
+              const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  // vergessen Screen
+                  // Passwort vergessen
                 },
+                style: TextButton.styleFrom(
+                  alignment: Alignment.centerRight,
+                ),
                 child: const Text(
                   'Passwort vergessen',
-                  style: TextStyle(color: darkMode, fontSize: 15),
+                  style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  // Login
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  minimumSize: Size(150, 30),
+                  elevation: 10,
+                ),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+              ),
+              const SizedBox(height: 50), // Abstand hinzugefügt
+              ElevatedButton(
+                onPressed: () {
+                  // Account erstellen
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  minimumSize: Size(320, 30),
+                ),
+                child: const Text(
+                  'Registrieren',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Gmail login
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  minimumSize: Size(320, 30),
+                ),
+                child: const Text(
+                  'Login mit Gmail',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Apple login
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  minimumSize: Size(320, 30),
+                ),
+                child: const Text(
+                  'Login mit Apple',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+              ),
+              const SizedBox(height: 150),
               Container(
                 width: 320,
-                height: 40, 
+                height: 80, 
                 decoration: BoxDecoration(
-                  color: snowWhite, 
-                  borderRadius: BorderRadius.circular(20), 
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color.fromARGB(255, 65, 66, 66).withOpacity(0.5), 
-                      offset: const Offset(5, 5), // Versatz des Schattens
-                      blurRadius: 5, 
-                    ),
-                  ],
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    // Login
-                  },
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(color: darkMode, fontSize: 20), 
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/werbung.jpeg'),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 130,
-              ),
-              const Text('Account erstellen')
             ],
           ),
         ),
