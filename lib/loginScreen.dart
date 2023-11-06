@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'styles.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: LoginDemo(),
     );
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginDemo extends StatefulWidget {
+  const LoginDemo({super.key});
+
   @override
   _LoginDemoState createState() => _LoginDemoState();
 }
@@ -29,62 +33,62 @@ class _LoginDemoState extends State<LoginDemo> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              SizedBox(height: 50), 
+              const SizedBox(height: 50), 
               Center(
-                child: Container(
+                child: SizedBox(
                   width: 200,
                   height: 150,
-                  child: Image.asset('assets/images/logo.png'), // Pfad zu Ihrem Asset
+                  child: Image.asset('assets/images/logo.png'), 
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Container(
                   width: 320,
-                  height: 40, // Höhe der Eingabefelder anpassen
+                  height: 40, 
                   decoration: BoxDecoration(
-                    color: Colors.white, // Hintergrundfarbe auf Weiß setzen
-                    borderRadius: BorderRadius.circular(20), // Runde Ecken
+                    color: Colors.white, 
+                    borderRadius: BorderRadius.circular(20), 
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.blue.withOpacity(0.5), // Schattenfarbe
-                        offset: Offset(0, 3), // Versatz des Schattens
-                        blurRadius: 5, // Stärke des Schattens
+                        color: const Color.fromARGB(255, 65, 66, 66).withOpacity(0.5), 
+                        offset: const Offset(0, 3), 
+                        blurRadius: 5, 
                       ),
                     ],
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10), // Innenpolsterung anpassen
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10), 
                     child: TextField(
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         labelText: 'Email',
-                        hintText: 'Enter valid email id as abc@gmail.com',
+                        hintText: 'Deine Mailadresse',
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 15), // Abstand zwischen den Eingabefeldern
+              const SizedBox(height: 15), 
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Container(
                   width: 320,
-                  height: 40, // Höhe der Eingabefelder anpassen
+                  height: 40, 
                   decoration: BoxDecoration(
-                    color: Colors.white, // Hintergrundfarbe auf Weiß setzen
-                    borderRadius: BorderRadius.circular(20), // Runde Ecken
+                    color: Colors.white, 
+                    borderRadius: BorderRadius.circular(20), 
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.blue.withOpacity(0.5), // Schattenfarbe
-                        offset: Offset(0, 3), // Versatz des Schattens
-                        blurRadius: 5, // Stärke des Schattens
+                        color: const Color.fromARGB(255, 65, 66, 66).withOpacity(0.5), 
+                        offset: const Offset(0, 3), 
+                        blurRadius: 5, 
                       ),
                     ],
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10), // Innenpolsterung anpassen
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10), 
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -100,7 +104,7 @@ class _LoginDemoState extends State<LoginDemo> {
                 onPressed: () {
                   // vergessen Screen
                 },
-                child: Text(
+                child: const Text(
                   'Passwort vergessen',
                   style: TextStyle(color: darkMode, fontSize: 15),
                 ),
@@ -113,9 +117,9 @@ class _LoginDemoState extends State<LoginDemo> {
                   borderRadius: BorderRadius.circular(20), 
                   boxShadow: [
                     BoxShadow(
-                      color: const Color.fromARGB(255, 60, 60, 61).withOpacity(0.5), // Schattenfarbe
-                      offset: Offset(5, 5), // Versatz des Schattens
-                      blurRadius: 5, // Stärke des Schattens
+                      color: const Color.fromARGB(255, 65, 66, 66).withOpacity(0.5), 
+                      offset: const Offset(5, 5), // Versatz des Schattens
+                      blurRadius: 5, 
                     ),
                   ],
                 ),
@@ -123,16 +127,16 @@ class _LoginDemoState extends State<LoginDemo> {
                   onPressed: () {
                     // Login
                   },
-                  child: Text(
+                  child: const Text(
                     'Login',
                     style: TextStyle(color: darkMode, fontSize: 20), 
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 130,
               ),
-              Text('Account erstellen')
+              const Text('Account erstellen')
             ],
           ),
         ),

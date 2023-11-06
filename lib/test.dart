@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(TestPageApp());
+  runApp(const TestPageApp());
 }
 
 class TestPageApp extends StatelessWidget {
+  const TestPageApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: DetailPage(index: 1), 
     );
   }
@@ -21,8 +23,8 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('DetailPage für das Element')),
-      body: Center(child: Text('Das ist das Element')),
+      appBar: AppBar(title: const Text('DetailPage für das Element')),
+      body: const Center(child: Text('Das ist das Element')),
     );
   }
 }
