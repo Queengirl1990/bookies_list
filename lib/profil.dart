@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'datenbank.dart'; // Importiere datenbank.dart
+import 'datenbank.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
-  const MyCircularAvatar({Key? key});
+  const MyCircularAvatar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class MyCircularAvatar extends StatelessWidget {
 }
 
 class MyProfilPage extends StatelessWidget {
-  const MyProfilPage({Key? key});
+  const MyProfilPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,7 @@ class MyProfilPage extends StatelessWidget {
                   // Aktion einbauen
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: darkMode, 
+                  backgroundColor: darkMode, 
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -98,9 +98,9 @@ class MyProfilPage extends StatelessWidget {
                 ),
                 child: const Text("Bearbeiten"),
               ),
-              const SizedBox( //Container Linienbreite
+              const SizedBox( 
                 width: 320,
-                child: const Divider( 
+                child: Divider( 
                   color: Colors.white,
                   height: 20,
                 ),
@@ -108,16 +108,16 @@ class MyProfilPage extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  const SizedBox(width: 10), 
-                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  const SizedBox(width: 10), 
-                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  SizedBox(width: 10), 
+                  Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  SizedBox(width: 10), 
+                  Icon(Icons.favorite, size: 20, color: lightGrey), 
                 ],
               ),
               const SizedBox( 
                 width: 320,
-                child: const Divider( 
+                child: Divider( 
                   color: Colors.white,
                   height: 20,
                 ),
@@ -201,11 +201,11 @@ class MyProfilPage extends StatelessWidget {
           actions: <Widget>[
             ElevatedButton(
               onPressed: () {
-                //Aktion für "Jetzt lesen" hinzufügen
+                //Aktion für "Jetzt lesen"
                 Navigator.of(context).pop(); 
               },
               style: ElevatedButton.styleFrom(
-                primary: darkRed, // 
+                backgroundColor: darkRed, // 
                 elevation: 5,
               ),
               child: Text(

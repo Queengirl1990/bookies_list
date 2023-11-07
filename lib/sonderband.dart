@@ -3,10 +3,12 @@ import 'styles.dart';
 import 'datenbank.dart';
 
 void main() {
-  runApp(LimitedEditionApp());
+  runApp(const LimitedEditionApp());
 }
 
 class LimitedEditionApp extends StatelessWidget {
+  const LimitedEditionApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,7 @@ class LimitedEditionApp extends StatelessWidget {
       theme: ThemeData(
         backgroundColor: darkRed,
       ),
-      home: LimitedEditionScreen(),
+      home: const LimitedEditionScreen(),
     );
   }
 }
@@ -48,7 +50,7 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
         children: [
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 80 / 100,
               ),
@@ -61,8 +63,8 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
                     // Navigator.push 
                   },
                   child: Container(
-                    margin: EdgeInsets.all(8),
-                    child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: SizedBox(
                       width: 80,
                       height: 100,
                       child: Image.asset(

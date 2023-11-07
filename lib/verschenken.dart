@@ -3,10 +3,12 @@ import 'styles.dart';
 import 'datenbank.dart';
 
 void main() {
-  runApp(GiveAwayApp());
+  runApp(const GiveAwayApp());
 }
 
 class GiveAwayApp extends StatelessWidget {
+  const GiveAwayApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,7 @@ class GiveAwayApp extends StatelessWidget {
       theme: ThemeData(
         backgroundColor: darkRed,
       ),
-      home: GiveAwayScreen(),
+      home: const GiveAwayScreen(),
     );
   }
 }
@@ -32,7 +34,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Verschenken",
+          "Give Away",
           style: TextStyle(
             fontFamily: 'DancingScript',
             fontWeight: FontWeight.bold,
@@ -41,6 +43,9 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
         ),
         backgroundColor: darkRed,
         elevation: 0,
+        actions: [
+          MyCircularAvatar(), 
+        ],
       ),
       backgroundColor: darkRed,
       body: Column(
@@ -48,25 +53,25 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
         children: [
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 80 / 100,
               ),
-              itemCount: giveAway.length, // Verwende die giveAway Map aus der datenbank.dart
+              itemCount: giveAway.length, 
               itemBuilder: (context, index) {
-                final bookKey = giveAway.keys.elementAt(index); // Verwende die giveAway Map aus der datenbank.dart
+                final bookKey = giveAway.keys.elementAt(index); 
                 return GestureDetector(
                   onTap: () {
-                    // Logik zum Öffnen des Buchdetailbildschirms hinzufügen
+                    // Buchdetailbildschirms
                     // Navigator.push
                   },
                   child: Container(
-                    margin: EdgeInsets.all(8),
-                    child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: SizedBox(
                       width: 80,
                       height: 100,
                       child: Image.asset(
-                        giveAway[bookKey]!['image']!, // Verwende Image.asset für lokale Bilder
+                        giveAway[bookKey]!['image']!, 
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -79,4 +84,36 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
       ),
     );
   }
+}
+
+Widget MyCircularAvatar() {
+  return Row(
+    children: [
+      const SizedBox(width: 20),
+      Container(
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(1, 1),
+            ),
+          ],
+        ),
+        child: ClipOval(
+          child: Image.asset(
+            'assets/images/avatar.png',
+            width: 50,
+            height: 50,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+    ],
+  );
 }

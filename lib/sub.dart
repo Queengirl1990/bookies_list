@@ -5,10 +5,12 @@ import 'datenbank.dart';
 import 'home.dart';
 
 void main() {
-  runApp(UnreadBooksApp());
+  runApp(const UnreadBooksApp());
 }
 
 class UnreadBooksApp extends StatelessWidget {
+  const UnreadBooksApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +18,7 @@ class UnreadBooksApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UnreadBooksScreen(),
+      home: const UnreadBooksScreen(),
     );
   }
 }
@@ -56,7 +58,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           if (index == 0) {
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
-                builder: (context) => BookiesList(), // Hier den Namen deines BookiesList-Screens verwenden
+                builder: (context) => const BookiesList(), 
               ),
               (route) => false,
             );
@@ -74,25 +76,25 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
         children: [
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Zeige immer 3 Bücher nebeneinander
-                childAspectRatio: 80 / 100, // Größe des Buches auf 80x100
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, 
+                childAspectRatio: 80 / 100, 
               ),
-              itemCount: unreadBooks.length, // Verwende die unreadBooks Map aus der datenbank.dart
+              itemCount: unreadBooks.length, 
               itemBuilder: (context, index) {
-                final bookKey = unreadBooks.keys.elementAt(index); // Verwende die unreadBooks Map aus der datenbank.dart
+                final bookKey = unreadBooks.keys.elementAt(index); 
                 return GestureDetector(
                   onTap: () {
-                    // Hier kannst du die Logik zum Öffnen des Buchdetailbildschirms hinzufügen
-                    // Du kannst z.B. Navigator.push verwenden, um zur Detailseite zu wechseln
+                    //  Buchdetailbildschirms
+                    //  Navigator.push 
                   },
                   child: Container(
-                    margin: EdgeInsets.all(8),
-                    child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: SizedBox(
                       width: 80,
                       height: 100,
                       child: Image.asset(
-                        unreadBooks[bookKey]!['image']!, // Verwende Image.asset für lokale Bilder
+                        unreadBooks[bookKey]!['image']!, 
                         fit: BoxFit.cover,
                       ),
                     ),

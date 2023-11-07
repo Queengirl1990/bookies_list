@@ -3,10 +3,12 @@ import 'styles.dart';
 import 'datenbank.dart';
 
 void main() {
-  runApp(WishListApp());
+  runApp(const WishListApp());
 }
 
 class WishListApp extends StatelessWidget {
+  const WishListApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,7 @@ class WishListApp extends StatelessWidget {
       theme: ThemeData(
         backgroundColor: darkRed,
       ),
-      home: WishListScreen(),
+      home: const WishListScreen(),
     );
   }
 }
@@ -48,7 +50,7 @@ class _WishListScreenState extends State<WishListScreen> {
         children: [
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3, 
                 childAspectRatio: 80 / 100, 
               ),
@@ -57,12 +59,12 @@ class _WishListScreenState extends State<WishListScreen> {
                 final bookKey = wishList.keys.elementAt(index); 
                 return GestureDetector(
                   onTap: () {
-                    // Logik zum Öffnen des Buchdetailbildschirms hinzufügen
+                    //  Buchdetailbildschirms 
                     // Navigator.push 
                   },
                   child: Container(
-                    margin: EdgeInsets.all(8),
-                    child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: SizedBox(
                       width: 80,
                       height: 100,
                       child: Image.asset(
