@@ -1,3 +1,4 @@
+//ungelesen
 Map<String, Map<String, String>> unreadBooks = {
   'Außerhalb der Schatten II': {
     'title': 'Außerhalb der Schatten II',
@@ -61,6 +62,8 @@ Map<String, Map<String, String>> unreadBooks = {
   }
 };
 
+//gelesen
+
 Map<String, Map<String, String>> readBooks = {
   'Außerhalb der Schatten I': {
     'title': 'Außerhalb der Schatten I',
@@ -94,6 +97,7 @@ Map<String, Map<String, String>> readBooks = {
   },
 };
 
+//Profil Karusell
 class BookInfo {
   final String title;
   final String author;
@@ -122,3 +126,43 @@ final List<String> bookCoverAssets = [
   'assets/images/verborgene-magie.jpeg',
   'assets/images/bad-at-love.jpeg',
 ];
+
+//wunschliste
+  Map<String, Map<String, String>> wishList = {
+  'Autumn & Leaf': {
+    'title': 'Autumn & Leaf',
+    'author': 'J. K. Bloom',
+    'year': '2020',
+    'image': 'assets/images/autumn-leaf.jpeg',
+  },
+   'Die Drachenhexe I': {
+    'title': 'Die Drachenhexe I',
+    'author': 'J. K. Bloom',
+    'year': '2019',
+    'image': 'assets/images/die-drachenhexe.jpeg', 
+  },
+  'On My Way': {
+    'title': 'On My Way',
+    'author': 'Melanie Galsheimer',
+    'year': '2023',
+    'image': 'assets/images/on-my-way.jpeg',
+  },
+  'Mister Liberty II': {
+    'title': 'Mister Liberty II',
+    'author': 'Levi Elliot',
+    'year': '2023',
+    'image': 'assets/images/mister-liberty.jpeg',
+  },
+  'Bullshit-Bingo': {
+    'title': 'Bullshit-Bingo',
+    'author': 'Ina Taus',
+    'year': '2021',
+    'image': 'assets/images/bullshit-bingo.jpeg',
+  },
+  'Homecoming: Zurück zu dir': {
+    'title': 'Homecoming: Zurück zu dir',
+    'author': 'Jacqueline Nikel',
+    'year': '2022',
+    'image': 'assets/images/Homecoming.jpeg',
+  }
+};
