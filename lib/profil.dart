@@ -1,35 +1,7 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
-class BookInfo {
-  final String title;
-  final String author;
-  final String genre;
-  final String buttonLabel;
-
-  BookInfo(this.title, this.author, this.genre, this.buttonLabel);
-}
-
-final Map<String, BookInfo> bookInfoMap = {
-  'Außerhalb der Schatten I': BookInfo('Außerhalb der Schatten I', 'Mandy J. Hard', 'Fantasy', 'Jetzt Lesen'),
-  'Fourth Wings I': BookInfo('Fourth Wings I', 'Rebecca Yarros', 'Fantasy', 'Jetzt Lesen'),
-  'Huskyküsse': BookInfo('Huskyküsse', 'Maria Winter', 'Romantik', 'Jetzt Lesen'),
-  'Keep my silent Heart': BookInfo('Keep my silent Heart', 'Sazou G.', 'Romantik', 'Jetzt Lesen'),
-  'Wicca Creed I': BookInfo('Wicca Creed I', 'Marah Woolf', 'Fantasy', 'Jetzt Lesen'),
-  'Ravenhall Academy II': BookInfo('Ravenhall Academy II', 'Julia Kuhn', 'Fantasy', 'Jetzt Lesen'),
-  'Bad At Love': BookInfo('Bad At Love', 'Julia Kuhn', 'New Adult Roman', 'Jetzt Lesen'),
-};
-
-final List<String> bookCoverAssets = [
-  'assets/images/das-ist-erst.jpg',
-  'assets/images/Fourth_wings.jpg',
-  'assets/images/Huskyküsse.jpg',
-  'assets/images/keep-my.jpg',
-  'assets/images/wiccacreed.jpeg',
-  'assets/images/verborgene-magie.jpeg',
-  'assets/images/bad-at-love.jpeg',
-];
+import 'datenbank.dart'; // Importiere datenbank.dart
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -44,7 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
-  const MyCircularAvatar({super.key});
+  const MyCircularAvatar({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +48,7 @@ class MyCircularAvatar extends StatelessWidget {
 }
 
 class MyProfilPage extends StatelessWidget {
-  const MyProfilPage({super.key});
+  const MyProfilPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +56,7 @@ class MyProfilPage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
-          actions: const [], // Leere die actions-Liste, um den Avatar in der AppBar zu entfernen
+          actions: const [], 
           title: const Text(
             "Mein Profil",
             style: TextStyle(
@@ -118,7 +90,7 @@ class MyProfilPage extends StatelessWidget {
                   // Aktion einbauen
                 },
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black, backgroundColor: Colors.white, // Textfarbe
+                  primary: darkMode, 
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -128,7 +100,7 @@ class MyProfilPage extends StatelessWidget {
               ),
               const SizedBox( //Container Linienbreite
                 width: 320,
-                child: Divider(
+                child: const Divider( 
                   color: Colors.white,
                   height: 20,
                 ),
@@ -136,16 +108,16 @@ class MyProfilPage extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  const SizedBox(width: 10), 
+                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  const SizedBox(width: 10), 
+                  const Icon(Icons.favorite, size: 20, color: lightGrey), 
                 ],
               ),
               const SizedBox( 
                 width: 320,
-                child: Divider(
+                child: const Divider( 
                   color: Colors.white,
                   height: 20,
                 ),
@@ -233,7 +205,7 @@ class MyProfilPage extends StatelessWidget {
                 Navigator.of(context).pop(); 
               },
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: darkRed, // Textfarbe
+                primary: darkRed, // 
                 elevation: 5,
               ),
               child: Text(

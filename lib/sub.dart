@@ -78,10 +78,9 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
                 crossAxisCount: 3, // Zeige immer 3 Bücher nebeneinander
                 childAspectRatio: 80 / 100, // Größe des Buches auf 80x100
               ),
-              itemCount: booksDatabase.length,
+              itemCount: unreadBooks.length, // Verwende die unreadBooks Map aus der datenbank.dart
               itemBuilder: (context, index) {
-                final bookKey = booksDatabase.keys.elementAt(index);
-                final bookData = booksDatabase[bookKey];
+                final bookKey = unreadBooks.keys.elementAt(index); // Verwende die unreadBooks Map aus der datenbank.dart
                 return GestureDetector(
                   onTap: () {
                     // Hier kannst du die Logik zum Öffnen des Buchdetailbildschirms hinzufügen
@@ -92,8 +91,8 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
                     child: Container(
                       width: 80,
                       height: 100,
-                      child: Image.network(
-                        bookData!['image']!,
+                      child: Image.asset(
+                        unreadBooks[bookKey]!['image']!, // Verwende Image.asset für lokale Bilder
                         fit: BoxFit.cover,
                       ),
                     ),
