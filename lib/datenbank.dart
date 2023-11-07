@@ -212,3 +212,25 @@ final List<String> bookCoverAssets = [
     'image': 'assets/images/written-in-blood.png',
   }
 };
+
+// verschenken
+  Map<String, Map<String, String>> giveAway = {
+  'better with someone else': {
+    'title': 'better with someone else',
+    'author': 'Ina Taus',
+    'year': '2023',
+    'image': 'assets/images/better-with.jpeg',
+  },
+  'Friends, Lovers and the Big Terrible Thing': {
+    'title': 'Friends, Lovers and the Big Terrible Thing',
+    'author': 'Matthew Perry',
+    'year': '2022',
+    'image': 'assets/images/matt-perry.jpeg',
+  },
+  'Eine letzte Chance I': {
+    'title': 'Eine letzte Chance',
+    'author': 'Jaliah J.',
+    'year': '2021',
+    'image': 'assets/images/eine.jpeg',
+  }
+};
