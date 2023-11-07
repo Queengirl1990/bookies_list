@@ -1,6 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'styles.dart';
+import 'datenbank.dart';
+import 'home.dart';
+
+void main() {
+  runApp(UnreadBooksApp());
+}
+
+class UnreadBooksApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Unread Books App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: UnreadBooksScreen(),
+    );
+  }
+}
 
 class UnreadBooksScreen extends StatefulWidget {
   const UnreadBooksScreen({Key? key}) : super(key: key);
@@ -25,8 +44,9 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           ),
         ),
         backgroundColor: darkRed,
+        elevation: 0,
       ),
-      backgroundColor: darkRed, // Hintergrundfarbe des Screens
+      backgroundColor: darkRed,
       bottomNavigationBar: CurvedNavigationBar(
         index: currentPageIndex,
         backgroundColor: darkRed,
@@ -34,8 +54,12 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
         buttonBackgroundColor: darkMode,
         onTap: (int index) {
           if (index == 0) {
-            // Zurück zum Homescreen
-            Navigator.pushNamed(context, '/');
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                builder: (context) => BookiesList(), // Hier den Namen deines BookiesList-Screens verwenden
+              ),
+              (route) => false,
+            );
           }
         },
         items: const <Widget>[
@@ -48,12 +72,36 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            width: double.infinity, // Breite des Bildes auf die Bildschirmbreite einstellen
-            height: 120,
-            child: Image.asset('assets/images/life_after.jpg'),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, // Zeige immer 3 Bücher nebeneinander
+                childAspectRatio: 80 / 100, // Größe des Buches auf 80x100
+              ),
+              itemCount: booksDatabase.length,
+              itemBuilder: (context, index) {
+                final bookKey = booksDatabase.keys.elementAt(index);
+                final bookData = booksDatabase[bookKey];
+                return GestureDetector(
+                  onTap: () {
+                    // Hier kannst du die Logik zum Öffnen des Buchdetailbildschirms hinzufügen
+                    // Du kannst z.B. Navigator.push verwenden, um zur Detailseite zu wechseln
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(8),
+                    child: Container(
+                      width: 80,
+                      height: 100,
+                      child: Image.network(
+                        bookData!['image']!,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
           ),
-          // Hier kannst du weitere Widgets für den Inhalt hinzufügen
         ],
       ),
     );

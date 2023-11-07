@@ -1,32 +1,42 @@
-Map<String, Map<String, String>> booksDatabase = {
+Map<String, Map<String, String>> geleseneBuecher = {
+  'Außerhalb der Schatten II': {
+    'title': 'Außerhalb der Schatten II',
+    'author': 'Mandy J. Hard',
+    'year': '2021',
+    'image': 'assets/images/wir-wollen.jpg',
+  },
+  // Füge hier andere gelesene Bücher hinzu
+};
+
+Map<String, Map<String, String>> ungeleseneBuecher = {
   'Außerhalb der Schatten I': {
     'title': 'Außerhalb der Schatten I',
     'author': 'MJ Hard',
     'year': '2020',
-    'image': 'https://bilder.buecher.de/produkte/61/61374/61374779n.jpg',
+    'image': 'assets/images/das-ist-erst.jpg',
   },
   'Vampires of Vensaya': {
-      'title': 'Vampires of Vensaya',
-      'author': 'Michael Jeremy Hard',
-      'year': '2020',
-      'image': 'https://www.inforius-bilder.de/bild/?I=i9VAgp4zcKxSzWi5lnhuWtsPfe6L09SBfd%2Boa0pjO6A%3D',
-    },
-    'Das Biest in ihm': {
-      'title': 'Das Biest in ihm',
-      'author': 'Serena Valentino',
-      'year': '2019',
-      'image': 'https://www.jugendbuch-couch.de/fileadmin/_processed_/7/4/csm_Das_Biest_c4b693978e.jpg',
-    },
-    'Keep my silent heart': {
-      'title': 'Keep my silent heart',
-      'author': 'Sazou G.',
-      'year': '2022',
-      'image': 'https://medien.umbreitkatalog.de/bildzentrale_original/978/375/653/2568.jpg',
-    },
-    'Ravenhall Academy I': {
-      'title': 'Ravenhall Academy I',
-      'author': 'Julia Kuhn',
-      'year': '2023',
-      'image': 'https://www.carlsen.de/sites/default/files/produkt/cover/verborgene-magie_4.jpg',
-    },
-  };
+    'title': 'Vampires of Vensaya',
+    'author': 'Michael Jeremy Hard',
+    'year': '2020',
+    'image': 'assets/images/vampires_of_vensaya.jpeg',
+  },
+  'Das Biest in ihm': {
+    'title': 'Das Biest in ihm',
+    'author': 'Serena Valentino',
+    'year': '2019',
+    'image': 'assets/images/das-biest.jpeg',
+  },
+  'Keep my silent heart': {
+    'title': 'Keep my silent heart',
+    'author': 'Sazou G.',
+    'year': '2022',
+    'image': 'assets/images/keep-my.jpg',
+  },
+  'Ravenhall Academy I': {
+    'title': 'Ravenhall Academy I',
+    'author': 'Julia Kuhn',
+    'year': '2023',
+    'image': 'assets/images/verborgene-magie.jpeg',
+  },
+};

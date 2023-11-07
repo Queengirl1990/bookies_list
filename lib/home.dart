@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'profil.dart'; 
-import 'styles.dart'; 
+import 'styles.dart';
+
 
 void main() {
   runApp(const Bookies());

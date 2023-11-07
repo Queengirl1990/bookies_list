@@ -184,7 +184,7 @@ class _LoginDemoState extends State<LoginDemo> {
                   style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
               ),
-              const SizedBox(height: 150),
+              const SizedBox(height: 100),
               Container(
                 width: 320,
                 height: 80, 

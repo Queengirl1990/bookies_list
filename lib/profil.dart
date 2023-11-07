@@ -27,7 +27,7 @@ final List<String> bookCoverAssets = [
   'assets/images/Huskyküsse.jpg',
   'assets/images/keep-my.jpg',
   'assets/images/wiccacreed.jpeg',
-  'assets/images/erwachte-magie.jpg',
+  'assets/images/verborgene-magie.jpeg',
   'assets/images/bad-at-love.jpeg',
 ];
 
