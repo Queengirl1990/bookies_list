@@ -99,7 +99,13 @@ flutter:
     - assets/images/mister-liberty.jpeg
     - assets/images/bullshit-bingo.jpeg
     - assets/images/Homecoming.jpeg
-
+    - assets/images/wing-special.webp
+    - assets/images/ruhe-vor-dem-sturm.jpg
+    - assets/images/hp-all.jpeg
+    - assets/images/all-in.jpg
+    - assets/images/stadt-der-freude.jpg
+    - assets/images/written-in-blood.png
+    - assets/images/trotze-der-nacht.png
 
   # images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

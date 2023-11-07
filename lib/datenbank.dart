@@ -166,3 +166,49 @@ final List<String> bookCoverAssets = [
     'image': 'assets/images/Homecoming.jpeg',
   }
 };
+
+// sonderband
+  Map<String, Map<String, String>> limitedEdition = {
+  'Fourth Wing (Special Edition)': {
+    'title': 'Fourth Wing',
+    'author': 'Rebecca Yarros',
+    'year': '2023',
+    'image': 'assets/images/wing-special.webp',
+  },
+   'Wie die Ruhe vor dem Sturm: Special Edition': {
+    'title': 'Wie die Ruhe vor dem Sturm',
+    'author': 'Brittainy C. Cherry',
+    'year': '2023',
+    'image': 'assets/images/ruhe-vor-dem-sturm.jpg', 
+  },
+  'Harry Potter - Gesamtausgabe': {
+    'title': 'Harry Potter - Gesamtausgabe',
+    'author': 'J. K. Rowling',
+    'year': '2023',
+    'image': 'assets/images/hp-all.jpeg',
+  },
+  'All In - Tausend Augenblicke: Special Edition': {
+    'title': 'All In - Tausend Augenblicke',
+    'author': 'Emma Scott',
+    'year': '2023',
+    'image': 'assets/images/all-in.jpg',
+  },
+    'Trotze der Nacht EXKLUSIVAUSGABE': {
+    'title': 'Trotze der Nacht',
+    'author': 'Brigid Kemmerer',
+    'year': '2023',
+    'image': 'assets/images/trotze-der-nacht.png',
+  },
+  'Die Stadt der Freude II SPECIAL EDITION': {
+    'title': 'Die Stadt der Freude II',
+    'author': 'Xiaoming Taiji, Anan',
+    'year': '2023',
+    'image': 'assets/images/stadt-der-freude.jpg',
+  },
+  'Written in Blood EXKLUSIVAUSGABE': {
+    'title': 'Written in Blood',
+    'author': 'Andrew Shvarts',
+    'year': '2023',
+    'image': 'assets/images/written-in-blood.png',
+  }
+};
