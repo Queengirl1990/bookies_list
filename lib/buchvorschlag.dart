@@ -50,7 +50,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
       backgroundColor: darkRed,
       body: Center(
         child: Container(
-          width: 320, // Breite des Containers auf 320 Pixel begrenzen
+          width: 320,  
           child: ListView.builder(
             itemCount: bookSuggestion.length,
             itemBuilder: (context, index) {
