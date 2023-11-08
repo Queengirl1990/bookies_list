@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'styles.dart';
 import 'datenbank.dart';
 
@@ -15,7 +16,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class RandomGeneratorScreen extends StatelessWidget {
+class RandomGeneratorScreen extends StatefulWidget {
+  @override
+  _RandomGeneratorScreenState createState() => _RandomGeneratorScreenState();
+}
+
+class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
+  int currentPageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +42,8 @@ class RandomGeneratorScreen extends StatelessWidget {
       ),
       backgroundColor: darkRed,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 20),
           const SizedBox(
             width: 320,
             child: Divider(
@@ -46,11 +54,11 @@ class RandomGeneratorScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.favorite, size: 20, color: lightGrey),
+              Icon(Icons.favorite, size: 20, color: Colors.grey), // Ändere lightGrey zu Colors.grey
               SizedBox(width: 10),
-              Icon(Icons.favorite, size: 20, color: lightGrey),
+              Icon(Icons.favorite, size: 20, color: Colors.grey), // Ändere lightGrey zu Colors.grey
               SizedBox(width: 10),
-              Icon(Icons.favorite, size: 20, color: lightGrey),
+              Icon(Icons.favorite, size: 20, color: Colors.grey), // Ändere lightGrey zu Colors.grey
             ],
           ),
           const SizedBox(
@@ -60,7 +68,7 @@ class RandomGeneratorScreen extends StatelessWidget {
               height: 20,
             ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           Text(
             "Was möchtest du heute lesen",
             style: TextStyle(
@@ -90,6 +98,34 @@ class RandomGeneratorScreen extends StatelessWidget {
               },
             ),
           ),
+          const SizedBox(height: 20),
+          MyButton(
+            text: "Generator Starten",
+            onPressed: () {
+              // Funktion
+            },
+          ),
+          const SizedBox(height: 20),
+        ],
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: currentPageIndex,
+        backgroundColor: darkRed,
+        color: darkMode,
+        buttonBackgroundColor: darkMode,
+        onTap: (int index) {
+          setState(() {
+            currentPageIndex = index;
+            if (index == 1) {
+              Navigator.pushNamed(context, '/unreadBooks');
+            }
+          });
+        },
+        items: const <Widget>[
+          Icon(Icons.home, size: 30, color: Colors.white),
+          Icon(Icons.menu_book, size: 30, color: Colors.white),
+          Icon(Icons.settings, size: 30, color: Colors.white),
+          Icon(Icons.help_outline, size: 30, color: darkRed), 
         ],
       ),
     );
@@ -150,7 +186,7 @@ class MyButton extends StatelessWidget {
           ),
         ),
         child: Container(
-          width: 95,
+          width: 200,
           height: 40,
           alignment: Alignment.center,
           child: Text(
@@ -165,4 +201,3 @@ class MyButton extends StatelessWidget {
     );
   }
 }
-
