@@ -3,10 +3,12 @@ import 'styles.dart';
 import 'datenbank.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,6 +37,15 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
             // Zurücknavigieren
           },
         ),
+        title: Text(
+          'Deine Vorschläge',
+          style: TextStyle(
+            fontFamily: 'DancingScript',
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+            color: Colors.white,
+          ),
+        ),
       ),
       backgroundColor: darkRed,
       body: ListView.builder(
@@ -56,8 +67,9 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                 const SizedBox(
                   width: 320,
                   child: Divider(
-                    color: Colors.white,
+                    color: snowWhite,
                     height: 20,
+                    thickness: 2,
                   ),
                 ),
                 Row(
@@ -70,11 +82,12 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                     Icon(Icons.favorite, size: 20, color: Colors.grey),
                   ],
                 ),
-                 const SizedBox( 
+                const SizedBox( 
                 width: 320,
                 child: const Divider( 
-                  color: Colors.white,
+                  color: snowWhite,
                   height: 20,
+                  thickness: 2,
                 ),
               ),
                 SizedBox(height: 10),
@@ -99,7 +112,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                             ),
                           ),
                           Text(
-                            'Autor: $bookAuthor',
+                            'Author: $bookAuthor',
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -111,7 +124,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                             ),
                           ),
                           Text(
-                            'Veröffentlichung: $bookYear',
+                            'Year: $bookYear',
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -133,7 +146,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                 SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
-                    // Interaktion hinzufügen
+                    // Hier kannst du die Interaktion hinzufügen
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,

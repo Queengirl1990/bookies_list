@@ -4,19 +4,23 @@ import 'styles.dart';
 import 'datenbank.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: RandomGeneratorScreen(),
     );
   }
 }
 
 class RandomGeneratorScreen extends StatefulWidget {
+  const RandomGeneratorScreen({super.key});
+
   @override
   _RandomGeneratorScreenState createState() => _RandomGeneratorScreenState();
 }
@@ -31,12 +35,12 @@ class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
         backgroundColor: darkRed,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             // Zurücknavigieren
           },
         ),
-        actions: [
+        actions: const [
           MyCircularAvatar(),
         ],
       ),
@@ -51,7 +55,7 @@ class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
               height: 20,
             ),
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.favorite, size: 20, color: Colors.grey), // Ändere lightGrey zu Colors.grey
@@ -68,8 +72,8 @@ class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
               height: 20,
             ),
           ),
-          SizedBox(height: 10),
-          Text(
+          const SizedBox(height: 10),
+          const Text(
             "Was möchtest du heute lesen",
             style: TextStyle(
               fontFamily: 'DancingScript',
@@ -83,7 +87,7 @@ class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
           ),
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 3.17,
               ),
@@ -168,17 +172,17 @@ class MyButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  MyButton({required this.text, required this.onPressed});
+  const MyButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.white),
-          padding: MaterialStateProperty.all(EdgeInsets.all(0)),
+          padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
@@ -191,7 +195,7 @@ class MyButton extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
               color: Colors.black,
             ),
