@@ -48,58 +48,102 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
           final bookImage = bookData['image']!;
           final bookBlurb = bookData['blurb']!;
 
-          return Column(
-            children: [
-              const SizedBox(
+          return Container(
+            width: 320,
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              children: [
+                const SizedBox(
+                  width: 320,
+                  child: Divider(
+                    color: Colors.white,
+                    height: 20,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.favorite, size: 20, color: Colors.grey),
+                    SizedBox(width: 10),
+                    Icon(Icons.favorite, size: 20, color: Colors.grey),
+                    SizedBox(width: 10),
+                    Icon(Icons.favorite, size: 20, color: Colors.grey),
+                  ],
+                ),
+                 const SizedBox( 
                 width: 320,
-                child: Divider(
+                child: const Divider( 
                   color: Colors.white,
                   height: 20,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.favorite, size: 20, color: Colors.grey),
-                  SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: Colors.grey),
-                  SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: Colors.grey),
-                ],
-              ),
-              SizedBox(height: 10),
-              Image.asset(bookImage, width: 100, height: 150),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  bookTitle,
-                  style: TextStyle(
-                    fontFamily: 'DancingScript',
-                    fontWeight: FontWeight.normal,
-                    fontSize: 18,
-                    color: Colors.white,
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(bookImage, width: 100, height: 150),
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            bookTitle,
+                            style: TextStyle(
+                              fontFamily: 'DancingScript',
+                              fontWeight: FontWeight.normal,
+                              fontSize: 18,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            'Autor: $bookAuthor',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            'Genre: $bookGenre',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            'Veröffentlichung: $bookYear',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    bookBlurb,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Author: $bookAuthor\nGenre: $bookGenre\nYear: $bookYear',
-                  style: TextStyle(
-                    color: Colors.white,
+                SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    // Interaktion hinzufügen
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.black,
+                    elevation: 5,
                   ),
+                  child: Text("Auswählen"),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  bookBlurb,
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),
