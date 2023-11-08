@@ -51,25 +51,27 @@ class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
           const SizedBox(
             width: 320,
             child: Divider(
-              color: Colors.white,
-              height: 20,
+              color: snowWhite,
+                  height: 20,
+                  thickness: 2,
             ),
           ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.favorite, size: 20, color: Colors.grey), // Ändere lightGrey zu Colors.grey
+              Icon(Icons.favorite, size: 20, color: lightGrey), 
               SizedBox(width: 10),
-              Icon(Icons.favorite, size: 20, color: Colors.grey), // Ändere lightGrey zu Colors.grey
+              Icon(Icons.favorite, size: 20, color: lightGrey), 
               SizedBox(width: 10),
-              Icon(Icons.favorite, size: 20, color: Colors.grey), // Ändere lightGrey zu Colors.grey
+              Icon(Icons.favorite, size: 20, color: lightGrey), 
             ],
           ),
           const SizedBox(
             width: 320,
             child: Divider(
-              color: Colors.white,
-              height: 20,
+              color: snowWhite,
+                  height: 20,
+                  thickness: 2,
             ),
           ),
           const SizedBox(height: 10),
@@ -102,14 +104,14 @@ class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
               },
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 30),
           MyButton(
             text: "Generator Starten",
             onPressed: () {
               // Funktion
             },
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 50),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -142,8 +144,8 @@ class MyCircularAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
+      width: 50,
+      height: 50,
       decoration: BoxDecoration(
         color: Colors.white,
         shape: BoxShape.circle,
@@ -152,15 +154,15 @@ class MyCircularAvatar extends StatelessWidget {
             color: Colors.black.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: const Offset(0, 0),
+            offset: const Offset(1, 1),
           ),
         ],
       ),
       child: ClipOval(
         child: Image.asset(
           'assets/images/avatar.png',
-          width: 100,
-          height: 100,
+          width: 50,
+          height: 50,
           fit: BoxFit.cover,
         ),
       ),

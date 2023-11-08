@@ -112,7 +112,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                               ),
                             ),
                             Text(
-                              'Author: $bookAuthor',
+                              'Autor: $bookAuthor',
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -124,7 +124,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                               ),
                             ),
                             Text(
-                              'Year: $bookYear',
+                              'Veröffentlichung: $bookYear',
                               style: TextStyle(
                                 color: Colors.white,
                               ),
