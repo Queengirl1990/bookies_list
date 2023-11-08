@@ -234,3 +234,34 @@ final List<String> bookCoverAssets = [
     'image': 'assets/images/eine.jpeg',
   }
 };
+
+//Button Zufallsgenerator
+List<String> buttonTitles = [
+  "Krimi",
+  "Fantasy",
+  "Thriller",
+  "Liebesroman",
+  "Science Fiction",
+  "Young Adult",
+  "Familienroman",
+  "Reiseroman",
+  "Erotik",
+  "Horror",
+  "New Adult",
+  "Romantasy",
+  "High Fantasy",
+  "Ratgeber",
+  "Biographie",
+  "Humor",
+  "Tatsachen",
+  "Fanfiction",
+  "Gesellschaft",
+  "Historisches",
+  "Sachbuch",
+  "Abenteuer",
+  "Gedichte",
+  "Zeitgeschichte",
+  "Anime",
+  "Comic",
+  "Fachbuch",
+];
