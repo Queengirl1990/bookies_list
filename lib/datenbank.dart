@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'styles.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+
 //ungelesen
 Map<String, Map<String, String>> unreadBooks = {
   'Außerhalb der Schatten II': {
@@ -310,3 +314,76 @@ List<BookData> bookSuggestion = [
     image: 'assets/images/destroyed-hearts.jpeg',
   ),
 ];
+
+//aktuelles buch
+
+Widget bookInfoContainer(double bookProgress) {
+  return Container(
+    width: 320,
+    color: darkRed,
+    child: Row(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Life after you",
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+                color: snowWhite,
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              "Mandy J. Hard",
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.normal,
+                fontSize: 12,
+                color: snowWhite,
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              "Kategorie",
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.normal,
+                fontSize: 12,
+                color: snowWhite,
+              ),
+            ),
+            Text(
+              "New Adult",
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.normal,
+                fontSize: 12,
+                color: snowWhite,
+              ),
+            ),
+            const SizedBox(height: 10),
+            ClipRRect(
+              child: LinearPercentIndicator(
+                width: 200,
+                lineHeight: 14.0,
+                percent: bookProgress,
+                center: Text('${(bookProgress * 100).toStringAsFixed(0)}%'),
+                progressColor: snowWhite,
+                linearStrokeCap: LinearStrokeCap.roundAll,
+              ),
+            )
+          ],
+        ),
+        const SizedBox(width: 50),
+        SizedBox(
+          width: 70,
+          height: 140,
+          child: Image.asset('assets/images/life_after.jpg'),
+        ),
+      ],
+    ),
+  );
+}
