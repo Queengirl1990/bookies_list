@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'bookiesList-widgets.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,26 +57,18 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double bookProgress = 0.85; // Fortschritt auf 85%
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: darkRed,
         elevation: 0,
         actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 40),
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  ),
-                ),
-                myCircularAvatar(),
-              ],
-            ),
+          Icon(
+            Icons.add,
+            color: Colors.white,
           ),
+          myCircularAvatar(),
         ],
       ),
       backgroundColor: darkRed,
@@ -93,78 +86,77 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
             ),
           ),
           const SizedBox(height: 20), // Abstand zum Container
-Container(
-  width: 320,
-  color: darkRed,
-  child: Row(
-    children: [
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "Life after you",
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-              color: snowWhite,
+          Container(
+            width: 320,
+            color: darkRed,
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Life after you",
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: snowWhite,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "Mandy J. Hard",
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal,
+                        fontSize: 12,
+                        color: snowWhite,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "Kategorie",
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal,
+                        fontSize: 12,
+                        color: snowWhite,
+                      ),
+                    ),
+                    Text(
+                      "New Adult",
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal,
+                        fontSize: 12,
+                        color: snowWhite,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                  ClipRRect(
+                    child: LinearPercentIndicator(
+                    width: 200,
+                    lineHeight: 14.0,
+                    percent: bookProgress,
+                    center: Text('${(bookProgress * 100).toStringAsFixed(0)}%'),
+                    progressColor: snowWhite, 
+                    linearStrokeCap: LinearStrokeCap.roundAll, 
+                    ),
+                    )
+                  ],
+                ),
+                const SizedBox(width: 50),
+                SizedBox(
+                  width: 70,
+                  height: 140,
+                  child: Image.asset('assets/images/life_after.jpg'),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 5),
-          const Text(
-            "Mandy J. Hard",
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.normal,
-              fontSize: 12,
-              color: snowWhite,
-            ),
-          ),
-          const SizedBox(height: 5),
-          const Text(
-            "Kategorie",
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.normal,
-              fontSize: 1,
-              color: snowWhite,
-            ),
-          ),
-          const Text(
-            "New Adult",
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.normal,
-              fontSize: 12,
-              color: snowWhite,
-            ),
-          ),
-          const Text(
-            '350 von 415 Seiten',
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.normal,
-              fontSize: 12,
-              color: snowWhite,
-            ),
-          ),
-          const SizedBox(height: 10),
-        ],
-      ),
-      const SizedBox(width: 120), 
-      SizedBox(
-        width: 70,
-        height: 140,
-        child: Image.asset('assets/images/life_after.jpg'),
-      ),
-    ],
-  ),
-),
-
           MyDividerWithIcons(),
         ],
       ),
     );
   }
 }
-
