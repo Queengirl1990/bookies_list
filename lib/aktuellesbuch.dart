@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'bookiesList-widgets.dart';
+import 'datenbank.dart'; 
 import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
@@ -75,7 +76,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(height: 20), // Abstand zur Appbar
+          const SizedBox(height: 20), 
           const Text(
             "Aktueller Lesestoff",
             style: TextStyle(
@@ -85,75 +86,10 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
               color: Colors.white,
             ),
           ),
-          const SizedBox(height: 20), // Abstand zum Container
-          Container(
-            width: 320,
-            color: darkRed,
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Life after you",
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                        color: snowWhite,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Mandy J. Hard",
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.normal,
-                        fontSize: 12,
-                        color: snowWhite,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Kategorie",
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.normal,
-                        fontSize: 12,
-                        color: snowWhite,
-                      ),
-                    ),
-                    Text(
-                      "New Adult",
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.normal,
-                        fontSize: 12,
-                        color: snowWhite,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                  ClipRRect(
-                    child: LinearPercentIndicator(
-                    width: 200,
-                    lineHeight: 14.0,
-                    percent: bookProgress,
-                    center: Text('${(bookProgress * 100).toStringAsFixed(0)}%'),
-                    progressColor: snowWhite, 
-                    linearStrokeCap: LinearStrokeCap.roundAll, 
-                    ),
-                    )
-                  ],
-                ),
-                const SizedBox(width: 50),
-                SizedBox(
-                  width: 70,
-                  height: 140,
-                  child: Image.asset('assets/images/life_after.jpg'),
-                ),
-              ],
-            ),
-          ),
+          const SizedBox(height: 20), 
+
+          bookInfoContainer(bookProgress),
+
           MyDividerWithIcons(),
         ],
       ),
