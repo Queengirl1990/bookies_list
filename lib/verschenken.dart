@@ -16,7 +16,6 @@ class GiveAwayApp extends StatelessWidget {
       title: 'Give Away App',
       theme: ThemeData(
         backgroundColor: darkRed,
-
       ),
       home: const GiveAwayScreen(),
     );
@@ -36,7 +35,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Give Away",
+          "Wunschliste",
           style: TextStyle(
             fontFamily: 'DancingScript',
             fontWeight: FontWeight.bold,
@@ -46,7 +45,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
         backgroundColor: darkRed,
         elevation: 0,
         actions: [
-          MyCircularAvatar(),
+          myCircularAvatar(),
         ],
       ),
       backgroundColor: darkRed,
@@ -58,10 +57,10 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
         itemCount: giveAway.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
-            // Erstes Element ist der "Neues Buch hinzufügen"-Button
+            //buch hinzufügen
             return GestureDetector(
               onTap: () {
-                // Hier können Sie die Funktion zum Hinzufügen eines neuen Buchs implementieren
+                // weiterleitung zu neues Buch
               },
               child: Container(
                 margin: const EdgeInsets.all(8),
@@ -97,11 +96,9 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
               ),
             );
           } else {
-            // Die restlichen Elemente sind die Buchcover
             final bookKey = giveAway.keys.elementAt(index - 1);
             return GestureDetector(
               onTap: () {
-                // Buchdetailbildschirms
                 // Navigator.push
               },
               child: Container(
@@ -121,37 +118,4 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
       ),
     );
   }
-}
-
-
-Widget MyCircularAvatar() {
-  return Row(
-    children: [
-      const SizedBox(width: 20),
-      Container(
-        width: 50,
-        height: 50,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(1, 1),
-            ),
-          ],
-        ),
-        child: ClipOval(
-          child: Image.asset(
-            'assets/images/avatar.png',
-            width: 50,
-            height: 50,
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    ],
-  );
 }

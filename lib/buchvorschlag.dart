@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'datenbank.dart';
+import 'bookiesList-widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: BookSuggestionScreen(),
     );
   }
@@ -48,11 +49,14 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
             color: Colors.white,
           ),
         ),
+        actions: [
+          myCircularAvatar(),
+        ],
       ),
       backgroundColor: darkRed,
       body: Center(
         child: SizedBox(
-          width: 320,  
+          width: 320,
           child: ListView.builder(
             itemCount: bookSuggestion.length,
             itemBuilder: (context, index) {
@@ -84,14 +88,14 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                       Icon(Icons.favorite, size: 20, color: lightGrey),
                     ],
                   ),
-                  const SizedBox( 
-                width: 320,
-                child: Divider( 
-                  color: snowWhite,
-                  height: 20,
-                  thickness: 2,
-                ),
-              ),
+                  const SizedBox(
+                    width: 320,
+                    child: Divider(
+                      color: snowWhite,
+                      height: 20,
+                      thickness: 2,
+                    ),
+                  ),
                   const SizedBox(height: 10),
                   Row(
                     children: [
@@ -151,7 +155,8 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                       // Hier kannst du die Interaktion hinzufügen
                     },
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.black, backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      backgroundColor: Colors.white,
                       elevation: 5,
                     ),
                     child: const Text("Auswählen"),
