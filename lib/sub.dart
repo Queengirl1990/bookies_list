@@ -53,6 +53,12 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
         ),
         backgroundColor: darkRed,
         elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            // Zurücknavigieren
+          },
+        ),
         actions: [
           myCircularAvatar(), // myCircularAvatar aufrufen
         ],
@@ -80,49 +86,70 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           Icon(Icons.help_outline, size: 30, color: Colors.white),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                childAspectRatio: 80 / 100,
-              ),
-              itemCount: unreadBooks.length,
-              itemBuilder: (context, index) {
-                final bookKey = unreadBooks.keys.elementAt(index);
-                return GestureDetector(
-                  onTap: () {
-                    // Buchdetailbildschirms
-                    // Navigator.push
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    child: SizedBox(
-                      width: 80,
-                      height: 100,
-                      child: Image.asset(
-                        unreadBooks[bookKey]!['image']!,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: addNewBook, // Funktion für "Neues Buch hinzufügen" aufrufen
-        tooltip: 'Neues Buch hinzufügen',
-        backgroundColor: darkRed,
-        child: const Icon(Icons.add),
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: lightGrey, width: 1),
-          borderRadius: BorderRadius.circular(50),
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          childAspectRatio: 80 / 100,
         ),
+        itemCount: unreadBooks.length + 1,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            // "Neues Buch hinzufügen"-Button
+            return GestureDetector(
+              onTap: addNewBook, // Funktion für "Neues Buch hinzufügen" aufrufen
+              child: Container(
+                margin: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: darkRed,
+                  borderRadius: BorderRadius.circular(8.0),
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1.0,
+                  ),
+                ),
+                child: SizedBox(
+                  width: 80,
+                  height: 100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.add,
+                        size: 40,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        "Neues Buch hinzufügen",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          } else {
+            final bookKey = unreadBooks.keys.elementAt(index - 1);
+            return GestureDetector(
+              onTap: () {
+                // Navigator.push
+              },
+              child: Container(
+                margin: const EdgeInsets.all(8),
+                child: SizedBox(
+                  width: 80,
+                  height: 100,
+                  child: Image.asset(
+                    unreadBooks[bookKey]!['image']!,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            );
+          }
+        },
       ),
     );
   }
