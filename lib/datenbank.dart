@@ -326,7 +326,7 @@ Widget bookInfoContainer(double bookProgress) {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Life after you",
               style: TextStyle(
                 fontFamily: 'Roboto',
@@ -336,7 +336,7 @@ Widget bookInfoContainer(double bookProgress) {
               ),
             ),
             const SizedBox(height: 5),
-            Text(
+            const Text(
               "Mandy J. Hard",
               style: TextStyle(
                 fontFamily: 'Roboto',
@@ -346,7 +346,7 @@ Widget bookInfoContainer(double bookProgress) {
               ),
             ),
             const SizedBox(height: 5),
-            Text(
+            const Text(
               "Kategorie",
               style: TextStyle(
                 fontFamily: 'Roboto',
@@ -355,7 +355,7 @@ Widget bookInfoContainer(double bookProgress) {
                 color: snowWhite,
               ),
             ),
-            Text(
+            const Text(
               "New Adult",
               style: TextStyle(
                 fontFamily: 'Roboto',

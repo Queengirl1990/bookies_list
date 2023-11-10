@@ -61,7 +61,7 @@ class _NewListScreenState extends State<NewListScreen> {
         backgroundColor: darkRed,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             // Aktion einfügen
           },
@@ -85,14 +85,14 @@ class _NewListScreenState extends State<NewListScreen> {
             ),
           ),
           const SizedBox(height: 20),
-          MyDividerWithIcons(),
+          const MyDividerWithIcons(),
           const SizedBox(height: 20),
-          Container(
+          SizedBox(
             width: 320,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Neue Liste anlegen",
                   style: TextStyle(
                     color: Colors.white,
@@ -100,7 +100,7 @@ class _NewListScreenState extends State<NewListScreen> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                TextField(
+                const TextField(
                     style: TextStyle(color: Colors.white, fontSize: 15, fontStyle: FontStyle.italic), 
                   decoration: InputDecoration(
                     hintText: "Neue Liste benennen",
@@ -110,7 +110,7 @@ class _NewListScreenState extends State<NewListScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Möchtest du die Liste Teilen können?",
                       style: TextStyle(
                         color: Colors.white,
@@ -134,8 +134,8 @@ class _NewListScreenState extends State<NewListScreen> {
               // Speichern-Button-Logik hier einfügen
             },
             style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              shape: RoundedRectangleBorder(
+              backgroundColor: Colors.white,
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(0),
@@ -144,14 +144,14 @@ class _NewListScreenState extends State<NewListScreen> {
                 ),
               ),
             ),
-            child: Text(
+            child: const Text(
               'Speichern',
               style: TextStyle(color: Colors.black),
             ),
           ),
 
           const SizedBox(height: 120),
-          MyDividerWithIcons(),
+          const MyDividerWithIcons(),
         ],
       ),
     );

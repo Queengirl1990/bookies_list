@@ -12,7 +12,7 @@ class LimitedEditionApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Limited Edition App',
+      title: 'Limited Edition',
       theme: ThemeData(
         backgroundColor: darkRed,
       ),

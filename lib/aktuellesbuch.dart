@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'bookiesList-widgets.dart';
 import 'datenbank.dart'; 
-import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,7 +64,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
         backgroundColor: darkRed,
         elevation: 0,
         actions: [
-          Icon(
+          const Icon(
             Icons.add,
             color: Colors.white,
           ),
@@ -90,7 +89,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
 
           bookInfoContainer(bookProgress),
 
-          MyDividerWithIcons(),
+          const MyDividerWithIcons(),
         ],
       ),
     );

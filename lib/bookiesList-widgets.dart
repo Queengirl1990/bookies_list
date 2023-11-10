@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'styles.dart';
 
 class MyDividerWithIcons extends StatelessWidget {
+  const MyDividerWithIcons({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         SizedBox(
           width: 320,

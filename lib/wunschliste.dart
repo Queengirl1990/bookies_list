@@ -14,7 +14,7 @@ class WishListApp extends StatelessWidget {
     return MaterialApp(
       title: 'Wish List App',
       theme: ThemeData(
-       backgroundColor: darkRed, 
+        backgroundColor: darkRed,
       ),
       home: const WishListScreen(),
     );

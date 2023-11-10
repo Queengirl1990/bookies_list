@@ -15,6 +15,7 @@ class GiveAwayApp extends StatelessWidget {
       title: 'Give Away App',
       theme: ThemeData(
         backgroundColor: darkRed,
+
       ),
       home: const GiveAwayScreen(),
     );

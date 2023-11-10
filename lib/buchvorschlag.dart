@@ -11,13 +11,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: BookSuggestionScreen(),
     );
   }
 }
 
 class BookSuggestionScreen extends StatefulWidget {
+  const BookSuggestionScreen({super.key});
+
   @override
   _BookSuggestionScreenState createState() => _BookSuggestionScreenState();
 }
@@ -32,12 +34,12 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
         backgroundColor: darkRed,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             // Zurücknavigieren
           },
         ),
-        title: Text(
+        title: const Text(
           'Deine Vorschläge',
           style: TextStyle(
             fontFamily: 'DancingScript',
@@ -49,7 +51,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
       ),
       backgroundColor: darkRed,
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: 320,  
           child: ListView.builder(
             itemCount: bookSuggestion.length,
@@ -72,7 +74,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                       thickness: 2,
                     ),
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.favorite, size: 20, color: lightGrey),
@@ -84,27 +86,27 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                   ),
                   const SizedBox( 
                 width: 320,
-                child: const Divider( 
+                child: Divider( 
                   color: snowWhite,
                   height: 20,
                   thickness: 2,
                 ),
               ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.asset(bookImage, width: 100, height: 150),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               bookTitle,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'DancingScript',
                                 fontWeight: FontWeight.normal,
                                 fontSize: 18,
@@ -113,19 +115,19 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                             ),
                             Text(
                               'Autor: $bookAuthor',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                               ),
                             ),
                             Text(
                               'Genre: $bookGenre',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                               ),
                             ),
                             Text(
                               'Veröffentlichung: $bookYear',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                               ),
                             ),
@@ -138,22 +140,21 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       bookBlurb,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: () {
                       // Hier kannst du die Interaktion hinzufügen
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      onPrimary: Colors.black,
+                      foregroundColor: Colors.black, backgroundColor: Colors.white,
                       elevation: 5,
                     ),
-                    child: Text("Auswählen"),
+                    child: const Text("Auswählen"),
                   ),
                 ],
               );
