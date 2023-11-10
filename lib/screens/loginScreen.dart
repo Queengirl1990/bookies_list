@@ -1,13 +1,13 @@
-import 'package:bookieslist/home.dart';
+import 'package:bookieslist/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'styles.dart';
+import '../styles.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginDemo extends StatefulWidget {
-  const LoginDemo({Key? key}) : super(key: key);
+  const LoginDemo({super.key});
 
   @override
   _LoginDemoState createState() => _LoginDemoState();

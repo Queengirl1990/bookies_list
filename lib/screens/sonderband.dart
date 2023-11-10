@@ -1,52 +1,66 @@
 import 'package:flutter/material.dart';
-import 'styles.dart';
-import 'datenbank.dart';
-import 'bookiesList-widgets.dart';
+import '../styles.dart';
+import '../datenbank.dart';
+import '../bookiesList-widgets.dart';
 
 void main() {
-  runApp(const GiveAwayApp());
+  runApp(const LimitedEditionApp());
 }
 
-class GiveAwayApp extends StatelessWidget {
-  const GiveAwayApp({super.key});
+class LimitedEditionApp extends StatelessWidget {
+  const LimitedEditionApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Give Away App',
+      title: 'Limited Edition',
       theme: ThemeData(
         backgroundColor: darkRed,
       ),
-      home: const GiveAwayScreen(),
+      home: const LimitedEditionScreen(),
     );
   }
 }
 
-class GiveAwayScreen extends StatefulWidget {
-  const GiveAwayScreen({Key? key}) : super(key: key);
+class LimitedEditionScreen extends StatefulWidget {
+  const LimitedEditionScreen({super.key});
 
   @override
-  _GiveAwayScreenState createState() => _GiveAwayScreenState();
+  _LimitedEditionScreenState createState() => _LimitedEditionScreenState();
 }
 
-class _GiveAwayScreenState extends State<GiveAwayScreen> {
+class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
+  void addNewBook() {
+    // neues Buch
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Wunschliste",
-          style: TextStyle(
-            fontFamily: 'DancingScript',
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-          ),
+        title: Row(
+          children: [
+            IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                // Pfad
+              },
+            ),
+            Text(
+              "Limited Edition",
+              style: TextStyle(
+                fontFamily: 'DancingScript',
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
+            ),
+          ],
         ),
-        backgroundColor: darkRed,
-        elevation: 0,
         actions: [
           myCircularAvatar(),
         ],
+        backgroundColor: darkRed,
+        elevation: 0,
       ),
       backgroundColor: darkRed,
       body: GridView.builder(
@@ -54,14 +68,11 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
           crossAxisCount: 3,
           childAspectRatio: 80 / 100,
         ),
-        itemCount: giveAway.length + 1,
+        itemCount: limitedEdition.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
-            //buch hinzufügen
             return GestureDetector(
-              onTap: () {
-                // weiterleitung 
-              },
+              onTap: addNewBook,
               child: Container(
                 margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -96,7 +107,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
               ),
             );
           } else {
-            final bookKey = giveAway.keys.elementAt(index - 1);
+            final bookKey = limitedEdition.keys.elementAt(index - 1);
             return GestureDetector(
               onTap: () {
                 // Navigator.push
@@ -107,7 +118,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
                   width: 80,
                   height: 100,
                   child: Image.asset(
-                    giveAway[bookKey]!['image']!,
+                    limitedEdition[bookKey]!['image']!,
                     fit: BoxFit.cover,
                   ),
                 ),

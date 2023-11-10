@@ -1,67 +1,59 @@
 import 'package:flutter/material.dart';
-import 'styles.dart';
-import 'datenbank.dart';
-import 'bookiesList-widgets.dart';
+import '../styles.dart';
+import '../datenbank.dart';
+import '../bookiesList-widgets.dart';
 
 void main() {
-  runApp(const LimitedEditionApp());
+  runApp(const GiveAwayApp());
 }
 
-class LimitedEditionApp extends StatelessWidget {
-  const LimitedEditionApp({Key? key}) : super(key: key);
+class GiveAwayApp extends StatelessWidget {
+  const GiveAwayApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Limited Edition',
+      title: 'Give Away App',
       theme: ThemeData(
         backgroundColor: darkRed,
       ),
-      home: const LimitedEditionScreen(),
+      home: const GiveAwayScreen(),
     );
   }
 }
 
-class LimitedEditionScreen extends StatefulWidget {
-  const LimitedEditionScreen({Key? key}) : super(key: key);
+class GiveAwayScreen extends StatefulWidget {
+  const GiveAwayScreen({super.key});
 
   @override
-  _LimitedEditionScreenState createState() => _LimitedEditionScreenState();
+  _GiveAwayScreenState createState() => _GiveAwayScreenState();
 }
 
-class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
-  void addNewBook() {
-    // Hier die Logik für das Hinzufügen eines neuen Buches implementieren
-    // Zum Beispiel: Navigator.push(...) für das Hinzufügen einer neuen Buchseite
-  }
-
+class _GiveAwayScreenState extends State<GiveAwayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                // Implementiere die Funktionalität für den Zurück-Pfeil hier
-              },
-            ),
-            Text(
-              "Limited Edition",
-              style: TextStyle(
-                fontFamily: 'DancingScript',
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
-              ),
-            ),
-          ],
+        title: const Text(
+          "Wunschliste",
+          style: TextStyle(
+            fontFamily: 'DancingScript',
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+        backgroundColor: darkRed,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            // Pfad
+            Navigator.pop(context);
+          },
         ),
         actions: [
           myCircularAvatar(),
         ],
-        backgroundColor: darkRed,
-        elevation: 0,
       ),
       backgroundColor: darkRed,
       body: GridView.builder(
@@ -69,11 +61,14 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
           crossAxisCount: 3,
           childAspectRatio: 80 / 100,
         ),
-        itemCount: limitedEdition.length + 1,
+        itemCount: giveAway.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
+            // buch hinzufügen
             return GestureDetector(
-              onTap: addNewBook,
+              onTap: () {
+                // weiterleitung
+              },
               child: Container(
                 margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -108,7 +103,7 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
               ),
             );
           } else {
-            final bookKey = limitedEdition.keys.elementAt(index - 1);
+            final bookKey = giveAway.keys.elementAt(index - 1);
             return GestureDetector(
               onTap: () {
                 // Navigator.push
@@ -119,7 +114,7 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
                   width: 80,
                   height: 100,
                   child: Image.asset(
-                    limitedEdition[bookKey]!['image']!,
+                    giveAway[bookKey]!['image']!,
                     fit: BoxFit.cover,
                   ),
                 ),

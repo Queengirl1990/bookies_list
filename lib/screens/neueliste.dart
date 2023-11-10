@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'styles.dart';
-import 'bookiesList-widgets.dart';
+import '../styles.dart';
+import '../bookiesList-widgets.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class NewListScreen extends StatefulWidget {
-  const NewListScreen({Key? key}) : super(key: key);
+  const NewListScreen({super.key});
 
   @override
   _NewListScreenState createState() => _NewListScreenState();
@@ -131,7 +131,7 @@ class _NewListScreenState extends State<NewListScreen> {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              // Speichern-Button-Logik hier einfügen
+              // Speichern
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,

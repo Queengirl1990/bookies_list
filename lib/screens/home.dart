@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'profil.dart'; 
-import 'styles.dart';
+import '../styles.dart';
 
 
 void main() {
@@ -9,7 +9,7 @@ void main() {
 }
 
 class Bookies extends StatelessWidget {
-  const Bookies({Key? key}) : super(key: key);
+  const Bookies({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +30,14 @@ class Bookies extends StatelessWidget {
 }
 
 class BookiesList extends StatefulWidget {
-  const BookiesList({Key? key}) : super(key: key);
+  const BookiesList({super.key});
 
   @override
   _BookiesListState createState() => _BookiesListState();
 }
 
 class UnreadBooksScreen extends StatelessWidget {
-  const UnreadBooksScreen({Key? key}) : super(key: key);
+  const UnreadBooksScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -326,7 +326,7 @@ class _BookiesListState extends State<BookiesList> {
 
   Widget _statusBox(String buttonText) {
     return Container(
-      width: 320, // funktioniert nicht
+      width: 320, //funktioniert nicht
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),

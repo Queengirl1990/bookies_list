@@ -1,39 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'styles.dart';
-import 'datenbank.dart';
-import 'home.dart';
-import 'bookiesList-widgets.dart';
+import '../styles.dart';
+import '../datenbank.dart';
+import '../bookiesList-widgets.dart';
 
 void main() {
-  runApp(const UnreadBooksApp());
+  runApp(const WishListApp());
 }
 
-class UnreadBooksApp extends StatelessWidget {
-  const UnreadBooksApp({super.key});
+class WishListApp extends StatelessWidget {
+  const WishListApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Unread Books App',
+      title: 'Wish List App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        backgroundColor: darkRed,
       ),
-      home: const UnreadBooksScreen(),
+      home: const WishListScreen(),
     );
   }
 }
 
-class UnreadBooksScreen extends StatefulWidget {
-  const UnreadBooksScreen({Key? key}) : super(key: key);
+class WishListScreen extends StatefulWidget {
+  const WishListScreen({super.key});
 
   @override
-  _UnreadBooksScreenState createState() => _UnreadBooksScreenState();
+  _WishListScreenState createState() => _WishListScreenState();
 }
 
-class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
-  int currentPageIndex = 1;
-
+class _WishListScreenState extends State<WishListScreen> {
   void addNewBook() {
     // buch hinzufügen
   }
@@ -43,58 +39,37 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Stapel ungelesener Bücher",
+          "Wunschliste",
           style: TextStyle(
             fontFamily: 'DancingScript',
             fontWeight: FontWeight.bold,
             fontSize: 24,
           ),
         ),
-        backgroundColor: darkRed,
-        elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
-            // Zurücknavigieren
+            // pfad
           },
         ),
         actions: [
-          myCircularAvatar(), 
+          myCircularAvatar(),
+          const SizedBox(width: 16),
         ],
+        backgroundColor: darkRed,
+        elevation: 0,
       ),
       backgroundColor: darkRed,
-      bottomNavigationBar: CurvedNavigationBar(
-        index: currentPageIndex,
-        backgroundColor: darkRed,
-        color: darkMode,
-        buttonBackgroundColor: darkMode,
-        onTap: (int index) {
-          if (index == 0) {
-            Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                builder: (context) => const BookiesList(),
-              ),
-              (route) => false,
-            );
-          }
-        },
-        items: const <Widget>[
-          Icon(Icons.home, size: 30, color: Colors.white),
-          Icon(Icons.menu_book, size: 30, color: Colors.white),
-          Icon(Icons.settings, size: 30, color: Colors.white),
-          Icon(Icons.help_outline, size: 30, color: Colors.white),
-        ],
-      ),
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           childAspectRatio: 80 / 100,
         ),
-        itemCount: unreadBooks.length + 1,
+        itemCount: wishList.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
             return GestureDetector(
-              onTap: addNewBook, 
+              onTap: addNewBook,
               child: Container(
                 margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -129,7 +104,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
               ),
             );
           } else {
-            final bookKey = unreadBooks.keys.elementAt(index - 1);
+            final bookKey = wishList.keys.elementAt(index - 1);
             return GestureDetector(
               onTap: () {
                 // Navigator.push
@@ -140,7 +115,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
                   width: 80,
                   height: 100,
                   child: Image.asset(
-                    unreadBooks[bookKey]!['image']!,
+                    wishList[bookKey]!['image']!,
                     fit: BoxFit.cover,
                   ),
                 ),

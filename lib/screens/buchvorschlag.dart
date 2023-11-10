@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'styles.dart';
-import 'datenbank.dart';
-import 'bookiesList-widgets.dart';
+import '../styles.dart';
+import '../datenbank.dart';
+import '../bookiesList-widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -152,7 +152,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                   const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: () {
-                      // Hier kannst du die Interaktion hinzufügen
+                      // funktion 
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.black,

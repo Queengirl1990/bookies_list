@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'styles.dart';
+import '../styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'datenbank.dart';
+import '../datenbank.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
-  const MyCircularAvatar({Key? key}) : super(key: key);
+  const MyCircularAvatar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class MyCircularAvatar extends StatelessWidget {
 }
 
 class MyProfilPage extends StatelessWidget {
-  const MyProfilPage({Key? key}) : super(key: key);
+  const MyProfilPage({super.key});
 
   @override
   Widget build(BuildContext context) {

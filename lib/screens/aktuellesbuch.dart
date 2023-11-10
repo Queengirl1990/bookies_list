@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'styles.dart';
-import 'bookiesList-widgets.dart';
-import 'datenbank.dart'; 
+import '../styles.dart';
+import '../bookiesList-widgets.dart';
+import '../datenbank.dart'; 
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 }
 
 class CurrentlyReadingScreen extends StatefulWidget {
-  const CurrentlyReadingScreen({Key? key}) : super(key: key);
+  const CurrentlyReadingScreen({super.key});
 
   @override
   _CurrentlyReadingScreenState createState() => _CurrentlyReadingScreenState();
@@ -63,6 +63,13 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
       appBar: AppBar(
         backgroundColor: darkRed,
         elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            // pfad 
+            Navigator.pop(context);
+          },
+        ),
         actions: [
           const Icon(
             Icons.add,
@@ -75,7 +82,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(height: 20), 
+          const SizedBox(height: 20),
           const Text(
             "Aktueller Lesestoff",
             style: TextStyle(
@@ -85,7 +92,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
               color: Colors.white,
             ),
           ),
-          const SizedBox(height: 20), 
+          const SizedBox(height: 20),
 
           bookInfoContainer(bookProgress),
 
