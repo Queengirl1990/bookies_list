@@ -60,7 +60,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
             //buch hinzufügen
             return GestureDetector(
               onTap: () {
-                // weiterleitung zu neues Buch
+                // weiterleitung 
               },
               child: Container(
                 margin: const EdgeInsets.all(8),

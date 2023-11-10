@@ -34,9 +34,8 @@ class UnreadBooksScreen extends StatefulWidget {
 class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
   int currentPageIndex = 1;
 
-  // Funktion für "Neues Buch hinzufügen"
   void addNewBook() {
-    // Implementiere hier die Logik für das Hinzufügen eines neuen Buchs
+    // buch hinzufügen
   }
 
   @override
@@ -60,7 +59,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           },
         ),
         actions: [
-          myCircularAvatar(), // myCircularAvatar aufrufen
+          myCircularAvatar(), 
         ],
       ),
       backgroundColor: darkRed,
@@ -94,9 +93,8 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
         itemCount: unreadBooks.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
-            // "Neues Buch hinzufügen"-Button
             return GestureDetector(
-              onTap: addNewBook, // Funktion für "Neues Buch hinzufügen" aufrufen
+              onTap: addNewBook, 
               child: Container(
                 margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
