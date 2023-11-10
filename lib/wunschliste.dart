@@ -59,7 +59,6 @@ class _WishListScreenState extends State<WishListScreen> {
                 final bookKey = wishList.keys.elementAt(index); 
                 return GestureDetector(
                   onTap: () {
-                    //  Buchdetailbildschirms 
                     // Navigator.push 
                   },
                   child: Container(
