@@ -3,6 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'styles.dart';
 import 'datenbank.dart';
 import 'home.dart';
+import 'bookiesList-widgets.dart';
 
 void main() {
   runApp(const UnreadBooksApp());
@@ -33,6 +34,11 @@ class UnreadBooksScreen extends StatefulWidget {
 class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
   int currentPageIndex = 1;
 
+  // Funktion für "Neues Buch hinzufügen"
+  void addNewBook() {
+    // Implementiere hier die Logik für das Hinzufügen eines neuen Buchs
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +53,9 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
         ),
         backgroundColor: darkRed,
         elevation: 0,
+        actions: [
+          myCircularAvatar(), // myCircularAvatar aufrufen
+        ],
       ),
       backgroundColor: darkRed,
       bottomNavigationBar: CurvedNavigationBar(
@@ -58,7 +67,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           if (index == 0) {
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
-                builder: (context) => const BookiesList(), 
+                builder: (context) => const BookiesList(),
               ),
               (route) => false,
             );
@@ -77,16 +86,16 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, 
-                childAspectRatio: 80 / 100, 
+                crossAxisCount: 3,
+                childAspectRatio: 80 / 100,
               ),
-              itemCount: unreadBooks.length, 
+              itemCount: unreadBooks.length,
               itemBuilder: (context, index) {
-                final bookKey = unreadBooks.keys.elementAt(index); 
+                final bookKey = unreadBooks.keys.elementAt(index);
                 return GestureDetector(
                   onTap: () {
-                    //  Buchdetailbildschirms
-                    //  Navigator.push 
+                    // Buchdetailbildschirms
+                    // Navigator.push
                   },
                   child: Container(
                     margin: const EdgeInsets.all(8),
@@ -94,7 +103,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
                       width: 80,
                       height: 100,
                       child: Image.asset(
-                        unreadBooks[bookKey]!['image']!, 
+                        unreadBooks[bookKey]!['image']!,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -104,6 +113,16 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: addNewBook, // Funktion für "Neues Buch hinzufügen" aufrufen
+        tooltip: 'Neues Buch hinzufügen',
+        backgroundColor: darkRed,
+        child: const Icon(Icons.add),
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: lightGrey, width: 1),
+          borderRadius: BorderRadius.circular(50),
+        ),
       ),
     );
   }
