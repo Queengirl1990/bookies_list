@@ -63,7 +63,7 @@ class _NewListScreenState extends State<NewListScreen> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            // aktion einfügen
+            // Aktion einfügen
           },
         ),
         actions: [
@@ -88,7 +88,7 @@ class _NewListScreenState extends State<NewListScreen> {
           MyDividerWithIcons(),
           const SizedBox(height: 20),
           Container(
-            width: 320, 
+            width: 320,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -101,8 +101,9 @@ class _NewListScreenState extends State<NewListScreen> {
                 ),
                 const SizedBox(height: 10),
                 TextField(
+                    style: TextStyle(color: Colors.white, fontSize: 15, fontStyle: FontStyle.italic), 
                   decoration: InputDecoration(
-                    hintText: "Listentitel",
+                    hintText: "Neue Liste benennen",
                     hintStyle: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -110,8 +111,11 @@ class _NewListScreenState extends State<NewListScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Teilbar?",
-                      style: TextStyle(color: Colors.white),
+                      "Möchtest du die Liste Teilen können?",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
                     ),
                     Switch(
                       value: false,
@@ -126,26 +130,28 @@ class _NewListScreenState extends State<NewListScreen> {
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-  onPressed: () {
-    // Logik einbauen
-  },
-  style: ElevatedButton.styleFrom(
-    primary: Colors.white,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(20),
-        topRight: Radius.circular(0),
-        bottomLeft: Radius.circular(20),
-        bottomRight: Radius.circular(20),
-      ),
-    ),
-  ),
-  child: Text(
-    'Speichern',
-    style: TextStyle(color: Colors.black),
-  ),
-),
+            onPressed: () {
+              // Speichern-Button-Logik hier einfügen
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(0),
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+              ),
+            ),
+            child: Text(
+              'Speichern',
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
 
+          const SizedBox(height: 120),
+          MyDividerWithIcons(),
         ],
       ),
     );
