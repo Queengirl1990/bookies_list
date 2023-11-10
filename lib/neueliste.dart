@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'bookiesList-widgets.dart';
-import 'datenbank.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,8 +56,6 @@ class _NewListScreenState extends State<NewListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double bookProgress = 0.85; // Fortschritt auf 85%
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: darkRed,
@@ -67,8 +63,7 @@ class _NewListScreenState extends State<NewListScreen> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            // Hier kannst du die Aktion hinzufügen, die beim Klicken auf den Zurück-Pfeil ausgeführt werden soll.
-            // Zum Beispiel die Navigation zur vorherigen Seite.
+            // aktion einfügen
           },
         ),
         actions: [
@@ -81,7 +76,7 @@ class _NewListScreenState extends State<NewListScreen> {
         children: [
           const SizedBox(height: 20),
           const Text(
-            "Aktueller Lesestoff",
+            "Neue Liste",
             style: TextStyle(
               fontFamily: 'DancingScript',
               fontWeight: FontWeight.normal,
@@ -91,6 +86,66 @@ class _NewListScreenState extends State<NewListScreen> {
           ),
           const SizedBox(height: 20),
           MyDividerWithIcons(),
+          const SizedBox(height: 20),
+          Container(
+            width: 320, 
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Neue Liste anlegen",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: "Listentitel",
+                    hintStyle: TextStyle(color: Colors.white),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Teilbar?",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Switch(
+                      value: false,
+                      onChanged: (bool newValue) {
+                        // Teilfunktion
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+  onPressed: () {
+    // Logik einbauen
+  },
+  style: ElevatedButton.styleFrom(
+    primary: Colors.white,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(20),
+        topRight: Radius.circular(0),
+        bottomLeft: Radius.circular(20),
+        bottomRight: Radius.circular(20),
+      ),
+    ),
+  ),
+  child: Text(
+    'Speichern',
+    style: TextStyle(color: Colors.black),
+  ),
+),
+
         ],
       ),
     );
