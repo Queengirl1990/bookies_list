@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'profil.dart'; 
+import 'profil.dart';
+import '../bookiesList-widgets.dart'; 
 import '../styles.dart';
-
 
 void main() {
   runApp(const Bookies());
@@ -84,9 +84,12 @@ class _BookiesListState extends State<BookiesList> {
           actions: [
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyProfilPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyProfilPage()),
+                );
               },
-              child: MyCircularAvatar(),
+              child: myCircularAvatar(),
             ),
           ],
         ),
@@ -115,7 +118,8 @@ class _BookiesListState extends State<BookiesList> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      _statusBox("Aktualisieren"),
+                      // _statusBox("Aktualisieren"), // Entfernt
+                      bookInfoContainer(0.5), // Hier wird die neue Funktion aufgerufen
                       const SizedBox(height: 16),
                     ],
                   ),
@@ -321,143 +325,6 @@ class _BookiesListState extends State<BookiesList> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _statusBox(String buttonText) {
-    return Container(
-      width: 320, //funktioniert nicht
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        color: snowWhite,
-        border: Border.all(color: Colors.grey),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            offset: Offset(0, 2),
-            blurRadius: 4,
-          ),
-        ],
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Life after you",
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                  color: darkMode,
-                ),
-              ),
-              const SizedBox(height: 5),
-              const Text(
-                "Mandy J. Hard",
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.normal,
-                  fontSize: 12,
-                  color: Colors.grey,
-                ),
-              ),
-              const SizedBox(height: 5),
-              const Text(
-                "Kategorie",
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.normal,
-                  fontSize: 10,
-                  color: Colors.grey,
-                ),
-              ),
-              const Text(
-                "New Adult",
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.normal,
-                  fontSize: 10,
-                  color: Colors.grey,
-                ),
-              ),
-              const Text(
-                '350 von 415 Seiten',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.normal,
-                  fontSize: 10,
-                  color: darkMode,
-                ),
-              ),
-              const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  // Aktion einfügen
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(snowWhite),
-                ),
-                child: Text(
-                  buttonText,
-                  style: const TextStyle(
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: darkMode,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(width: 100),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: 50,
-                height: 120,
-                child: Image.asset('assets/images/life_after.jpg'),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget MyCircularAvatar() {
-    return Row(
-      children: [
-        const SizedBox(width: 20), //umrandung
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.5),
-                spreadRadius: 2,
-                blurRadius: 5,
-                offset: const Offset(1, 1),
-              ),
-            ],
-          ),
-          child: ClipOval(
-            child: Image.asset(
-              'assets/images/avatar.png',
-              width: 50,
-              height: 50,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
