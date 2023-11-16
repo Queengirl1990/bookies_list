@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
+//Abtrennung
 class MyDividerWithIcons extends StatelessWidget {
   const MyDividerWithIcons({super.key});
 
@@ -40,7 +41,7 @@ class MyDividerWithIcons extends StatelessWidget {
   }
 }
 
-
+//Avatar
 Widget myCircularAvatar() {
   return Row(
     children: [
@@ -136,12 +137,13 @@ Widget bookInfoContainer(double bookProgress) {
             const SizedBox(height: 10),
             ClipRRect(
               child: LinearPercentIndicator(
-                width: 200,
+                width: 150,
                 lineHeight: 14.0,
                 percent: bookProgress,
                 center: Text('${(bookProgress * 100).toStringAsFixed(0)}%'),
-                progressColor: snowWhite,
+                progressColor: guelden,
                 linearStrokeCap: LinearStrokeCap.roundAll,
+                backgroundColor: const Color.fromARGB(255, 219, 217, 217), 
               ),
             ),
             const SizedBox(height: 10), 
@@ -164,13 +166,13 @@ Widget bookInfoContainer(double bookProgress) {
             ),
           ],
         ),
-        const SizedBox(width: 5),
+        const SizedBox(width: 25),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 75,
-              height: 120,
+              width: 90,
+              height: 130,
               child: Image.asset('assets/images/life_after.jpg'),
             ),
           ],
