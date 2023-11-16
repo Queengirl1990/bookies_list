@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../datenbank.dart';
+import '../bookiesList-widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -61,7 +62,7 @@ class MyProfilPage extends StatelessWidget {
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
           backgroundColor: darkRed,
-          elevation: 0, // Entferne den Schatten der AppBar
+          elevation: 0,
           actions: const [],
           title: const Text(
             "Mein Profil",
@@ -104,30 +105,7 @@ class MyProfilPage extends StatelessWidget {
                 ),
                 child: const Text("Bearbeiten"),
               ),
-              const SizedBox(
-                width: 320,
-                child: Divider(
-                  color: Colors.white,
-                  height: 20,
-                ),
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.favorite, size: 20, color: lightGrey),
-                  SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGrey),
-                  SizedBox(width: 10),
-                  Icon(Icons.favorite, size: 20, color: lightGrey),
-                ],
-              ),
-              const SizedBox(
-                width: 320,
-                child: Divider(
-                  color: Colors.white,
-                  height: 20,
-                ),
-              ),
+              const MyDividerWithIcons(),
               const SizedBox(height: 10),
 
               const Text(
@@ -143,86 +121,85 @@ class MyProfilPage extends StatelessWidget {
                 height: 20,
               ),
 
-CarouselSlider.builder(
-  itemCount: bookInfoMap.length,
-  options: CarouselOptions(
-    height: 300,
-    viewportFraction: 0.4,
-    enableInfiniteScroll: false,
-    enlargeCenterPage: true,
-    autoPlay: true,
-    autoPlayInterval: const Duration(seconds: 2),
-  ),
-  itemBuilder: (BuildContext context, int index, int realIndex) {
-    final bookInfo = bookInfoMap.values.elementAt(index);
-    final imagePath = bookCoverAssets[index];
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
-      child: GestureDetector(
-        onTap: () {
-          _showImageDialog(context, bookInfo, imagePath);
-        },
-        child: Column(
-          children: [
-            SizedBox(
-              width: 100,
-              height: 150,
-              child: Image.asset(
-                imagePath,
-                fit: BoxFit.cover,
+              CarouselSlider.builder(
+                itemCount: bookInfoMap.length,
+                options: CarouselOptions(
+                  height: 300,
+                  viewportFraction: 0.4,
+                  enableInfiniteScroll: false,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 2),
+                ),
+                itemBuilder: (BuildContext context, int index, int realIndex) {
+                  final bookInfo = bookInfoMap.values.elementAt(index);
+                  final imagePath = bookCoverAssets[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: GestureDetector(
+                      onTap: () {
+                        _showImageDialog(context, bookInfo, imagePath);
+                      },
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: 100,
+                            height: 150,
+                            child: Image.asset(
+                              imagePath,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
-            ),
-            const SizedBox(height: 10),
-          ],
-        ),
-      ),
-    );
-  },
-),
 
-SizedBox(
-  width: double.infinity, // Setze die maximale Breite für die Buttons
-  child: ElevatedButton(
-    onPressed: () {
-      // Aktion für den Button "Gelesene Bücher"
-    },
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.white, // Hintergrundfarbe des Buttons
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(color: guelden), // Umrandungsfarbe
-      ),
-      elevation: 10, // Ändere die Elevation (Schatten) hier nach Bedarf
-    ),
-    child: const Text(
-      "Gelesene Bücher",
-      style: TextStyle(color: guelden), // Schriftfarbe des Buttons
-    ),
-  ),
-),
+              SizedBox(
+                width: 200,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Aktion 
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      side: const BorderSide(color: guelden),
+                    ),
+                    elevation: 10,
+                  ),
+                  child: const Text(
+                    "Gelesene Bücher",
+                    style: TextStyle(color: guelden),
+                  ),
+                ),
+              ),
 
-SizedBox(height: 10), // Füge eine Höhe zwischen den Buttons hinzu
+              const SizedBox(height: 10),
 
-SizedBox(
-  width: double.infinity, // Setze die maximale Breite für die Buttons
-  child: ElevatedButton(
-    onPressed: () {
-      // Aktion für den Button "Deine Genres"
-    },
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.white, // Hintergrundfarbe des Buttons
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(color: guelden), // Umrandungsfarbe
-      ),
-      elevation: 10, // Ändere die Elevation (Schatten) hier nach Bedarf
-    ),
-    child: const Text(
-      "Deine Genres",
-      style: TextStyle(color: guelden), // Schriftfarbe des Buttons
-    ),
-  ),
-),
+              SizedBox(
+                width: 200,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Aktion 
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      side: const BorderSide(color: guelden),
+                    ),
+                    elevation: 10,
+                  ),
+                  child: const Text(
+                    "Deine Genres",
+                    style: TextStyle(color: guelden),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

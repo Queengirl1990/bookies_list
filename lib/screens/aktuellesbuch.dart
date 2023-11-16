@@ -64,7 +64,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
         backgroundColor: darkRed,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             // pfad 
             Navigator.pop(context);

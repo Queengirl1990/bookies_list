@@ -45,7 +45,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
         backgroundColor: darkRed,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             // Pfad
             Navigator.pop(context);
@@ -79,7 +79,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
                     width: 1.0,
                   ),
                 ),
-                child: SizedBox(
+                child: const SizedBox(
                   width: 80,
                   height: 100,
                   child: Column(

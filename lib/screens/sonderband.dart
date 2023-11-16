@@ -41,12 +41,12 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
         title: Row(
           children: [
             IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 // Pfad
               },
             ),
-            Text(
+            const Text(
               "Limited Edition",
               style: TextStyle(
                 fontFamily: 'DancingScript',
@@ -83,7 +83,7 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
                     width: 1.0,
                   ),
                 ),
-                child: SizedBox(
+                child: const SizedBox(
                   width: 80,
                   height: 100,
                   child: Column(

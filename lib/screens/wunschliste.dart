@@ -47,7 +47,7 @@ class _WishListScreenState extends State<WishListScreen> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             // pfad
           },
@@ -80,7 +80,7 @@ class _WishListScreenState extends State<WishListScreen> {
                     width: 1.0,
                   ),
                 ),
-                child: SizedBox(
+                child: const SizedBox(
                   width: 80,
                   height: 100,
                   child: Column(
