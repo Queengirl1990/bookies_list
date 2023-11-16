@@ -60,7 +60,9 @@ class MyProfilPage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
-          actions: const [], 
+          backgroundColor: darkRed,
+          elevation: 0, // Entferne den Schatten der AppBar
+          actions: const [],
           title: const Text(
             "Mein Profil",
             style: TextStyle(
@@ -94,7 +96,7 @@ class MyProfilPage extends StatelessWidget {
                   // Aktion einbauen
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: darkMode, 
+                  backgroundColor: darkMode,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -102,9 +104,9 @@ class MyProfilPage extends StatelessWidget {
                 ),
                 child: const Text("Bearbeiten"),
               ),
-              const SizedBox( 
+              const SizedBox(
                 width: 320,
-                child: Divider( 
+                child: Divider(
                   color: Colors.white,
                   height: 20,
                 ),
@@ -112,21 +114,21 @@ class MyProfilPage extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  SizedBox(width: 10), 
-                  Icon(Icons.favorite, size: 20, color: lightGrey), 
-                  SizedBox(width: 10), 
-                  Icon(Icons.favorite, size: 20, color: lightGrey), 
+                  Icon(Icons.favorite, size: 20, color: lightGrey),
+                  SizedBox(width: 10),
+                  Icon(Icons.favorite, size: 20, color: lightGrey),
+                  SizedBox(width: 10),
+                  Icon(Icons.favorite, size: 20, color: lightGrey),
                 ],
               ),
-              const SizedBox( 
+              const SizedBox(
                 width: 320,
-                child: Divider( 
+                child: Divider(
                   color: Colors.white,
                   height: 20,
                 ),
               ),
-              const SizedBox(height: 10), 
+              const SizedBox(height: 10),
 
               const Text(
                 "Schau dir mal wieder deine Lieblinge an",
@@ -137,54 +139,99 @@ class MyProfilPage extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              const SizedBox( 
-                  height: 20,
-                ),
-
-              CarouselSlider.builder(
-                itemCount: bookInfoMap.length,
-                options: CarouselOptions(
-                  height: 300,
-                  viewportFraction: 0.4,
-                  enableInfiniteScroll: false,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 2),
-                ),
-                itemBuilder: (BuildContext context, int index, int realIndex) {
-                  final bookInfo = bookInfoMap.values.elementAt(index);
-                  final imagePath = bookCoverAssets[index];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: GestureDetector(
-                      onTap: () {
-                        _showImageDialog(context, bookInfo, imagePath);
-                      },
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            width: 100,
-                            height: 150,
-                            child: Image.asset(
-                              imagePath,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                        ],
-                      ),
-                    ),
-                  );
-                },
+              const SizedBox(
+                height: 20,
               ),
+
+CarouselSlider.builder(
+  itemCount: bookInfoMap.length,
+  options: CarouselOptions(
+    height: 300,
+    viewportFraction: 0.4,
+    enableInfiniteScroll: false,
+    enlargeCenterPage: true,
+    autoPlay: true,
+    autoPlayInterval: const Duration(seconds: 2),
+  ),
+  itemBuilder: (BuildContext context, int index, int realIndex) {
+    final bookInfo = bookInfoMap.values.elementAt(index);
+    final imagePath = bookCoverAssets[index];
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      child: GestureDetector(
+        onTap: () {
+          _showImageDialog(context, bookInfo, imagePath);
+        },
+        child: Column(
+          children: [
+            SizedBox(
+              width: 100,
+              height: 150,
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 10),
+          ],
+        ),
+      ),
+    );
+  },
+),
+
+SizedBox(
+  width: double.infinity, // Setze die maximale Breite für die Buttons
+  child: ElevatedButton(
+    onPressed: () {
+      // Aktion für den Button "Gelesene Bücher"
+    },
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Colors.white, // Hintergrundfarbe des Buttons
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: BorderSide(color: guelden), // Umrandungsfarbe
+      ),
+      elevation: 10, // Ändere die Elevation (Schatten) hier nach Bedarf
+    ),
+    child: const Text(
+      "Gelesene Bücher",
+      style: TextStyle(color: guelden), // Schriftfarbe des Buttons
+    ),
+  ),
+),
+
+SizedBox(height: 10), // Füge eine Höhe zwischen den Buttons hinzu
+
+SizedBox(
+  width: double.infinity, // Setze die maximale Breite für die Buttons
+  child: ElevatedButton(
+    onPressed: () {
+      // Aktion für den Button "Deine Genres"
+    },
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Colors.white, // Hintergrundfarbe des Buttons
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: BorderSide(color: guelden), // Umrandungsfarbe
+      ),
+      elevation: 10, // Ändere die Elevation (Schatten) hier nach Bedarf
+    ),
+    child: const Text(
+      "Deine Genres",
+      style: TextStyle(color: guelden), // Schriftfarbe des Buttons
+    ),
+  ),
+),
             ],
           ),
         ),
       ),
     );
   }
-  
-  void _showImageDialog(BuildContext context, BookInfo bookInfo, String imagePath) {
+
+  void _showImageDialog(
+      BuildContext context, BookInfo bookInfo, String imagePath) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -206,10 +253,10 @@ class MyProfilPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 //Aktion für "Jetzt lesen"
-                Navigator.of(context).pop(); 
+                Navigator.of(context).pop();
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: darkRed, // 
+                backgroundColor: darkRed,
                 elevation: 5,
               ),
               child: Text(
@@ -223,7 +270,7 @@ class MyProfilPage extends StatelessWidget {
               },
               child: const Text(
                 'Schließen',
-                style: TextStyle(color: darkRed), 
+                style: TextStyle(color: darkRed),
               ),
             ),
           ],
