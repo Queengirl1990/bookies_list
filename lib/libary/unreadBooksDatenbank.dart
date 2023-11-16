@@ -24,6 +24,12 @@ Map<String, Map<String, String>> unreadBooks = {
     'year': '2023',
     'image': 'assets/images/fallen-princes.jpeg',
   },
+  'Destroyed Hearts II': {
+    'title': 'Destroyed Hearts II',
+    'author': 'Annie Tears',
+    'year': '2021',
+    'image': 'assets/images/destroyed-hearts.jpeg',
+  },
   'Eine Frage der Chemie': {
     'title': 'Eine Frage der Chemie',
     'author': 'Bonnie Garmus',
@@ -36,6 +42,12 @@ Map<String, Map<String, String>> unreadBooks = {
     'year': '2023',
     'image': 'assets/images/check-mate.jpg',
   },
+    'A STRANGE WORLD I Steven': {
+    'title': 'A STRANGE WORLD',
+    'author': 'Miamo Zesi',
+    'year': '2023',
+    'image': 'assets/images/miamo-zesi.webp',
+  }, 
   'Queen of Myth and Monsters': {
     'title': 'Queen of Myth and Monsters',
     'author': 'Scarlett St. Clair',
@@ -53,6 +65,12 @@ Map<String, Map<String, String>> unreadBooks = {
     'author': 'Saskia Palla',
     'year': '2023',
     'image': 'assets/images/what-if.jpeg',
+  },
+    'The Princess and the Beast - Dunkles Spiel': {
+    'title': 'The Princess and the Beast',
+    'author': 'Sally Dark',
+    'year': '2020',
+    'image': 'assets/images/princess-and-beast.jpeg',
   },  
     'A Night of Shadows and Betrayals': {
     'title': 'A Night of Shadows and Betrayals',

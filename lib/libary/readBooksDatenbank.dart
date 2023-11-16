@@ -45,7 +45,7 @@ class BookInfo {
 final Map<String, BookInfo> bookInfoMap = {
   'Außerhalb der Schatten I': BookInfo('Außerhalb der Schatten I', 'Mandy J. Hard', 'Fantasy', 'Jetzt Lesen'),
   'Fourth Wings I': BookInfo('Fourth Wings I', 'Rebecca Yarros', 'Fantasy', 'Jetzt Lesen'),
-  'Huskyküsse': BookInfo('Huskyküsse', 'Maria Winter', 'Romantik', 'Jetzt Lesen'),
+  'Huskyküsse zu Weihnachten': BookInfo('Huskyküsse zu Weihnachten', 'Maria Winter', 'Romantik', 'Jetzt Lesen'),
   'Keep my silent Heart': BookInfo('Keep my silent Heart', 'Sazou G.', 'Romantik', 'Jetzt Lesen'),
   'Wicca Creed I': BookInfo('Wicca Creed I', 'Marah Woolf', 'Fantasy', 'Jetzt Lesen'),
   'Ravenhall Academy II': BookInfo('Ravenhall Academy II', 'Julia Kuhn', 'Fantasy', 'Jetzt Lesen'),
@@ -58,18 +58,30 @@ final List<String> bookCoverAssets = [
   'assets/images/Huskyküsse.jpg',
   'assets/images/keep-my.jpg',
   'assets/images/wiccacreed.jpeg',
-  'assets/images/verborgene-magie.jpeg',
+  'assets/images/erwachte-magie.jpg',
   'assets/images/bad-at-love.jpeg',
 ];
 
 
 // gelesene Bücher Screen
 Map<String, Map<String, String>> readBooksList = {
-  'Außerhalb der Schatten I': {
+  'WiccaCreed I Schuld & Sünde': {
+    'title': 'WiccaCreed I',
+    'author': 'Marah Woolf',
+    'year': '2023',
+    'image': 'assets/images/wiccacreed.jpeg',
+  },  
+  'Außerhalb der Schatten I Das ist erst der Anfang': {
     'title': 'Außerhalb der Schatten I',
     'author': 'MJ Hard',
     'year': '2020',
     'image': 'assets/images/das-ist-erst.jpg',
+  },
+  'Fourth Wings I Flammengeküsst': {
+    'title': 'Fourth Wings I',
+    'author': 'Rebecca Yarros',
+    'year': '2023',
+    'image': 'assets/images/Fourth_wings.jpg',
   },
   'Vampires of Vensaya': {
     'title': 'Vampires of Vensaya',
@@ -77,17 +89,29 @@ Map<String, Map<String, String>> readBooksList = {
     'year': '2020',
     'image': 'assets/images/vampires_of_vensaya.jpeg',
   },
+  'Keep my silent Heart: A Christmas Story': {
+    'title': 'Keep my silent Heart',
+    'author': 'Sazou G.',
+    'year': '2022',
+    'image': 'assets/images/keep-my.jpg',
+  }, 
+  'Huskyküsse zu Weihnachten': {
+    'title': 'Huskyküsse zu Weihnachten',
+    'author': 'Maria Winter',
+    'year': '2022',
+    'image': 'assets/images/Huskyküsse.jpg',
+  },  
   'Das Biest in ihm': {
     'title': 'Das Biest in ihm',
     'author': 'Serena Valentino',
     'year': '2019',
     'image': 'assets/images/das-biest.jpeg',
   },
-  'Keep my silent heart': {
-    'title': 'Keep my silent heart',
-    'author': 'Sazou G.',
-    'year': '2022',
-    'image': 'assets/images/keep-my.jpg',
+  'Ravenhall Academy II Erwachte Magie': {
+    'title': 'Ravenhall Academy II',
+    'author': 'Julia Kuhn',
+    'year': '2023',
+    'image': 'assets/images/erwachte-magie.jpg',
   },
   'Ravenhall Academy I': {
     'title': 'Ravenhall Academy I',
@@ -95,6 +119,12 @@ Map<String, Map<String, String>> readBooksList = {
     'year': '2023',
     'image': 'assets/images/verborgene-magie.jpeg',
   },
+    'Destroyed Souls I': {
+    'title': 'Destroyed Souls I',
+    'author': 'Annie Tears',
+    'year': '2020',
+    'image': 'assets/images/destroyed-souls-1.jpeg',
+  }, 
     'Rise & Doom III Königin des blutroten Throns': {
     'title': 'Rise & Doom III',
     'author': 'Ina Taus',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../styles.dart';
-import '../libary/bookiesList-widgets.dart';
+import '../widgets/bookiesList-widgets.dart';
 
 void main() {
   runApp(const MyApp());

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../styles.dart';
 import 'home.dart';
-import '../libary/bookiesList-widgets.dart';
+import '../widgets/bookiesList-widgets.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:bookieslist/libary/readBooksDatenbank.dart';
 

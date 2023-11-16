@@ -92,6 +92,8 @@ flutter:
     - assets/images/panem-1.jpeg
     - assets/images/panem-x.jpeg
     - assets/images/belle-morte.webp
+    - assets/images/destroyed-souls-1.jpeg
+    - assets/images/wiccacreed-2.jpeg  
 
 
   fonts:

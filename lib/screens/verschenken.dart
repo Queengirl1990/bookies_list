@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../styles.dart';
 import 'package:bookieslist/libary/unreadBooksDatenbank.dart';
-import '../libary/bookiesList-widgets.dart';
+import '../widgets/bookiesList-widgets.dart';
 
 void main() {
   runApp(const GiveAwayApp());

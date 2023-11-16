@@ -97,7 +97,7 @@ Widget bookInfoContainer(double bookProgress) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              "Life after you",
+              "WiccaCreed II Schuld & Sünde",
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ Widget bookInfoContainer(double bookProgress) {
             ),
             const SizedBox(height: 5),
             const Text(
-              "Mandy J. Hard",
+              "Marah Woolf",
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.normal,
@@ -126,7 +126,7 @@ Widget bookInfoContainer(double bookProgress) {
               ),
             ),
             const Text(
-              "New Adult",
+              "Romantasysaga",
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.normal,
@@ -167,14 +167,14 @@ Widget bookInfoContainer(double bookProgress) {
             ),
           ],
         ),
-        const SizedBox(width: 25),
+        const SizedBox(width: 10),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 90,
-              height: 130,
-              child: Image.asset('assets/images/life_after.jpg'),
+              width: 80,
+              height: 120,
+              child: Image.asset('assets/images/wiccacreed-2.jpeg'),
             ),
           ],
         ),

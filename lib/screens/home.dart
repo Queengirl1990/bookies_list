@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'profil.dart';
-import '../libary/bookiesList-widgets.dart'; 
+import '../widgets/bookiesList-widgets.dart'; 
 import '../styles.dart';
 
 void main() {
@@ -118,9 +118,8 @@ class _BookiesListState extends State<BookiesList> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      // _statusBox("Aktualisieren"), // Entfernt
-                      bookInfoContainer(0.5), // Hier wird die neue Funktion aufgerufen
-                      const SizedBox(height: 16),
+                      bookInfoContainer(0.5), 
+                      const SizedBox(height: 15),
                     ],
                   ),
                 ),

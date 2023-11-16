@@ -49,7 +49,7 @@ class BookData {
 }
 List<BookData> bookSuggestion = [
     BookData(
-    title: 'The Princes and the Best I',
+    title: 'The Princes and the Beast I',
     author: 'Sally Dark',
     genre: 'Dark Romance',
     year: '2020',

@@ -3,7 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../styles.dart';
 import 'package:bookieslist/libary/unreadBooksDatenbank.dart';
 import 'home.dart';
-import '../libary/bookiesList-widgets.dart';
+import '../widgets/bookiesList-widgets.dart';
 import 'package:shimmer/shimmer.dart';
 
 void main() {

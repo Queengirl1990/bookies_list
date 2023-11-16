@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:bookieslist/libary/readBooksDatenbank.dart';
-import '../libary/bookiesList-widgets.dart';
+import '../widgets/bookiesList-widgets.dart';
 
 void main() {
   runApp(const MyApp());
