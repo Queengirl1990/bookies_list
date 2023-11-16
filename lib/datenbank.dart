@@ -217,6 +217,63 @@ final List<String> bookCoverAssets = [
   }
 };
 
+// gelesen alle
+
+// sonderband
+  Map<String, Map<String, String>> readBooksList = {
+  'Außerhalb der Schatten I': {
+    'title': 'Außerhalb der Schatten I',
+    'author': 'MJ Hard',
+    'year': '2020',
+    'image': 'assets/images/das-ist-erst.jpg',
+  },
+  'Vampires of Vensaya': {
+    'title': 'Vampires of Vensaya',
+    'author': 'Michael Jeremy Hard',
+    'year': '2020',
+    'image': 'assets/images/vampires_of_vensaya.jpeg',
+  },
+  'Das Biest in ihm': {
+    'title': 'Das Biest in ihm',
+    'author': 'Serena Valentino',
+    'year': '2019',
+    'image': 'assets/images/das-biest.jpeg',
+  },
+  'Keep my silent heart': {
+    'title': 'Keep my silent heart',
+    'author': 'Sazou G.',
+    'year': '2022',
+    'image': 'assets/images/keep-my.jpg',
+  },
+  'Ravenhall Academy I': {
+    'title': 'Ravenhall Academy I',
+    'author': 'Julia Kuhn',
+    'year': '2023',
+    'image': 'assets/images/verborgene-magie.jpeg',
+  },
+
+
+
+    'Trotze der Nacht EXKLUSIVAUSGABE': {
+    'title': 'Trotze der Nacht',
+    'author': 'Brigid Kemmerer',
+    'year': '2023',
+    'image': 'assets/images/trotze-der-nacht.png',
+  },
+  'Die Stadt der Freude II SPECIAL EDITION': {
+    'title': 'Die Stadt der Freude II',
+    'author': 'Xiaoming Taiji, Anan',
+    'year': '2023',
+    'image': 'assets/images/stadt-der-freude.jpg',
+  },
+  'Written in Blood EXKLUSIVAUSGABE': {
+    'title': 'Written in Blood',
+    'author': 'Andrew Shvarts',
+    'year': '2023',
+    'image': 'assets/images/written-in-blood.png',
+  }
+};
+
 // verschenken
   Map<String, Map<String, String>> giveAway = {
   'better with someone else': {
