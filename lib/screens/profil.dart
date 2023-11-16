@@ -3,6 +3,10 @@ import '../styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../datenbank.dart';
 
+void main() {
+  runApp(const MyApp());
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

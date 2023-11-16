@@ -4,6 +4,7 @@ import '../styles.dart';
 import '../datenbank.dart';
 import 'home.dart';
 import '../bookiesList-widgets.dart';
+import 'package:shimmer/shimmer.dart';
 
 void main() {
   runApp(const UnreadBooksApp());
@@ -33,6 +34,19 @@ class UnreadBooksScreen extends StatefulWidget {
 
 class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
   int currentPageIndex = 1;
+  bool _showShimmer = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      if (mounted) {
+        setState(() {
+          _showShimmer = false;
+        });
+      }
+    });
+  }
 
   void addNewBook() {
     // buch hinzufügen
@@ -59,7 +73,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           },
         ),
         actions: [
-          myCircularAvatar(), 
+          myCircularAvatar(),
         ],
       ),
       backgroundColor: darkRed,
@@ -94,7 +108,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
         itemBuilder: (context, index) {
           if (index == 0) {
             return GestureDetector(
-              onTap: addNewBook, 
+              onTap: addNewBook,
               child: Container(
                 margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -105,7 +119,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
                     width: 1.0,
                   ),
                 ),
-                child: SizedBox(
+                child: const SizedBox(
                   width: 80,
                   height: 100,
                   child: Column(
@@ -139,10 +153,20 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
                 child: SizedBox(
                   width: 80,
                   height: 100,
-                  child: Image.asset(
-                    unreadBooks[bookKey]!['image']!,
-                    fit: BoxFit.cover,
-                  ),
+                  child: _showShimmer
+                      ? Shimmer.fromColors(
+                          baseColor: Colors.grey[300]!,
+                          highlightColor: Colors.grey[100]!,
+                          child: Container(
+                            width: 80,
+                            height: 100,
+                            color: Colors.red, 
+                          ),
+                        )
+                      : Image.asset(
+                          unreadBooks[bookKey]!['image']!,
+                          fit: BoxFit.cover,
+                        ),
                 ),
               ),
             );
