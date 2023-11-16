@@ -251,26 +251,47 @@ final List<String> bookCoverAssets = [
     'year': '2023',
     'image': 'assets/images/verborgene-magie.jpeg',
   },
-
-
-
-    'Trotze der Nacht EXKLUSIVAUSGABE': {
-    'title': 'Trotze der Nacht',
-    'author': 'Brigid Kemmerer',
-    'year': '2023',
-    'image': 'assets/images/trotze-der-nacht.png',
+    'Rise & Doom III Königin des blutroten Throns': {
+    'title': 'Rise & Doom III',
+    'author': 'Ina Taus',
+    'year': '2019',
+    'image': 'assets/images/rise-doom-3.jpg',
   },
-  'Die Stadt der Freude II SPECIAL EDITION': {
-    'title': 'Die Stadt der Freude II',
-    'author': 'Xiaoming Taiji, Anan',
-    'year': '2023',
-    'image': 'assets/images/stadt-der-freude.jpg',
+    'Rise & Doom II Prinz unter dem blutroten Mond': {
+    'title': 'Rise & Doom 2',
+    'author': 'Ina Taus',
+    'year': '2019',
+    'image': 'assets/images/rise&doom.jpeg',
   },
-  'Written in Blood EXKLUSIVAUSGABE': {
-    'title': 'Written in Blood',
-    'author': 'Andrew Shvarts',
+    'Rise & Doom I Prinzessin der blutroten Wüste': {
+    'title': 'Rise & Doom I',
+    'author': 'Ina Taus',
+    'year': '2019',
+    'image': 'assets/images/rise-doom.webp',
+  },
+    'Die Tribute von Panem X Das Lied von Vogel und Schlange': {
+    'title': 'Die Tribute von Panem X',
+    'author': 'Suzanne Collins',
+    'year': '2020',
+    'image': 'assets/images/panem-x.jpeg',
+  },
+  'Die Tribute von Panem II Gefährliche Liebe': {
+    'title': 'Die Tribute von Panem II',
+    'author': 'Suzanne Collins',
+    'year': '2022',
+    'image': 'assets/images/panem-2.jpeg',
+  },
+  'Die Tribute von Panem I Tödliche Spiele': {
+    'title': 'Die Tribute von Panem I',
+    'author': 'Suzanne Collins',
+    'year': '2020',
+    'image': 'assets/images/panem-1.jpeg',
+  },  
+    'Belle Morte I Rot wie Blut': {
+    'title': 'Belle Morte I',
+    'author': 'Bella Higgin',
     'year': '2023',
-    'image': 'assets/images/written-in-blood.png',
+    'image': 'assets/images/belle-morte.webp',
   }
 };
 

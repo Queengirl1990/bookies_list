@@ -85,6 +85,13 @@ flutter:
     - assets/images/princess-and-beast.jpeg
     - assets/images/miamo-zesi.webp
     - assets/images/destroyed-hearts.jpeg
+    - assets/images/rise-doom.webp
+    - assets/images/rise&doom.jpeg
+    - assets/images/rise-doom-3.jpg
+    - assets/images/panem-2.jpeg
+    - assets/images/panem-1.jpeg
+    - assets/images/panem-x.jpeg
+    - assets/images/belle-morte.webp
 
 
   fonts:

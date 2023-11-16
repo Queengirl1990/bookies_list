@@ -18,7 +18,7 @@ class ReadBooksApp extends StatelessWidget {
     return MaterialApp(
       title: 'Read Books App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: const ReadBooksScreen(),
     );
@@ -160,7 +160,7 @@ class _ReadBooksScreenState extends State<ReadBooksScreen> {
                           child: Container(
                             width: 80,
                             height: 100,
-                            color: Colors.red,
+                            color: darkRed,
                           ),
                         )
                       : Image.asset(
