@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../styles.dart';
-import '../datenbank.dart';
-import '../bookiesList-widgets.dart';
+import 'package:bookieslist/widgets/randomeGenerator.dart';
+import '../libary/bookiesList-widgets.dart';
 
 void main() {
   runApp(const MyApp());

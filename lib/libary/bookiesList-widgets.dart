@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'styles.dart';
+import '../styles.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 //Abtrennung
@@ -139,13 +139,14 @@ Widget bookInfoContainer(double bookProgress) {
               child: LinearPercentIndicator(
                 width: 150,
                 lineHeight: 14.0,
-                percent: bookProgress,
+                percent: (0.5),
                 center: Text('${(bookProgress * 100).toStringAsFixed(0)}%'),
                 progressColor: guelden,
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                backgroundColor: const Color.fromARGB(255, 219, 217, 217), 
+                barRadius: const Radius.circular(7.0), 
+                backgroundColor: const Color.fromARGB(255, 230, 228, 228),
               ),
             ),
+
             const SizedBox(height: 10), 
             ElevatedButton(
               onPressed: () {

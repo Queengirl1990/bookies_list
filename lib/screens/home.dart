@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'profil.dart';
-import '../bookiesList-widgets.dart'; 
+import '../libary/bookiesList-widgets.dart'; 
 import '../styles.dart';
 
 void main() {
