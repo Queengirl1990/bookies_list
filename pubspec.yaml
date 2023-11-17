@@ -29,6 +29,7 @@ dependencies:
   fl_chart: ^0.64.0
   intl: ^0.18.1
   shimmer: ^3.0.0
+  simple_barcode_scanner: ^0.0.8
 
 
 dev_dependencies:
@@ -93,8 +94,9 @@ flutter:
     - assets/images/panem-x.jpeg
     - assets/images/belle-morte.webp
     - assets/images/destroyed-souls-1.jpeg
-    - assets/images/wiccacreed-2.jpeg  
-
+    - assets/images/wiccacreed-2.jpeg
+    - assets/images/scanning.png  
+    - assets/images/scanner-logo.png 
 
   fonts:
     - family: DancingScript

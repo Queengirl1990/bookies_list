@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import '../styles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:bookieslist/libary/readBooksDatenbank.dart';
-import '../widgets/bookiesList-widgets.dart';
+import '../widgets/bookieslist-widgets.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
-  const MyCircularAvatar({Key? key}) : super(key: key);
+  const MyCircularAvatar({super.key});
 
   @override
   Widget build(BuildContext context) {
