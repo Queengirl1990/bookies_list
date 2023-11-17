@@ -9,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
-  const MyCircularAvatar({super.key});
+  const MyCircularAvatar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class MyCircularAvatar extends StatelessWidget {
 }
 
 class MyProfilPage extends StatelessWidget {
-  const MyProfilPage({super.key});
+  const MyProfilPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +124,7 @@ class MyProfilPage extends StatelessWidget {
               CarouselSlider.builder(
                 itemCount: bookInfoMap.length,
                 options: CarouselOptions(
-                  height: 300,
+                  height: 200,
                   viewportFraction: 0.4,
                   enableInfiniteScroll: false,
                   enlargeCenterPage: true,
@@ -144,7 +144,7 @@ class MyProfilPage extends StatelessWidget {
                         children: [
                           SizedBox(
                             width: 100,
-                            height: 150,
+                            height: 130,
                             child: Image.asset(
                               imagePath,
                               fit: BoxFit.cover,
@@ -173,7 +173,7 @@ class MyProfilPage extends StatelessWidget {
                   ),
                   child: const Text(
                     "Gelesene Bücher",
-                    style: TextStyle(color: guelden),
+                    style: TextStyle(color: darkMode),
                   ),
                 ),
               ),
@@ -196,7 +196,7 @@ class MyProfilPage extends StatelessWidget {
                   ),
                   child: const Text(
                     "Deine Genres",
-                    style: TextStyle(color: guelden),
+                    style: TextStyle(color: darkMode),
                   ),
                 ),
               ),
