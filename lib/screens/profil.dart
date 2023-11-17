@@ -165,9 +165,14 @@ class MyProfilPage extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: const BorderSide(color: guelden),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(0),
+                        bottomLeft: Radius.circular(0),
+                        bottomRight: Radius.circular(20),
+                      ),
+                      side: BorderSide(color: snowWhite),
                     ),
                     elevation: 10,
                   ),
@@ -188,9 +193,14 @@ class MyProfilPage extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: const BorderSide(color: guelden),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(0),
+                        bottomLeft: Radius.circular(0),
+                        bottomRight: Radius.circular(20),
+                      ),
+                      side: BorderSide(color: snowWhite),
                     ),
                     elevation: 10,
                   ),
