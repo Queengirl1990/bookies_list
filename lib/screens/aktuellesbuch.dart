@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../styles.dart';
-import '../widgets/bookieslist-widgets.dart';
+import '../widgets/bookieslist-widgets.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -26,37 +27,11 @@ class CurrentlyReadingScreen extends StatefulWidget {
 
 class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
   int currentPageIndex = 0;
-
-  Widget myCircularAvatar() {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(1, 1),
-          ),
-        ],
-      ),
-      child: ClipOval(
-        child: Image.asset(
-          'assets/images/avatar.png',
-          width: 50,
-          height: 50,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
+  double initialRating = 0.0;
 
   @override
   Widget build(BuildContext context) {
-    double bookProgress = 0.85; // Fortschritt auf 85%
+    double bookProgress = 0.85;
 
     return Scaffold(
       appBar: AppBar(
@@ -65,7 +40,6 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            // pfad
             Navigator.pop(context);
           },
         ),
@@ -74,7 +48,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
             Icons.add,
             color: Colors.white,
           ),
-          myCircularAvatar(),
+          myCircularAvatar(), // Aufruf der Funktion aus bookieslist-widgets.dart
         ],
       ),
       backgroundColor: darkRed,
@@ -93,17 +67,40 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            bookInfoContainer(bookProgress),
-            const SizedBox(height: 20.0),
             const MyDividerWithIcons(),
+            const SizedBox(height: 20),
+            Container(
+              child: bookInfoContainer(bookProgress),
+            ),
+            const SizedBox(height: 20),
+            Center(
+              child: RatingBar.builder(
+                initialRating: initialRating,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                itemCount: 5,
+                itemSize: 30.0,
+                itemBuilder: (context, _) => const Icon(
+                  Icons.star,
+                  color: guelden,
+                ),
+                onRatingUpdate: (rating) {},
+              ),
+            ),
             const Padding(
               padding: EdgeInsets.all(35.0),
-              child: Text(
-                "Fortsetzung der fantastischen Saga um Wicca, Hexen und Strigoi\n\nDie Große Göttin gibt uns nur das, wofür wir auch zu kämpfen bereit sind. Valea hat ihr Bestes gegeben, um den Prinzipien der Wicca treu zu bleiben. Sie hat gekämpft, ihr wurde das Herz gebrochen und sie verlor mehr, als sie ertragen konnte. Doch nun sind fast zwei Jahre seit den verheerenden Ereignissen in Ardeal vergangen. Zwei Jahre, in denen sie sich in der Welt der Menschen versteckt und gehofft hat, dass niemand sie findet. Aber manche Hoffnungen erfüllen sich nicht. Und jetzt stehen alte Freunde vor ihrer Tür und bitten sie, um ihre Hilfe. Sie muss sich entscheiden, ob sie ihren Zorn hinter sich lässt, um gemeinsam mit denen zu kämpfen, die sie im Stich gelassen und verraten haben. Denn das Böse ist endgültig nach Ardeal zurückgekehrt.",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Fortsetzung der fantastischen Saga um Wicca, Hexen und Strigoi\n\nDie Große Göttin gibt uns nur das, wofür wir auch zu kämpfen bereit sind. Valea hat ihr Bestes gegeben, um den Prinzipien der Wicca treu zu bleiben. Sie hat gekämpft, ihr wurde das Herz gebrochen und sie verlor mehr, als sie ertragen konnte. Doch nun sind fast zwei Jahre seit den verheerenden Ereignissen in Ardeal vergangen. Zwei Jahre, in denen sie sich in der Welt der Menschen versteckt und gehofft hat, dass niemand sie findet. Aber manche Hoffnungen erfüllen sich nicht. Und jetzt stehen alte Freunde vor ihrer Tür und bitten sie, um ihre Hilfe. Sie muss sich entscheiden, ob sie ihren Zorn hinter sich lässt, um gemeinsam mit denen zu kämpfen, die sie im Stich gelassen und verraten haben. Denn das Böse ist endgültig nach Ardeal zurückgekehrt.",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
