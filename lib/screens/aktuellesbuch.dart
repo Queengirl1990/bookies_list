@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../styles.dart';
 import '../widgets/bookieslist-widgets.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -66,7 +65,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            // pfad 
+            // pfad
             Navigator.pop(context);
           },
         ),
@@ -79,25 +78,36 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
         ],
       ),
       backgroundColor: darkRed,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const SizedBox(height: 20),
-          const Text(
-            "Aktueller Lesestoff",
-            style: TextStyle(
-              fontFamily: 'DancingScript',
-              fontWeight: FontWeight.normal,
-              fontSize: 24,
-              color: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            const Text(
+              "Aktueller Lesestoff",
+              style: TextStyle(
+                fontFamily: 'DancingScript',
+                fontWeight: FontWeight.normal,
+                fontSize: 24,
+                color: Colors.white,
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-
-          bookInfoContainer(bookProgress),
-
-          const MyDividerWithIcons(),
-        ],
+            const SizedBox(height: 20),
+            bookInfoContainer(bookProgress),
+            const SizedBox(height: 20.0),
+            const MyDividerWithIcons(),
+            const Padding(
+              padding: EdgeInsets.all(35.0),
+              child: Text(
+                "Fortsetzung der fantastischen Saga um Wicca, Hexen und Strigoi\n\nDie Große Göttin gibt uns nur das, wofür wir auch zu kämpfen bereit sind. Valea hat ihr Bestes gegeben, um den Prinzipien der Wicca treu zu bleiben. Sie hat gekämpft, ihr wurde das Herz gebrochen und sie verlor mehr, als sie ertragen konnte. Doch nun sind fast zwei Jahre seit den verheerenden Ereignissen in Ardeal vergangen. Zwei Jahre, in denen sie sich in der Welt der Menschen versteckt und gehofft hat, dass niemand sie findet. Aber manche Hoffnungen erfüllen sich nicht. Und jetzt stehen alte Freunde vor ihrer Tür und bitten sie, um ihre Hilfe. Sie muss sich entscheiden, ob sie ihren Zorn hinter sich lässt, um gemeinsam mit denen zu kämpfen, die sie im Stich gelassen und verraten haben. Denn das Böse ist endgültig nach Ardeal zurückgekehrt.",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

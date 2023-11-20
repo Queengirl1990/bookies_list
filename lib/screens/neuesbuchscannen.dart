@@ -38,7 +38,7 @@ class _NewBookScannState extends State<NewBookScann> {
           },
         ),
         actions: [
-          myCircularAvatar(), // myCircularAvatar bleibt oben rechts
+          myCircularAvatar(), 
         ],
       ),
       backgroundColor: darkRed,
@@ -59,8 +59,8 @@ class _NewBookScannState extends State<NewBookScann> {
           Center(
             child: Image.asset(
               'assets/images/scanner-logo.png',
-              width: 100, // Passen Sie die Breite nach Bedarf an
-              height: 100, // Passen Sie die Höhe nach Bedarf an
+              width: 100, 
+              height: 100, 
             ),
           ),
           const MyDividerWithIcons(),
