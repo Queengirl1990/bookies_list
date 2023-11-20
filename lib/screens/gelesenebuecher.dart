@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import '../styles.dart';
+import '../styles/farbcodes.dart';
 import 'home.dart';
 import '../widgets/bookieslist-widgets.dart';
 import 'package:shimmer/shimmer.dart';
@@ -11,7 +11,7 @@ void main() {
 }
 
 class ReadBooksApp extends StatelessWidget {
-  const ReadBooksApp({Key? key}) : super(key: key);
+  const ReadBooksApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class ReadBooksApp extends StatelessWidget {
 }
 
 class ReadBooksScreen extends StatefulWidget {
-  const ReadBooksScreen({Key? key}) : super(key: key);
+  const ReadBooksScreen({super.key});
 
   @override
   _ReadBooksScreenState createState() => _ReadBooksScreenState();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../styles.dart';
+import '../styles/farbcodes.dart';
 import 'package:bookieslist/widgets/randomeGenerator.dart';
 import '../widgets/bookieslist-widgets.dart';
 
@@ -70,32 +70,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
 
               return Column(
                 children: [
-                  const SizedBox(
-                    width: 320,
-                    child: Divider(
-                      color: Colors.white,
-                      height: 20,
-                      thickness: 2,
-                    ),
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.favorite, size: 20, color: lightGrey),
-                      SizedBox(width: 10),
-                      Icon(Icons.favorite, size: 20, color: lightGrey),
-                      SizedBox(width: 10),
-                      Icon(Icons.favorite, size: 20, color: lightGrey),
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 320,
-                    child: Divider(
-                      color: snowWhite,
-                      height: 20,
-                      thickness: 2,
-                    ),
-                  ),
+                  const MyDividerWithIcons(), 
                   const SizedBox(height: 10),
                   Row(
                     children: [

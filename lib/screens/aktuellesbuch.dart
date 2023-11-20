@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import '../styles.dart';
-import '../widgets/bookieslist-widgets.dart'; 
+import '../styles/farbcodes.dart';
+import '../widgets/bookieslist-widgets.dart';
+import '../styles/appbar.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -34,23 +35,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
     double bookProgress = 0.85;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: darkRed,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actions: [
-          const Icon(
-            Icons.add,
-            color: Colors.white,
-          ),
-          myCircularAvatar(), // Aufruf der Funktion aus bookieslist-widgets.dart
-        ],
-      ),
+      appBar: customAppBar(context), 
       backgroundColor: darkRed,
       body: SingleChildScrollView(
         child: Column(

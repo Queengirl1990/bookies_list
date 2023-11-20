@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../styles.dart';
+import '../styles/farbcodes.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 //Abtrennung

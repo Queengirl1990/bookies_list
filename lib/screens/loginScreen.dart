@@ -1,6 +1,6 @@
 import 'package:bookieslist/screens/home.dart';
 import 'package:flutter/material.dart';
-import '../styles.dart';
+import '../styles/farbcodes.dart';
 
 void main() {
   runApp(const MyApp());

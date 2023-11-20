@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../styles.dart';
+import '../styles/farbcodes.dart';
 import 'package:bookieslist/widgets/bookieslist-widgets.dart';
 
 void main() {

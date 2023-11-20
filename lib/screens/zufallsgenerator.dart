@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import '../styles.dart';
+import '../styles/farbcodes.dart';
 import 'package:bookieslist/widgets/randomeGenerator.dart'; 
 
 void main() {
