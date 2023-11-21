@@ -6,11 +6,11 @@ Map<String, Map<String, String>> unreadBooks = {
     'year': '2021',
     'image': 'assets/images/wir-wollen.jpg',
   },
-   'Bis zum hellsten Morgen': {
+  'Bis zum hellsten Morgen': {
     'title': 'Bis zum hellsten Morgen Band 4',
     'author': 'Brittainy C. Cherry',
     'year': '2023',
-    'image': 'assets/images/bis-zum-hellsten-morgen.webp', 
+    'image': 'assets/images/bis-zum-hellsten-morgen.webp',
   },
   'Ravenhall Academy II': {
     'title': 'Ravenhall Academy II',
@@ -42,12 +42,12 @@ Map<String, Map<String, String>> unreadBooks = {
     'year': '2023',
     'image': 'assets/images/check-mate.jpg',
   },
-    'A STRANGE WORLD I Steven': {
+  'A STRANGE WORLD I Steven': {
     'title': 'A STRANGE WORLD',
     'author': 'Miamo Zesi',
     'year': '2023',
     'image': 'assets/images/miamo-zesi.webp',
-  }, 
+  },
   'Queen of Myth and Monsters': {
     'title': 'Queen of Myth and Monsters',
     'author': 'Scarlett St. Clair',
@@ -60,19 +60,19 @@ Map<String, Map<String, String>> unreadBooks = {
     'year': '2021',
     'image': 'assets/images/easthaven.jpeg',
   },
-   'What if love can save us?': {
+  'What if love can save us?': {
     'title': 'What if love can save us? Band 1',
     'author': 'Saskia Palla',
     'year': '2023',
     'image': 'assets/images/what-if.jpeg',
   },
-    'The Princess and the Beast - Dunkles Spiel': {
+  'The Princess and the Beast - Dunkles Spiel': {
     'title': 'The Princess and the Beast',
     'author': 'Sally Dark',
     'year': '2020',
     'image': 'assets/images/princess-and-beast.jpeg',
-  },  
-    'A Night of Shadows and Betrayals': {
+  },
+  'A Night of Shadows and Betrayals': {
     'title': 'A Night of Shadows and Betrayals',
     'author': 'Anne Pätzold',
     'year': '2023',
@@ -80,20 +80,19 @@ Map<String, Map<String, String>> unreadBooks = {
   }
 };
 
-
 //wunschliste
-  Map<String, Map<String, String>> wishList = {
+Map<String, Map<String, String>> wishList = {
   'Autumn & Leaf': {
     'title': 'Autumn & Leaf',
     'author': 'J. K. Bloom',
     'year': '2020',
     'image': 'assets/images/autumn-leaf.jpeg',
   },
-   'Die Drachenhexe I': {
+  'Die Drachenhexe I': {
     'title': 'Die Drachenhexe I',
     'author': 'J. K. Bloom',
     'year': '2019',
-    'image': 'assets/images/die-drachenhexe.jpeg', 
+    'image': 'assets/images/die-drachenhexe.jpeg',
   },
   'On My Way': {
     'title': 'On My Way',
@@ -121,20 +120,19 @@ Map<String, Map<String, String>> unreadBooks = {
   }
 };
 
-
 // sonderband
-  Map<String, Map<String, String>> limitedEdition = {
+Map<String, Map<String, String>> limitedEdition = {
   'Fourth Wing (Special Edition)': {
     'title': 'Fourth Wing',
     'author': 'Rebecca Yarros',
     'year': '2023',
     'image': 'assets/images/wing-special.webp',
   },
-   'Wie die Ruhe vor dem Sturm: Special Edition': {
+  'Wie die Ruhe vor dem Sturm: Special Edition': {
     'title': 'Wie die Ruhe vor dem Sturm',
     'author': 'Brittainy C. Cherry',
     'year': '2023',
-    'image': 'assets/images/ruhe-vor-dem-sturm.jpg', 
+    'image': 'assets/images/ruhe-vor-dem-sturm.jpg',
   },
   'Harry Potter - Gesamtausgabe': {
     'title': 'Harry Potter - Gesamtausgabe',
@@ -148,7 +146,7 @@ Map<String, Map<String, String>> unreadBooks = {
     'year': '2023',
     'image': 'assets/images/all-in.jpg',
   },
-    'Trotze der Nacht EXKLUSIVAUSGABE': {
+  'Trotze der Nacht EXKLUSIVAUSGABE': {
     'title': 'Trotze der Nacht',
     'author': 'Brigid Kemmerer',
     'year': '2023',
@@ -168,9 +166,8 @@ Map<String, Map<String, String>> unreadBooks = {
   }
 };
 
-
 // verschenken
-  Map<String, Map<String, String>> giveAway = {
+Map<String, Map<String, String>> giveAway = {
   'better with someone else': {
     'title': 'better with someone else',
     'author': 'Ina Taus',

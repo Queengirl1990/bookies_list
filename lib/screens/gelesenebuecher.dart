@@ -4,7 +4,7 @@ import '../styles/farbcodes.dart';
 import 'home.dart';
 import '../widgets/bookieslist-widgets.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:bookieslist/libary/readBooksDatenbank.dart';
+import 'package:bookieslist/libary/read-books-datenbank.dart';
 
 void main() {
   runApp(const ReadBooksApp());

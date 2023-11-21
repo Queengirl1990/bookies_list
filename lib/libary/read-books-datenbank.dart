@@ -43,13 +43,20 @@ class BookInfo {
 }
 
 final Map<String, BookInfo> bookInfoMap = {
-  'Außerhalb der Schatten I': BookInfo('Außerhalb der Schatten I', 'Mandy J. Hard', 'Fantasy', 'Jetzt Lesen'),
-  'Fourth Wings I': BookInfo('Fourth Wings I', 'Rebecca Yarros', 'Fantasy', 'Jetzt Lesen'),
-  'Huskyküsse zu Weihnachten': BookInfo('Huskyküsse zu Weihnachten', 'Maria Winter', 'Romantik', 'Jetzt Lesen'),
-  'Keep my silent Heart': BookInfo('Keep my silent Heart', 'Sazou G.', 'Romantik', 'Jetzt Lesen'),
-  'Wicca Creed I': BookInfo('Wicca Creed I', 'Marah Woolf', 'Fantasy', 'Jetzt Lesen'),
-  'Ravenhall Academy II': BookInfo('Ravenhall Academy II', 'Julia Kuhn', 'Fantasy', 'Jetzt Lesen'),
-  'Bad At Love': BookInfo('Bad At Love', 'Julia Kuhn', 'New Adult Roman', 'Jetzt Lesen'),
+  'Außerhalb der Schatten I': BookInfo(
+      'Außerhalb der Schatten I', 'Mandy J. Hard', 'Fantasy', 'Jetzt Lesen'),
+  'Fourth Wings I':
+      BookInfo('Fourth Wings I', 'Rebecca Yarros', 'Fantasy', 'Jetzt Lesen'),
+  'Huskyküsse zu Weihnachten': BookInfo(
+      'Huskyküsse zu Weihnachten', 'Maria Winter', 'Romantik', 'Jetzt Lesen'),
+  'Keep my silent Heart':
+      BookInfo('Keep my silent Heart', 'Sazou G.', 'Romantik', 'Jetzt Lesen'),
+  'Wicca Creed I':
+      BookInfo('Wicca Creed I', 'Marah Woolf', 'Fantasy', 'Jetzt Lesen'),
+  'Ravenhall Academy II':
+      BookInfo('Ravenhall Academy II', 'Julia Kuhn', 'Fantasy', 'Jetzt Lesen'),
+  'Bad At Love':
+      BookInfo('Bad At Love', 'Julia Kuhn', 'New Adult Roman', 'Jetzt Lesen'),
 };
 
 final List<String> bookCoverAssets = [
@@ -62,7 +69,6 @@ final List<String> bookCoverAssets = [
   'assets/images/bad-at-love.jpeg',
 ];
 
-
 // gelesene Bücher Screen
 Map<String, Map<String, String>> readBooksList = {
   'WiccaCreed I Schuld & Sünde': {
@@ -70,7 +76,7 @@ Map<String, Map<String, String>> readBooksList = {
     'author': 'Marah Woolf',
     'year': '2023',
     'image': 'assets/images/wiccacreed.jpeg',
-  },  
+  },
   'Außerhalb der Schatten I Das ist erst der Anfang': {
     'title': 'Außerhalb der Schatten I',
     'author': 'MJ Hard',
@@ -94,13 +100,13 @@ Map<String, Map<String, String>> readBooksList = {
     'author': 'Sazou G.',
     'year': '2022',
     'image': 'assets/images/keep-my.jpg',
-  }, 
+  },
   'Huskyküsse zu Weihnachten': {
     'title': 'Huskyküsse zu Weihnachten',
     'author': 'Maria Winter',
     'year': '2022',
     'image': 'assets/images/Huskyküsse.jpg',
-  },  
+  },
   'Das Biest in ihm': {
     'title': 'Das Biest in ihm',
     'author': 'Serena Valentino',
@@ -119,31 +125,31 @@ Map<String, Map<String, String>> readBooksList = {
     'year': '2023',
     'image': 'assets/images/verborgene-magie.jpeg',
   },
-    'Destroyed Souls I': {
+  'Destroyed Souls I': {
     'title': 'Destroyed Souls I',
     'author': 'Annie Tears',
     'year': '2020',
     'image': 'assets/images/destroyed-souls-1.jpeg',
-  }, 
-    'Rise & Doom III Königin des blutroten Throns': {
+  },
+  'Rise & Doom III Königin des blutroten Throns': {
     'title': 'Rise & Doom III',
     'author': 'Ina Taus',
     'year': '2019',
     'image': 'assets/images/rise-doom-3.jpg',
   },
-    'Rise & Doom II Prinz unter dem blutroten Mond': {
+  'Rise & Doom II Prinz unter dem blutroten Mond': {
     'title': 'Rise & Doom 2',
     'author': 'Ina Taus',
     'year': '2019',
     'image': 'assets/images/rise&doom.jpeg',
   },
-    'Rise & Doom I Prinzessin der blutroten Wüste': {
+  'Rise & Doom I Prinzessin der blutroten Wüste': {
     'title': 'Rise & Doom I',
     'author': 'Ina Taus',
     'year': '2019',
     'image': 'assets/images/rise-doom.webp',
   },
-    'Die Tribute von Panem X Das Lied von Vogel und Schlange': {
+  'Die Tribute von Panem X Das Lied von Vogel und Schlange': {
     'title': 'Die Tribute von Panem X',
     'author': 'Suzanne Collins',
     'year': '2020',
@@ -160,8 +166,8 @@ Map<String, Map<String, String>> readBooksList = {
     'author': 'Suzanne Collins',
     'year': '2020',
     'image': 'assets/images/panem-1.jpeg',
-  },  
-    'Belle Morte I Rot wie Blut': {
+  },
+  'Belle Morte I Rot wie Blut': {
     'title': 'Belle Morte I',
     'author': 'Bella Higgin',
     'year': '2023',
