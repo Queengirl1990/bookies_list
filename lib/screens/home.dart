@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'profil.dart';
-import '../widgets/bookieslist-widgets.dart'; 
+import '../widgets/bookieslist-widgets.dart';
 import '../styles/farbcodes.dart';
 
 void main() {
@@ -118,7 +118,7 @@ class _BookiesListState extends State<BookiesList> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      bookInfoContainer(0.5), 
+                      bookInfoContainer(0.5),
                       const SizedBox(height: 15),
                     ],
                   ),
@@ -133,7 +133,8 @@ class _BookiesListState extends State<BookiesList> {
                         Navigator.pushNamed(context, '/unreadBooks');
                       },
                       style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -143,8 +144,9 @@ class _BookiesListState extends State<BookiesList> {
                             ),
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(snowWhite), 
-                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
                       ),
                       child: const Center(
                         child: Text(
@@ -160,7 +162,8 @@ class _BookiesListState extends State<BookiesList> {
                         // Link einfügen
                       },
                       style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -170,8 +173,9 @@ class _BookiesListState extends State<BookiesList> {
                             ),
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(snowWhite), 
-                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
                       ),
                       child: const Center(
                         child: Text(
@@ -187,7 +191,8 @@ class _BookiesListState extends State<BookiesList> {
                         // Link einfügen
                       },
                       style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -197,8 +202,9 @@ class _BookiesListState extends State<BookiesList> {
                             ),
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(snowWhite), 
-                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
                       ),
                       child: const Center(
                         child: Text(
@@ -214,18 +220,20 @@ class _BookiesListState extends State<BookiesList> {
                         // Link einfügen
                       },
                       style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),    
-                              topRight: Radius.circular(0),  
-                              bottomLeft: Radius.circular(0), 
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
                               bottomRight: Radius.circular(20),
                             ),
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(snowWhite), 
-                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
                       ),
                       child: const Center(
                         child: Text(
@@ -241,7 +249,8 @@ class _BookiesListState extends State<BookiesList> {
                         // Link einfügen
                       },
                       style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -251,8 +260,9 @@ class _BookiesListState extends State<BookiesList> {
                             ),
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(snowWhite), 
-                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
                       ),
                       child: const Center(
                         child: Text(
@@ -268,18 +278,20 @@ class _BookiesListState extends State<BookiesList> {
                         // Link einfügen
                       },
                       style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),   
-                              topRight: Radius.circular(20),   
-                              bottomLeft: Radius.circular(20), 
-                              bottomRight: Radius.circular(20), 
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
                             ),
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(snowWhite), 
-                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
                       ),
                       child: const Center(
                         child: Text(
@@ -295,18 +307,20 @@ class _BookiesListState extends State<BookiesList> {
                         // Link einfügen
                       },
                       style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),   
-                              topRight: Radius.circular(20),   
-                              bottomLeft: Radius.circular(20), 
-                              bottomRight: Radius.circular(20), 
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
                             ),
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(snowWhite), 
-                        foregroundColor: MaterialStateProperty.all(Colors.black),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
                       ),
                       child: const Center(
                         child: Text(

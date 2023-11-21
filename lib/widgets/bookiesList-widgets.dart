@@ -75,7 +75,7 @@ Widget myCircularAvatar() {
 }
 
 //aktuelles buch Container
-Widget bookInfoContainer(double bookProgress) {
+Widget bookInfoContainer(double bookProgress, VoidCallback onUpdatePressed) {
   return Container(
     width: 320,
     padding: const EdgeInsets.all(15),
@@ -139,24 +139,21 @@ Widget bookInfoContainer(double bookProgress) {
               child: LinearPercentIndicator(
                 width: 150,
                 lineHeight: 14.0,
-                percent: (0.5),
+                percent: bookProgress,
                 center: Text('${(bookProgress * 100).toStringAsFixed(0)}%'),
                 progressColor: guelden,
-                barRadius: const Radius.circular(7.0), 
+                barRadius: const Radius.circular(7.0),
                 backgroundColor: const Color.fromARGB(255, 230, 228, 228),
               ),
             ),
-
-            const SizedBox(height: 10), 
+            const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {
-                // Aktion einfügen
-              },
+              onPressed: onUpdatePressed,
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(snowWhite),
               ),
               child: const Text(
-                'Aktualisieren', 
+                'Aktualisieren',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold,

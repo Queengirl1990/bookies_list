@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../styles/farbcodes.dart';
 import '../widgets/bookieslist-widgets.dart';
 import '../styles/appbar.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,13 +29,120 @@ class CurrentlyReadingScreen extends StatefulWidget {
 }
 
 class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
-  int currentPageIndex = 0;
+  double bookProgress = 0.85;
   double initialRating = 0.0;
+
+  void showUpdateDialog() {
+    TextEditingController progressController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Lesefortschritt aktualisieren'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                  'Aktueller Lesefortschritt: ${(bookProgress * 100).toStringAsFixed(0)}%'),
+              TextField(
+                controller: progressController,
+                keyboardType: TextInputType.number,
+                decoration:
+                    const InputDecoration(labelText: 'Neuer Lesefortschritt'),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Abbrechen'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+                showUpdateToast(progressController.text);
+              },
+              child: const Text('Aktualisieren'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void showUpdateToast(String progress) {
+    showToast('Lesefortschritt aktualisiert: $progress%');
+  }
+
+  void showToast(String message) {
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.TOP,
+      backgroundColor: Colors.grey[700],
+      textColor: Colors.white,
+      fontSize: 16.0,
+      webShowClose: true,
+      timeInSecForIosWeb: 3,
+      webBgColor: "darkRed",
+      webPosition: "right",
+    );
+  }
+
+  void showMoveBookDialog() {
+    Alert(
+      context: context,
+      title: "Buch verschieben",
+      content: Column(
+        children: [
+          const Text(
+              "Wähle die Liste, in die das Buch verschoben werden soll:"),
+          const SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              showToast(
+                  "Buch wurde in den Stapel ungelesener Bücher verschoben");
+            },
+            child: const Text("Stapel ungelesener Bücher"),
+          ),
+          const SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              showToast(
+                  "Buch wurde in die Liste der gelesenen Bücher verschoben");
+            },
+            child: const Text("Gelesene Bücher"),
+          ),
+          const SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              showToast("Buch wurde in die Liste der Sonderbände verschoben");
+            },
+            child: const Text("Sonderband"),
+          ),
+        ],
+      ),
+      buttons: [
+        DialogButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text(
+            "Abbrechen",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
+    ).show();
+  }
 
   @override
   Widget build(BuildContext context) {
-    double bookProgress = 0.85;
-
     return Scaffold(
       appBar: customAppBar(context),
       backgroundColor: darkRed,
@@ -55,7 +164,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
             const MyDividerWithIcons(),
             const SizedBox(height: 20),
             Container(
-              child: bookInfoContainer(bookProgress),
+              child: bookInfoContainer(bookProgress, showUpdateDialog),
             ),
             const SizedBox(height: 20),
             Center(
@@ -95,7 +204,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
                       // "Buch verschieben" Button
                       ElevatedButton(
                         onPressed: () {
-                          // Aktion für "Buch verschieben" hier einfügen
+                          showMoveBookDialog();
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
