@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../styles/farbcodes.dart';
 import 'home.dart';
-import '../widgets/bookieslist-widgets.dart';
+import '../widgets/bookieslist_widgets.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:bookieslist/libary/read-books-datenbank.dart';
+import 'package:bookieslist/libary/read_books_datenbank.dart';
 
 void main() {
   runApp(const ReadBooksApp());

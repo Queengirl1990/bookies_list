@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../styles/farbcodes.dart';
-import '../widgets/bookieslist-widgets.dart';
+import '../widgets/bookieslist_widgets.dart';
 import '../styles/appbar.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 

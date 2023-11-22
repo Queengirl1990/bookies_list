@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'profil.dart';
-import '../widgets/bookieslist-widgets.dart';
+import '../widgets/bookieslist_widgets.dart';
 import '../styles/farbcodes.dart';
 
 void main() {
@@ -118,7 +118,9 @@ class _BookiesListState extends State<BookiesList> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      bookInfoContainer(0.5),
+                      bookInfoContainer(0.5, () {
+                        // Hier kannst du die Logik für onUpdatePressed einfügen
+                      }),
                       const SizedBox(height: 15),
                     ],
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
-import 'package:bookieslist/widgets/bookieslist-widgets.dart';
+import 'package:bookieslist/widgets/bookieslist_widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,19 +12,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: NewBookAdd(),
+      home: NewBookScann(),
     );
   }
 }
 
-class NewBookAdd extends StatefulWidget {
-  const NewBookAdd({super.key});
+class NewBookScann extends StatefulWidget {
+  const NewBookScann({super.key});
 
   @override
-  _NewBookAddState createState() => _NewBookAddState();
+  _NewBookScannState createState() => _NewBookScannState();
 }
 
-class _NewBookAddState extends State<NewBookAdd> {
+class _NewBookScannState extends State<NewBookScann> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,11 +42,11 @@ class _NewBookAddState extends State<NewBookAdd> {
         ],
       ),
       backgroundColor: darkRed,
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 20),
-          Text(
+          const SizedBox(height: 20),
+          const Text(
             "Neues Buch hinzufügen",
             style: TextStyle(
               fontFamily: 'DancingScript',
@@ -55,8 +55,15 @@ class _NewBookAddState extends State<NewBookAdd> {
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 20),
-          MyDividerWithIcons(),
+          const SizedBox(height: 20),
+          Center(
+            child: Image.asset(
+              'assets/images/scanner-logo.png',
+              width: 100,
+              height: 100,
+            ),
+          ),
+          const MyDividerWithIcons(),
         ],
       ),
     );
