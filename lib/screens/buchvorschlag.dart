@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
-import 'package:bookieslist/widgets/randomeGenerator.dart';
-import '../widgets/bookieslist-widgets.dart';
+import 'package:bookieslist/widgets/randome_generator.dart';
+import '../widgets/bookieslist_widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -70,7 +70,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
 
               return Column(
                 children: [
-                  const MyDividerWithIcons(), 
+                  const MyDividerWithIcons(),
                   const SizedBox(height: 10),
                   Row(
                     children: [
@@ -127,7 +127,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                   const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: () {
-                      // funktion 
+                      // funktion
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.black,

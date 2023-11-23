@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../styles/farbcodes.dart';
-import 'package:bookieslist/widgets/randomeGenerator.dart'; 
+import 'package:bookieslist/widgets/randome_generator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,26 +52,26 @@ class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
             width: 320,
             child: Divider(
               color: snowWhite,
-                  height: 20,
-                  thickness: 2,
+              height: 20,
+              thickness: 2,
             ),
           ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.favorite, size: 20, color: lightGrey), 
+              Icon(Icons.favorite, size: 20, color: lightGrey),
               SizedBox(width: 10),
-              Icon(Icons.favorite, size: 20, color: lightGrey), 
+              Icon(Icons.favorite, size: 20, color: lightGrey),
               SizedBox(width: 10),
-              Icon(Icons.favorite, size: 20, color: lightGrey), 
+              Icon(Icons.favorite, size: 20, color: lightGrey),
             ],
           ),
           const SizedBox(
             width: 320,
             child: Divider(
               color: snowWhite,
-                  height: 20,
-                  thickness: 2,
+              height: 20,
+              thickness: 2,
             ),
           ),
           const SizedBox(height: 10),
@@ -131,7 +131,7 @@ class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
           Icon(Icons.home, size: 30, color: Colors.white),
           Icon(Icons.menu_book, size: 30, color: Colors.white),
           Icon(Icons.settings, size: 30, color: Colors.white),
-          Icon(Icons.help_outline, size: 30, color: darkRed), 
+          Icon(Icons.help_outline, size: 30, color: darkRed),
         ],
       ),
     );

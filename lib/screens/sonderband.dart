@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
-import 'package:bookieslist/libary/unread-booksDatenbank.dart';
-import '../widgets/bookieslist-widgets.dart';
+import 'package:bookieslist/libary/unread_books_datenbank.dart';
+import '../widgets/bookieslist_widgets.dart';
 
 void main() {
   runApp(const LimitedEditionApp());

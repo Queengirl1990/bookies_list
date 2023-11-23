@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
-import '../widgets/bookieslist-widgets.dart';
+import '../widgets/bookieslist_widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -101,7 +101,10 @@ class _NewListScreenState extends State<NewListScreen> {
                 ),
                 const SizedBox(height: 10),
                 const TextField(
-                    style: TextStyle(color: Colors.white, fontSize: 15, fontStyle: FontStyle.italic), 
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontStyle: FontStyle.italic),
                   decoration: InputDecoration(
                     hintText: "Neue Liste benennen",
                     hintStyle: TextStyle(color: Colors.white),
@@ -149,7 +152,6 @@ class _NewListScreenState extends State<NewListScreen> {
               style: TextStyle(color: Colors.black),
             ),
           ),
-
           const SizedBox(height: 120),
           const MyDividerWithIcons(),
         ],

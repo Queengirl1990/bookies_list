@@ -12,19 +12,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SeetingsScreen(),
+      home: EditProfileScreen(),
     );
   }
 }
 
-class SeetingsScreen extends StatefulWidget {
-  const SeetingsScreen({super.key});
+class EditProfileScreen extends StatefulWidget {
+  const EditProfileScreen({super.key});
 
   @override
-  _SeetingsScreenState createState() => _SeetingsScreenState();
+  _EditProfileScreenState createState() => _EditProfileScreenState();
 }
 
-class _SeetingsScreenState extends State<SeetingsScreen> {
+class _EditProfileScreenState extends State<EditProfileScreen> {
   int currentPageIndex = 0;
 
   @override

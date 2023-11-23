@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import '../styles/farbcodes.dart';
 import '../widgets/bookieslist_widgets.dart';
 import '../styles/appbar.dart';
@@ -75,22 +74,8 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
   }
 
   void showUpdateToast(String progress) {
-    showToast('Lesefortschritt aktualisiert: $progress%');
-  }
-
-  void showToast(String message) {
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.TOP,
-      backgroundColor: Colors.grey[700],
-      textColor: Colors.white,
-      fontSize: 16.0,
-      webShowClose: true,
-      timeInSecForIosWeb: 3,
-      webBgColor: "darkRed",
-      webPosition: "right",
-    );
+    // Anstelle von Fluttertoast.showToast kannst du hier eine andere Methode verwenden, um eine Benachrichtigung anzuzeigen.
+    // Zum Beispiel: ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Lesefortschritt aktualisiert: $progress%')));
   }
 
   void showMoveBookDialog() {
@@ -105,7 +90,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
-              showToast(
+              showUpdateToast(
                   "Buch wurde in den Stapel ungelesener Bücher verschoben");
             },
             child: const Text("Stapel ungelesener Bücher"),
@@ -114,7 +99,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
-              showToast(
+              showUpdateToast(
                   "Buch wurde in die Liste der gelesenen Bücher verschoben");
             },
             child: const Text("Gelesene Bücher"),
@@ -123,7 +108,8 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
-              showToast("Buch wurde in die Liste der Sonderbände verschoben");
+              showUpdateToast(
+                  "Buch wurde in die Liste der Sonderbände verschoben");
             },
             child: const Text("Sonderband"),
           ),

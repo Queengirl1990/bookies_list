@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:bookieslist/libary/read-books-datenbank.dart';
-import '../widgets/bookieslist-widgets.dart';
+import 'package:bookieslist/libary/read_books_datenbank.dart';
+import '../widgets/bookieslist_widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -107,7 +107,6 @@ class MyProfilPage extends StatelessWidget {
               ),
               const MyDividerWithIcons(),
               const SizedBox(height: 10),
-
               const Text(
                 "Schau dir mal wieder deine Lieblinge an",
                 style: TextStyle(
@@ -120,7 +119,6 @@ class MyProfilPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-
               CarouselSlider.builder(
                 itemCount: bookInfoMap.length,
                 options: CarouselOptions(
@@ -156,12 +154,11 @@ class MyProfilPage extends StatelessWidget {
                   );
                 },
               ),
-
               SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Aktion 
+                    // Aktion
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -182,14 +179,12 @@ class MyProfilPage extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(height: 10),
-
               SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Aktion 
+                    // Aktion
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
