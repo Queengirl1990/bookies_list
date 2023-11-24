@@ -32,6 +32,7 @@ class _YourGenresScreenState extends State<YourGenresScreen> {
     return Scaffold(
       appBar: customAppBar(context),
       body: YourBodyWidget(),
+      backgroundColor: darkRed,
     );
   }
 }

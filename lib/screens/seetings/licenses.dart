@@ -32,6 +32,7 @@ class _LicensesScreenState extends State<LicensesScreen> {
     return Scaffold(
       appBar: customAppBar(context),
       body: YourBodyWidget(),
+      backgroundColor: darkRed,
     );
   }
 }

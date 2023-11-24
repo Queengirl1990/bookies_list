@@ -58,6 +58,7 @@ class _BookiesListState extends State<BookiesList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: darkRed,
       bottomNavigationBar: CurvedNavigationBar(
         index: currentPageIndex,
         backgroundColor: darkRed,

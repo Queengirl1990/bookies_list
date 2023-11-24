@@ -32,6 +32,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
     return Scaffold(
       appBar: customAppBar(context),
       body: YourBodyWidget(),
+      backgroundColor: darkRed,
     );
   }
 }

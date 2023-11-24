@@ -31,13 +31,14 @@ class _NewsletterScreenState extends State<NewsletterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(context),
-      body: YourBodyWidget(),
+      body: NewsletterWidget(),
+      backgroundColor: darkRed,
     );
   }
 }
 
 //Screen bauen
-class YourBodyWidget extends StatelessWidget {
+class NewsletterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container();

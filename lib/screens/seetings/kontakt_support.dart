@@ -78,9 +78,9 @@ class _YourBodyWidgetState extends State<YourBodyWidget> {
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 25.0),
               const MyDividerWithIcons(),
-              SizedBox(height: 16.0),
+              SizedBox(height: 25.0),
               DropdownButtonFormField<String>(
                 value: selectedSubject,
                 onChanged: (value) {
@@ -100,7 +100,7 @@ class _YourBodyWidgetState extends State<YourBodyWidget> {
                   filled: true,
                 ),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 20.0),
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
@@ -110,7 +110,7 @@ class _YourBodyWidgetState extends State<YourBodyWidget> {
                 ),
                 keyboardType: TextInputType.emailAddress,
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 20.0),
               TextField(
                 controller: _messageController,
                 decoration: InputDecoration(
@@ -120,7 +120,7 @@ class _YourBodyWidgetState extends State<YourBodyWidget> {
                 ),
                 maxLines: 4,
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 20.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -135,8 +135,8 @@ class _YourBodyWidgetState extends State<YourBodyWidget> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      onPrimary: Colors.black,
+                      foregroundColor: Colors.black,
+                      backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),

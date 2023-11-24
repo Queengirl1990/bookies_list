@@ -32,6 +32,7 @@ class _AGBsScreenState extends State<AGBsScreen> {
     return Scaffold(
       appBar: customAppBar(context),
       body: YourBodyWidget(),
+      backgroundColor: darkRed,
     );
   }
 }

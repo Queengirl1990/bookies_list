@@ -35,7 +35,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Wunschliste",
+          "Verschenken",
           style: TextStyle(
             fontFamily: 'DancingScript',
             fontWeight: FontWeight.bold,

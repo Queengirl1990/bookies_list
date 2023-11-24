@@ -32,6 +32,7 @@ class _LegalNoticeScreenState extends State<LegalNoticeScreen> {
     return Scaffold(
       appBar: customAppBar(context),
       body: YourBodyWidget(),
+      backgroundColor: darkRed,
     );
   }
 }
