@@ -119,7 +119,7 @@ class _BookiesListState extends State<BookiesList> {
                       ),
                       const SizedBox(height: 20),
                       bookInfoContainer(0.5, () {
-                        // Hier kannst du die Logik für onUpdatePressed einfügen
+                        // Logik
                       }),
                       const SizedBox(height: 15),
                     ],
