@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../styles/farbcodes.dart';
+import '../../styles/farbcodes.dart';
 import 'package:bookieslist/styles/appbar.dart';
 import 'package:bookieslist/widgets/bookieslist_widgets.dart';
 
@@ -154,7 +154,7 @@ class YourBodyWidget extends StatelessWidget {
         return AlertDialog(
           title: Text(
             'Achtung! Du bist dabei, dein Konto zu löschen',
-            style: TextStyle(color: Colors.red),
+            style: TextStyle(color: darkRed),
           ),
           content: Column(
             children: [

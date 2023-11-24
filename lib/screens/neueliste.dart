@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
+import '../styles/appbar.dart'; // Importiere die appbar.dart-Datei
 import '../widgets/bookieslist_widgets.dart';
 
 void main() {
@@ -27,49 +28,10 @@ class NewListScreen extends StatefulWidget {
 class _NewListScreenState extends State<NewListScreen> {
   int currentPageIndex = 0;
 
-  Widget myCircularAvatar() {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(1, 1),
-          ),
-        ],
-      ),
-      child: ClipOval(
-        child: Image.asset(
-          'assets/images/avatar.png',
-          width: 50,
-          height: 50,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: darkRed,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            // Aktion einfügen
-          },
-        ),
-        actions: [
-          myCircularAvatar(),
-        ],
-      ),
+      appBar: customAppBar(context),
       backgroundColor: darkRed,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
