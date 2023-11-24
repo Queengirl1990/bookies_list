@@ -75,7 +75,7 @@ class YourBodyWidget extends StatelessWidget {
               _buildElevatedButton(context, "Kontakt & Support", ''),
               _buildElevatedButton(context, "Lizenzen", ''),
               _buildElevatedButton(context, "Abmelden", ''),
-              _buildElevatedButton(context, "Konto löschen", '')
+              _buildElevatedButton(context, "Konto löschen", ''),
             ],
           ),
         ],
@@ -87,10 +87,14 @@ class YourBodyWidget extends StatelessWidget {
       BuildContext context, String text, String route) {
     return ElevatedButton(
       onPressed: () {
-        if (route.isNotEmpty) {
+        if (text == "Abmelden") {
+          _showLogoutDialog(context);
+        } else if (text == "Konto löschen") {
+          _showDeleteAccountDialog(context);
+        } else if (route.isNotEmpty) {
           Navigator.pushNamed(context, route);
         } else {
-          // Handle button click logic
+          // löschen Logik
         }
       },
       style: ElevatedButton.styleFrom(
@@ -102,7 +106,7 @@ class YourBodyWidget extends StatelessWidget {
             bottomRight: Radius.circular(20),
           ),
         ),
-        primary: snowWhite,
+        primary: Colors.white,
         onPrimary: Colors.black,
       ),
       child: Center(
@@ -113,6 +117,71 @@ class YourBodyWidget extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Future<void> _showLogoutDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Abmelden'),
+          content: const Text('Du bist dabei, dich abzumelden.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Abbrechen'),
+            ),
+            TextButton(
+              onPressed: () {
+                // Abmeldung implementieren
+                // Zum Beispiel: Navigator.of(context).pop(); um den Dialog zu schließen
+              },
+              child: const Text('Abmelden'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _showDeleteAccountDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Achtung! Du bist dabei, dein Konto zu löschen',
+            style: TextStyle(color: Colors.red),
+          ),
+          content: Column(
+            children: [
+              const Divider(),
+              const Text(
+                'Wenn du dein Konto löschst, geht deine Bibliothek und dein Lesefortschritt verloren.',
+                style: TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Abbrechen'),
+            ),
+            TextButton(
+              onPressed: () {
+                // Löschen des Kontos implementieren
+                // Zum Beispiel: Navigator.of(context).pop(); um den Dialog zu schließen
+              },
+              child: const Text('Konto endgültig löschen'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
