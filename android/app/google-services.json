@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1037307496433",
+    "project_id": "bookieslist-bd160",
+    "storage_bucket": "bookieslist-bd160.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037307496433:android:f6fcaf1d9c543ff37d2650",
+        "android_client_info": {
+          "package_name": "com.example.bookieslist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrvJxOZ4gEr4V_rfebgvKS83QP4Q5IBs4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
