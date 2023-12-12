@@ -9,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
-  const MyCircularAvatar({super.key});
+  const MyCircularAvatar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +67,7 @@ class MyProfilPage extends StatelessWidget {
           title: const Text(
             "Mein Profil",
             style: TextStyle(
+              color: snowWhite,
               fontFamily: 'DancingScript',
               fontWeight: FontWeight.bold,
               fontSize: 24,
@@ -103,7 +104,13 @@ class MyProfilPage extends StatelessWidget {
                   ),
                   elevation: 5,
                 ),
-                child: const Text("Bearbeiten"),
+                child: Text(
+                  "Bearbeiten",
+                  style: TextStyle(
+                    color:
+                        snowWhite, // Hier wird die Textfarbe auf snowWhite gesetzt
+                  ),
+                ),
               ),
               const MyDividerWithIcons(),
               const SizedBox(height: 10),
@@ -113,7 +120,7 @@ class MyProfilPage extends StatelessWidget {
                   fontFamily: 'DancingScript',
                   fontWeight: FontWeight.normal,
                   fontSize: 18,
-                  color: Colors.white,
+                  color: snowWhite,
                 ),
               ),
               const SizedBox(
