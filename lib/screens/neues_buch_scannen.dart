@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:http/http.dart' as http;
 import '../styles/farbcodes.dart';
 import 'package:bookieslist/widgets/bookieslist_widgets.dart';
+import '../libary/api_key.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,21 +30,48 @@ class NewBookScann extends StatefulWidget {
 
 class _NewBookScannState extends State<NewBookScann> {
   String scannedCode = '';
+  BookInfo? bookInfo;
 
   Future<void> scanBarcode() async {
     String code = await FlutterBarcodeScanner.scanBarcode(
-      '#ff6666', // Hintergrundfarbe des Scanners
-      'Abbrechen', // Abbruchtext
-      true, // Taschenlampe aktivieren
-      ScanMode.BARCODE, // Scanner-Modus
+      '#ff6666',
+      'Abbrechen',
+      true,
+      ScanMode.BARCODE,
     );
 
     if (!mounted) return;
 
     setState(() {
       scannedCode = code;
-      // Hier können Sie die Logik für das Hinzufügen des gescannten Buches implementieren.
+      // Logik gescannten Buches implementieren
+      fetchBookInfo(scannedCode);
     });
+  }
+
+  Future<void> fetchBookInfo(String isbn) async {
+    try {
+      final apiKey =
+          googleBooksApiKey; // Verwenden Sie den API-Schlüssel aus der separaten Datei
+      final apiUrl = 'https://www.googleapis.com/books/v1/volumes?q=$isbn';
+
+      final response = await http.get(Uri.parse(apiUrl), headers: {
+        'Authorization': 'Bearer $apiKey',
+      });
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        setState(() {
+          bookInfo = BookInfo.fromJson(data);
+        });
+      } else {
+        // Fehlerbehandlung, wenn die API-Anfrage fehlschlägt
+        print('Fehler bei der API-Anfrage: ${response.statusCode}');
+      }
+    } catch (error) {
+      // Allgemeine Fehlerbehandlung
+      print('Fehler bei der API-Anfrage: $error');
+    }
   }
 
   @override
@@ -84,11 +114,37 @@ class _NewBookScannState extends State<NewBookScann> {
           ),
           const MyDividerWithIcons(),
           ElevatedButton(
-            onPressed: () => scanBarcode(),
+            onPressed: () async {
+              await scanBarcode();
+              // Ladeanzeige
+            },
             child: const Text('Barcode scannen'),
           ),
+          // Buchinformationen
+          if (bookInfo != null)
+            Column(
+              children: [
+                Text('Titel: ${bookInfo!.title}'),
+                Text('Autor: ${bookInfo!.author}'),
+              ],
+            ),
+          if (bookInfo == null) CircularProgressIndicator(),
         ],
       ),
+    );
+  }
+}
+
+class BookInfo {
+  final String title;
+  final String author;
+
+  BookInfo({required this.title, required this.author});
+
+  factory BookInfo.fromJson(Map<String, dynamic> json) {
+    return BookInfo(
+      title: json['title'],
+      author: json['author'],
     );
   }
 }
