@@ -46,3 +46,4 @@ app.*.map.json
 
 #keydatei
 '../libary/api_key.dart';
+'../firebase/firebase_options.dart';
