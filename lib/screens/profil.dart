@@ -107,8 +107,7 @@ class MyProfilPage extends StatelessWidget {
                 child: Text(
                   "Bearbeiten",
                   style: TextStyle(
-                    color:
-                        snowWhite, // Hier wird die Textfarbe auf snowWhite gesetzt
+                    color: snowWhite,
                   ),
                 ),
               ),
