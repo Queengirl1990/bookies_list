@@ -1,38 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../styles/farbcodes.dart';
-import 'package:bookieslist/libary/unread_books_datenbank.dart';
-import 'home.dart';
+import '../home/home.dart';
 import '../widgets/bookieslist_widgets.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:bookieslist/libary/read_books_datenbank.dart';
 
 void main() {
-  runApp(const UnreadBooksApp());
+  runApp(const ReadBooksApp());
 }
 
-class UnreadBooksApp extends StatelessWidget {
-  const UnreadBooksApp({super.key});
+class ReadBooksApp extends StatelessWidget {
+  const ReadBooksApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Unread Books App',
+      title: 'Read Books App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: const UnreadBooksScreen(),
+      home: const ReadBooksScreen(),
     );
   }
 }
 
-class UnreadBooksScreen extends StatefulWidget {
-  const UnreadBooksScreen({super.key});
+class ReadBooksScreen extends StatefulWidget {
+  const ReadBooksScreen({super.key});
 
   @override
-  _UnreadBooksScreenState createState() => _UnreadBooksScreenState();
+  _ReadBooksScreenState createState() => _ReadBooksScreenState();
 }
 
-class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
+class _ReadBooksScreenState extends State<ReadBooksScreen> {
   int currentPageIndex = 1;
   bool _showShimmer = true;
 
@@ -49,7 +49,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
   }
 
   void addNewBook() {
-    // buch hinzufügen
+    // Buch hinzufügen
   }
 
   @override
@@ -57,7 +57,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Stapel ungelesener Bücher",
+          "Gelesene Bücher",
           style: TextStyle(
             fontFamily: 'DancingScript',
             fontWeight: FontWeight.bold,
@@ -104,7 +104,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           crossAxisCount: 3,
           childAspectRatio: 80 / 100,
         ),
-        itemCount: unreadBooks.length + 1,
+        itemCount: readBooksList.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
             return GestureDetector(
@@ -143,7 +143,7 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
               ),
             );
           } else {
-            final bookKey = unreadBooks.keys.elementAt(index - 1);
+            final bookKey = readBooksList.keys.elementAt(index - 1);
             return GestureDetector(
               onTap: () {
                 // Navigator.push
@@ -160,11 +160,11 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
                           child: Container(
                             width: 80,
                             height: 100,
-                            color: Colors.red,
+                            color: darkRed,
                           ),
                         )
                       : Image.asset(
-                          unreadBooks[bookKey]!['image']!,
+                          readBooksList[bookKey]!['image']!,
                           fit: BoxFit.cover,
                         ),
                 ),

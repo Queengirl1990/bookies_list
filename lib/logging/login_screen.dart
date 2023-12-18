@@ -1,4 +1,4 @@
-import 'package:bookieslist/screens/home.dart';
+import 'package:bookieslist/home/home.dart';
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
 
@@ -116,24 +116,25 @@ class _LoginDemoState extends State<LoginDemo> {
               ),
               ElevatedButton(
                 onPressed: () {
-                   Navigator.push(
+                  Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const BookiesList()),
-    );
-  },
+                    MaterialPageRoute(
+                        builder: (context) => const BookiesList()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-    ),
+                  ),
                   minimumSize: const Size(160, 30),
                   elevation: 5,
-  ),
+                ),
                 child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.black, fontSize: 16),
-  ),
-),
+                ),
+              ),
 
               const SizedBox(height: 50), // Abstand hinzugefügt
               ElevatedButton(
@@ -187,7 +188,7 @@ class _LoginDemoState extends State<LoginDemo> {
               const SizedBox(height: 100),
               Container(
                 width: 320,
-                height: 80, 
+                height: 80,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/werbung.jpeg'),

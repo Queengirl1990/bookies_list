@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'profil.dart';
+import '../profil/profil.dart';
 import '../widgets/bookieslist_widgets.dart';
 import '../styles/farbcodes.dart';
 

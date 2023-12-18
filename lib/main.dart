@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:bookieslist/screens/home.dart';
-import 'package:bookieslist/screens/sub.dart';
+import 'package:bookieslist/home/home.dart';
+import 'package:bookieslist/unreadBooks/sub.dart';
 
 void main() => runApp(const MyApp());
 
