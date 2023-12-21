@@ -42,9 +42,10 @@ dependencies:
 
 flutter_native_splash:
   color: "#AC5859"
-  image: assets/images/splash.jpg
+  branding: assets/images/splash.png
   android: true
   ios: true
+  branding_mode: bottom
 
 dev_dependencies:
   flutter_test:
@@ -110,8 +111,7 @@ flutter:
     - assets/images/wiccacreed-2.jpeg
     - assets/images/scanning.png
     - assets/images/scanner-logo.png
-    - assets/images/splash.jpg
-
+    - assets/images/splash.png
   fonts:
     - family: DancingScript
       fonts:
