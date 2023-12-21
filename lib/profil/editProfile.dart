@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCircularAvatar extends StatelessWidget {
-  const MyCircularAvatar({super.key});
+  const MyCircularAvatar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class MyCircularAvatar extends StatelessWidget {
       width: 100,
       height: 100,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: snowWhite,
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
@@ -66,6 +66,7 @@ class MyProfilPage extends StatelessWidget {
           title: const Text(
             "Mein Profil",
             style: TextStyle(
+              color: snowWhite,
               fontFamily: 'DancingScript',
               fontWeight: FontWeight.bold,
               fontSize: 24,
@@ -95,7 +96,7 @@ class MyProfilPage extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.edit),
+                    icon: const Icon(Icons.edit),
                     color: Colors.white,
                     iconSize: 18,
                     onPressed: () {
@@ -116,7 +117,12 @@ class MyProfilPage extends StatelessWidget {
                   ),
                   elevation: 5,
                 ),
-                child: const Text("Bild bearbeiten"),
+                child: Text(
+                  "Bild bearbeiten",
+                  style: TextStyle(
+                    color: snowWhite,
+                  ),
+                ),
               ),
               const SizedBox(height: 10),
               Align(
@@ -173,7 +179,7 @@ class MyButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  const MyButton({super.key, required this.text, required this.onPressed});
+  const MyButton({Key? key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

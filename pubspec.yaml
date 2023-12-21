@@ -36,7 +36,15 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   googleapis: ^12.0.0
   table_calendar: ^3.0.9
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.8
 
+
+flutter_native_splash:
+  color: "#AC5859"
+  image: assets/images/splash.jpg
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:
@@ -102,6 +110,7 @@ flutter:
     - assets/images/wiccacreed-2.jpeg
     - assets/images/scanning.png
     - assets/images/scanner-logo.png
+    - assets/images/splash.jpg
 
   fonts:
     - family: DancingScript
