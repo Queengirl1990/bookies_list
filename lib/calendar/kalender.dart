@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 import '../styles/farbcodes.dart';
 import 'package:bookieslist/styles/appbar.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,10 +38,10 @@ class _CalenderScreenState extends State<CalenderScreen> {
   }
 }
 
-//Kalender
+// Kalender
 class YourBodyWidget extends StatelessWidget {
+  // Beispiel-Events für bestimmte Tage
   List<dynamic> _eventsForDay(DateTime day) {
-    // Beispiel
     if (day.isAtSameMomentAs(DateTime.utc(2023, 1, 1))) {
       return ['Event 1', 'Event 2'];
     }
@@ -51,6 +51,12 @@ class YourBodyWidget extends StatelessWidget {
     }
 
     return [];
+  }
+
+  // Korrigierte Event-Funktion
+  void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
+    print('Selected day: $selectedDay');
+    // Hier kannst du weitere Aktionen für den ausgewählten Tag durchführen
   }
 
   @override
@@ -63,6 +69,23 @@ class YourBodyWidget extends StatelessWidget {
       lastDay: DateTime.utc(2023, 12, 31),
       focusedDay: today,
       eventLoader: _eventsForDay,
+      calendarStyle: CalendarStyle(
+        // Hier kannst du das Styling des Kalenders anpassen
+        todayDecoration: BoxDecoration(
+          color: Colors.blue,
+          shape: BoxShape.circle,
+        ),
+        selectedDecoration: BoxDecoration(
+          color: Colors.red,
+          shape: BoxShape.circle,
+        ),
+        // Weitere Styling-Optionen...
+      ),
+      onDaySelected: _onDaySelected,
+      onFormatChanged: (format) {
+        // Hier kannst du auf Formatänderungen reagieren
+        print('Format changed to: $format');
+      },
     );
   }
 }
