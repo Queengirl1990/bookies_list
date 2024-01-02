@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
-import '../styles/appbar.dart'; // Importiere die appbar.dart-Datei
+import '../styles/appbar.dart';
 import '../widgets/bookieslist_widgets.dart';
 
 void main() {

@@ -2,6 +2,8 @@ import 'package:bookieslist/home/home.dart';
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
 
+//firebase anbindung fehlt noch
+
 void main() {
   runApp(const MyApp());
 }
@@ -36,6 +38,7 @@ class _LoginDemoState extends State<LoginDemo> {
             children: <Widget>[
               const SizedBox(height: 50),
               Center(
+                //applogo
                 child: SizedBox(
                   width: 100,
                   height: 100,
@@ -58,6 +61,8 @@ class _LoginDemoState extends State<LoginDemo> {
                         blurRadius: 5,
                       ),
                     ],
+
+                    //Inputfelder
                   ),
                   child: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
@@ -104,7 +109,7 @@ class _LoginDemoState extends State<LoginDemo> {
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  // Passwort vergessen
+                  // Passwort vergessen funktion einbauen
                 },
                 style: TextButton.styleFrom(
                   alignment: Alignment.centerRight,
@@ -136,10 +141,10 @@ class _LoginDemoState extends State<LoginDemo> {
                 ),
               ),
 
-              const SizedBox(height: 50), // Abstand hinzugefügt
+              const SizedBox(height: 50),
               ElevatedButton(
                 onPressed: () {
-                  // Account erstellen
+                  // Account erstellen 3 Varianten
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
@@ -185,6 +190,7 @@ class _LoginDemoState extends State<LoginDemo> {
                   style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
               ),
+              //Platz für Werbung
               const SizedBox(height: 100),
               Container(
                 width: 320,

@@ -59,6 +59,7 @@ class _BookiesListState extends State<BookiesList> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: darkRed,
+      //navigationsleiste
       bottomNavigationBar: CurvedNavigationBar(
         index: currentPageIndex,
         backgroundColor: darkRed,
@@ -73,10 +74,11 @@ class _BookiesListState extends State<BookiesList> {
           });
         },
         items: const <Widget>[
-          Icon(Icons.home, size: 30, color: Colors.white),
-          Icon(Icons.menu_book, size: 30, color: Colors.white),
-          Icon(Icons.settings, size: 30, color: Colors.white),
-          Icon(Icons.help_outline, size: 30, color: Colors.white),
+          Icon(Icons.home, size: 30, color: Colors.white), //homescreen
+          Icon(Icons.menu_book, size: 30, color: Colors.white), // sub
+          Icon(Icons.settings, size: 30, color: Colors.white), // einstellungen
+          Icon(Icons.help_outline,
+              size: 30, color: Colors.white), //zufallsgenerator
         ],
       ),
       appBar: PreferredSize(
@@ -120,6 +122,7 @@ class _BookiesListState extends State<BookiesList> {
                       ),
                       const SizedBox(height: 20),
                       bookInfoContainer(0.5, () {
+                        //alle infos zum aktuellen buch
                         // Logik
                       }),
                       const SizedBox(height: 15),
@@ -129,7 +132,7 @@ class _BookiesListState extends State<BookiesList> {
                 ButtonBar(
                   alignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
-                  buttonMinWidth: 320, // buttonbreite
+                  buttonMinWidth: 320, // einheitliche buttonbreite
                   children: [
                     ElevatedButton(
                       onPressed: () {
@@ -139,6 +142,7 @@ class _BookiesListState extends State<BookiesList> {
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
+                            //design der Bücherseiten
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(0),
@@ -284,6 +288,7 @@ class _BookiesListState extends State<BookiesList> {
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
+                            //design für Featureseite
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20),

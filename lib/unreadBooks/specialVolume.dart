@@ -65,6 +65,7 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
       backgroundColor: darkRed,
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //Raster
           crossAxisCount: 3,
           childAspectRatio: 80 / 100,
         ),

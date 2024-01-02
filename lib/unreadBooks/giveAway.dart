@@ -16,6 +16,7 @@ class GiveAwayApp extends StatelessWidget {
       title: 'Give Away App',
       theme: ThemeData(
         backgroundColor: darkRed,
+        //colorschema einbauen
       ),
       home: const GiveAwayScreen(),
     );
@@ -40,11 +41,13 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
             fontFamily: 'DancingScript',
             fontWeight: FontWeight.bold,
             fontSize: 24,
+            color: snowWhite,
           ),
         ),
         backgroundColor: darkRed,
         elevation: 0,
         leading: IconButton(
+          color: snowWhite,
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             // Pfad
@@ -58,6 +61,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
       backgroundColor: darkRed,
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //festlegen der Raster und Spalten
           crossAxisCount: 3,
           childAspectRatio: 80 / 100,
         ),

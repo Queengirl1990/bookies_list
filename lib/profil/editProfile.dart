@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:image_picker/image_picker.dart'; //zugriff auf die cam
 import '../styles/farbcodes.dart';
 import '../widgets/randome_generator.dart';
 
@@ -152,7 +152,7 @@ class MyProfilPage extends StatelessWidget {
                     return MyButton(
                       text: buttonTitles[index],
                       onPressed: () {
-                        // Auswahllogik
+                        // Auswahllogik einbauen
                       },
                     );
                   },
@@ -165,6 +165,7 @@ class MyProfilPage extends StatelessWidget {
     );
   }
 
+//profilbild ändern
   void _showImagePicker(BuildContext context) async {
     final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
@@ -175,6 +176,7 @@ class MyProfilPage extends StatelessWidget {
   }
 }
 
+//Generebutton
 class MyButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;

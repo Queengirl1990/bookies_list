@@ -57,6 +57,9 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
       body: Center(
         child: SizedBox(
           width: 320,
+
+          //auswahl aus 3 Büchern
+          //könnte man noch auslagern
           child: ListView.builder(
             itemCount: bookSuggestion.length,
             itemBuilder: (context, index) {
@@ -135,6 +138,7 @@ class _BookSuggestionScreenState extends State<BookSuggestionScreen> {
                       elevation: 5,
                     ),
                     child: const Text("Auswählen"),
+                    //auswahllogik
                   ),
                 ],
               );

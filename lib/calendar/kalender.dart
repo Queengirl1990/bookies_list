@@ -53,10 +53,9 @@ class YourBodyWidget extends StatelessWidget {
     return [];
   }
 
-  // Korrigierte Event-Funktion
   void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
     print('Selected day: $selectedDay');
-    // Hier kannst du weitere Aktionen für den ausgewählten Tag durchführen
+    // Eventoptionen
   }
 
   @override
@@ -70,7 +69,7 @@ class YourBodyWidget extends StatelessWidget {
       focusedDay: today,
       eventLoader: _eventsForDay,
       calendarStyle: CalendarStyle(
-        // Hier kannst du das Styling des Kalenders anpassen
+        // Styling des Kalenders anpassen
         todayDecoration: BoxDecoration(
           color: Colors.blue,
           shape: BoxShape.circle,
@@ -89,3 +88,6 @@ class YourBodyWidget extends StatelessWidget {
     );
   }
 }
+
+
+//eventuell neues packet, eventfunktion spinnt noch

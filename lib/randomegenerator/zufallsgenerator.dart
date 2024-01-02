@@ -3,6 +3,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../styles/farbcodes.dart';
 import 'package:bookieslist/widgets/randome_generator.dart';
 
+//aufruf mycircularavatar und divider einarbeiten
+
 void main() {
   runApp(const MyApp());
 }
@@ -88,6 +90,7 @@ class _RandomGeneratorScreenState extends State<RandomGeneratorScreen> {
             height: 20,
           ),
           Expanded(
+            //mehrauswahl möglich machen
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,

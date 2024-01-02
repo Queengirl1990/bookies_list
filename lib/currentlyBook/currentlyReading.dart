@@ -28,12 +28,16 @@ class CurrentlyReadingScreen extends StatefulWidget {
 }
 
 class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
+  //Lesefortschritt
   double bookProgress = 0.85;
   double initialRating = 0.0;
 
+//Fortschritt aktualisieren
   void showUpdateDialog() {
     TextEditingController progressController = TextEditingController();
 
+//Popup
+//design noch anpassen, Logik kontrollieren
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -74,7 +78,8 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
   }
 
   void showUpdateToast(String progress) {}
-
+//Popup zum Buch verschieben
+//Design anpassen, Logik des verschiebens einbauen
   void showMoveBookDialog() {
     Alert(
       context: context,
@@ -151,6 +156,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
             ),
             const SizedBox(height: 20),
             Center(
+              //Sterne vergeben
               child: RatingBar.builder(
                 initialRating: initialRating,
                 minRating: 1,

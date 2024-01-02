@@ -3,6 +3,8 @@ import '../styles/farbcodes.dart';
 import 'package:bookieslist/libary/unread_books_datenbank.dart';
 import '../widgets/bookieslist_widgets.dart';
 
+//liste Teilen funktion einbauen
+
 void main() {
   runApp(const WishListApp());
 }

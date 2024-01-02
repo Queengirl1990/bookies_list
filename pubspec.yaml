@@ -110,6 +110,8 @@ flutter:
     - assets/images/scanning.png
     - assets/images/scanner-logo.png
     - assets/images/splash.png
+    - assets/images/home.png
+    - assets/images/wish.png
   fonts:
     - family: DancingScript
       fonts:

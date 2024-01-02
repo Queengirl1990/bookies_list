@@ -57,6 +57,8 @@ class _NewBookAddState extends State<NewBookAdd> {
           ),
           SizedBox(height: 20),
           MyDividerWithIcons(),
+
+          //Suchfeld, Inputbox einbauen, Verweis auf den Scanner
         ],
       ),
     );

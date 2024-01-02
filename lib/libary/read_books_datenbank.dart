@@ -33,6 +33,7 @@ Map<String, Map<String, String>> readBooks = {
   },
 };
 
+//buchinfocontainer fürs profil
 class BookInfo {
   final String title;
   final String author;

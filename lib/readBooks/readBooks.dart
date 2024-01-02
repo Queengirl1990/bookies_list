@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart'; //navigationsleiste
 import '../styles/farbcodes.dart';
 import '../home/home.dart';
 import '../widgets/bookieslist_widgets.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:shimmer/shimmer.dart'; //ladefunktion
 import 'package:bookieslist/libary/read_books_datenbank.dart';
 
 void main() {
@@ -43,13 +43,14 @@ class _ReadBooksScreenState extends State<ReadBooksScreen> {
       if (mounted) {
         setState(() {
           _showShimmer = false;
+          //shimmer effekt während die Bilder laden
         });
       }
     });
   }
 
   void addNewBook() {
-    // Buch hinzufügen
+    // navigation einbauen zu entsprechendem screen
   }
 
   @override

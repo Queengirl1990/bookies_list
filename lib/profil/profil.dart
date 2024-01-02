@@ -125,6 +125,8 @@ class MyProfilPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
+
+              //Buchkarussel einbauen, mit aufruf der Datein aus dem Backend
               CarouselSlider.builder(
                 itemCount: bookInfoMap.length,
                 options: CarouselOptions(
@@ -218,6 +220,7 @@ class MyProfilPage extends StatelessWidget {
     );
   }
 
+//Anzeige Buchdetails
   void _showImageDialog(
       BuildContext context, BookInfo bookInfo, String imagePath) {
     showDialog(

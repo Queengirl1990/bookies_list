@@ -1,3 +1,5 @@
+//nur für den UI Bereich benötigt, in der fertigen App läuft alles über die Datenbank und API Abfragen
+
 //ungelesen Screen
 Map<String, Map<String, String>> unreadBooks = {
   'Außerhalb der Schatten II': {
