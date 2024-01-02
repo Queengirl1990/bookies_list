@@ -3,97 +3,35 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../profil/profil.dart';
 import '../widgets/bookieslist_widgets.dart';
 import '../styles/farbcodes.dart';
+import '../unreadBooks/sub.dart';
 
-void main() {
-  runApp(const Bookies());
-}
-
-class Bookies extends StatelessWidget {
-  const Bookies({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const BookiesList(),
-        '/unreadBooks': (context) => const UnreadBooksScreen(),
-      },
-      theme: ThemeData.light().copyWith(
-        appBarTheme: const AppBarTheme(
-          backgroundColor: darkRed,
-          elevation: 0,
-        ),
-      ),
-    );
-  }
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class BookiesList extends StatefulWidget {
-  const BookiesList({super.key});
-
-  @override
-  _BookiesListState createState() => _BookiesListState();
-}
-
-class UnreadBooksScreen extends StatelessWidget {
-  const UnreadBooksScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ungelesene Bücher'),
-      ),
-      body: const Center(
-        child: Text('Hier sind deine ungelesenen Bücher.'),
-      ),
-    );
-  }
-}
-
-class _BookiesListState extends State<BookiesList> {
+class _HomeScreenState extends State<HomeScreen> {
   int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: darkRed,
-      bottomNavigationBar: CurvedNavigationBar(
-        index: currentPageIndex,
-        backgroundColor: darkRed,
-        color: darkMode,
-        buttonBackgroundColor: darkMode,
-        onTap: (int index) {
-          setState(() {
-            currentPageIndex = index;
-            if (index == 1) {
-              Navigator.pushNamed(context, '/unreadBooks');
-            }
-          });
-        },
-        items: const <Widget>[
-          Icon(Icons.home, size: 30, color: Colors.white),
-          Icon(Icons.menu_book, size: 30, color: Colors.white),
-          Icon(Icons.settings, size: 30, color: Colors.white),
-          Icon(Icons.help_outline, size: 30, color: Colors.white),
+      appBar: AppBar(
+        title: const Text('Home'),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MyProfilPage()),
+              );
+            },
+            child: myCircularAvatar(),
+          ),
         ],
-      ),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: AppBar(
-          actions: [
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MyProfilPage()),
-                );
-              },
-              child: myCircularAvatar(),
-            ),
-          ],
-        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -129,7 +67,7 @@ class _BookiesListState extends State<BookiesList> {
                 ButtonBar(
                   alignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
-                  buttonMinWidth: 320, // buttonbreite
+                  buttonMinWidth: 320,
                   children: [
                     ElevatedButton(
                       onPressed: () {
@@ -340,6 +278,37 @@ class _BookiesListState extends State<BookiesList> {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: currentPageIndex,
+        backgroundColor: darkRed,
+        color: darkMode,
+        buttonBackgroundColor: darkMode,
+        onTap: (int index) {
+          setState(() {
+            currentPageIndex = index;
+            switch (index) {
+              case 0:
+                Navigator.pushNamed(context, '/home');
+                break;
+              case 1:
+                Navigator.pushNamed(context, '/unreadBooks');
+                break;
+              case 2:
+                Navigator.pushNamed(context, '/settings');
+                break;
+              case 3:
+                Navigator.pushNamed(context, '/randomGenerator');
+                break;
+            }
+          });
+        },
+        items: const <Widget>[
+          Icon(Icons.home, size: 30, color: Colors.white),
+          Icon(Icons.menu_book, size: 30, color: Colors.white),
+          Icon(Icons.settings, size: 30, color: Colors.white),
+          Icon(Icons.help_outline, size: 30, color: Colors.white),
+        ],
       ),
     );
   }

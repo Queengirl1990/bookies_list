@@ -58,6 +58,15 @@ class _YourBodyWidgetState extends State<YourBodyWidget> {
     "Anderes"
   ];
 
+  void _showMessageSentSnackbar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Nachricht gesendet'),
+        backgroundColor: Colors.green,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -130,6 +139,7 @@ class _YourBodyWidgetState extends State<YourBodyWidget> {
                         print('Betreff: $selectedSubject');
                         print('Email is valid');
                         print('Message: ${_messageController.text}');
+                        _showMessageSentSnackbar();
                       } else {
                         print('Invalid email address');
                       }

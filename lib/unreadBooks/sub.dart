@@ -1,80 +1,284 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import '../styles/farbcodes.dart';
-import 'package:bookieslist/libary/unread_books_datenbank.dart';
-import '../home/home.dart';
+import '../profil/profil.dart';
 import '../widgets/bookieslist_widgets.dart';
-import 'package:shimmer/shimmer.dart';
+import '../styles/farbcodes.dart';
 
-void main() {
-  runApp(const UnreadBooksApp());
-}
-
-class UnreadBooksApp extends StatelessWidget {
-  const UnreadBooksApp({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Unread Books App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const UnreadBooksScreen(),
-    );
-  }
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class UnreadBooksScreen extends StatefulWidget {
-  const UnreadBooksScreen({super.key});
-
-  @override
-  _UnreadBooksScreenState createState() => _UnreadBooksScreenState();
-}
-
-class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
-  int currentPageIndex = 1;
-  bool _showShimmer = true;
-
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(milliseconds: 1000), () {
-      if (mounted) {
-        setState(() {
-          _showShimmer = false;
-        });
-      }
-    });
-  }
-
-  void addNewBook() {
-    // buch hinzufügen
-  }
+class _HomeScreenState extends State<HomeScreen> {
+  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Stapel ungelesener Bücher",
-          style: TextStyle(
-            fontFamily: 'DancingScript',
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(50),
+        child: AppBar(
+          title: const Text('Home'),
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyProfilPage()),
+                );
+              },
+              child: myCircularAvatar(),
+            ),
+          ],
+        ),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            color: darkRed,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  color: darkRed,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Aktueller Lesestoff",
+                        style: TextStyle(
+                          fontFamily: 'DancingScript',
+                          fontWeight: FontWeight.normal,
+                          fontSize: 24,
+                          color: snowWhite,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      bookInfoContainer(0.5, () {
+                        // Logik
+                      }),
+                      const SizedBox(height: 15),
+                    ],
+                  ),
+                ),
+                ButtonBar(
+                  alignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  buttonMinWidth: 320,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/unreadBooks');
+                      },
+                      style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Stapel ungelesener Bücher",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Wunschliste",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Sonderband",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Verschenken",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Neue Liste anlegen",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Zufallsgenerator",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Link einfügen
+                      },
+                      style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(snowWhite),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Kalender",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
-        backgroundColor: darkRed,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            // Zurücknavigieren
-          },
-        ),
-        actions: [
-          myCircularAvatar(),
-        ],
       ),
       backgroundColor: darkRed,
       bottomNavigationBar: CurvedNavigationBar(
@@ -83,14 +287,23 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
         color: darkMode,
         buttonBackgroundColor: darkMode,
         onTap: (int index) {
-          if (index == 0) {
-            Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                builder: (context) => const BookiesList(),
-              ),
-              (route) => false,
-            );
-          }
+          setState(() {
+            currentPageIndex = index;
+            switch (index) {
+              case 0:
+                Navigator.pushNamed(context, '/home');
+                break;
+              case 1:
+                Navigator.pushNamed(context, '/unreadBooks');
+                break;
+              case 2:
+                Navigator.pushNamed(context, '/settings');
+                break;
+              case 3:
+                Navigator.pushNamed(context, '/randomGenerator');
+                break;
+            }
+          });
         },
         items: const <Widget>[
           Icon(Icons.home, size: 30, color: Colors.white),
@@ -98,80 +311,6 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
           Icon(Icons.settings, size: 30, color: Colors.white),
           Icon(Icons.help_outline, size: 30, color: Colors.white),
         ],
-      ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          childAspectRatio: 80 / 100,
-        ),
-        itemCount: unreadBooks.length + 1,
-        itemBuilder: (context, index) {
-          if (index == 0) {
-            return GestureDetector(
-              onTap: addNewBook,
-              child: Container(
-                margin: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: darkRed,
-                  borderRadius: BorderRadius.circular(8.0),
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 1.0,
-                  ),
-                ),
-                child: const SizedBox(
-                  width: 80,
-                  height: 100,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.add,
-                        size: 40,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Neues Buch hinzufügen",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          } else {
-            final bookKey = unreadBooks.keys.elementAt(index - 1);
-            return GestureDetector(
-              onTap: () {
-                // Navigator.push
-              },
-              child: Container(
-                margin: const EdgeInsets.all(8),
-                child: SizedBox(
-                  width: 80,
-                  height: 100,
-                  child: _showShimmer
-                      ? Shimmer.fromColors(
-                          baseColor: Colors.grey[300]!,
-                          highlightColor: Colors.grey[100]!,
-                          child: Container(
-                            width: 80,
-                            height: 100,
-                            color: Colors.red,
-                          ),
-                        )
-                      : Image.asset(
-                          unreadBooks[bookKey]!['image']!,
-                          fit: BoxFit.cover,
-                        ),
-                ),
-              ),
-            );
-          }
-        },
       ),
     );
   }
