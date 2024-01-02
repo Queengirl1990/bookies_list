@@ -44,10 +44,12 @@ class _WishListScreenState extends State<WishListScreen> {
             fontFamily: 'DancingScript',
             fontWeight: FontWeight.bold,
             fontSize: 24,
+            color: snowWhite,
           ),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+          color: snowWhite,
           onPressed: () {
             // pfad
           },

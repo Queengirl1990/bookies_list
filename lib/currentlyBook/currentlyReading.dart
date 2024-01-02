@@ -73,10 +73,7 @@ class _CurrentlyReadingScreenState extends State<CurrentlyReadingScreen> {
     );
   }
 
-  void showUpdateToast(String progress) {
-    // Anstelle von Fluttertoast.showToast kannst du hier eine andere Methode verwenden, um eine Benachrichtigung anzuzeigen.
-    // Zum Beispiel: ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Lesefortschritt aktualisiert: $progress%')));
-  }
+  void showUpdateToast(String progress) {}
 
   void showMoveBookDialog() {
     Alert(

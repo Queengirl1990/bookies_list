@@ -59,15 +59,16 @@ class _UnreadBooksScreenState extends State<UnreadBooksScreen> {
         title: const Text(
           "Stapel ungelesener Bücher",
           style: TextStyle(
-            fontFamily: 'DancingScript',
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-          ),
+              fontFamily: 'DancingScript',
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+              color: snowWhite),
         ),
         backgroundColor: darkRed,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+          color: snowWhite,
           onPressed: () {
             // Zurücknavigieren
           },

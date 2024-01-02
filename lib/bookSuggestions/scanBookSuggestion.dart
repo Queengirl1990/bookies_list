@@ -51,8 +51,7 @@ class _NewBookScannState extends State<NewBookScann> {
 
   Future<void> fetchBookInfo(String isbn) async {
     try {
-      final apiKey =
-          googleBooksApiKey; // Verwenden Sie den API-Schlüssel aus der separaten Datei
+      final apiKey = googleBooksApiKey; //seperat in versteckter datei
       final apiUrl = 'https://www.googleapis.com/books/v1/volumes?q=$isbn';
 
       final response = await http.get(Uri.parse(apiUrl), headers: {
