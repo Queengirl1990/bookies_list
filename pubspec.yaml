@@ -112,7 +112,7 @@ flutter:
     - assets/bookimages/belle-morte.webp
     - assets/bookimages/destroyed-souls-1.jpeg
     - assets/bookimages/wiccacreed-2.jpeg
-    - assets/bookimages/wish.png
+    - assets/images/wish.png
   fonts:
     - family: DancingScript
       fonts:

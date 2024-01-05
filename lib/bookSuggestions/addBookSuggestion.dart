@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
 import 'package:bookieslist/widgets/bookieslist_widgets.dart';
+import '../bookSuggestions/scanBookSuggestion.dart';
 
+//logik einbauen nach büchern über die API zu suchen
 void main() {
   runApp(const MyApp());
 }
@@ -84,6 +86,10 @@ class _NewBookAddState extends State<NewBookAdd> {
                               //50% Durchsichtig
                             ),
                             border: InputBorder.none,
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical:
+                                  10, // Anpassung der vertikalen Ausrichtung                          ),
+                            ),
                           ),
                         ),
                       ),
@@ -100,7 +106,10 @@ class _NewBookAddState extends State<NewBookAdd> {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      // verlinkung
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => NewBookScann()),
+                      );
                     },
                     child: Image.asset(
                       'assets/images/scanner-logo.png',
@@ -108,7 +117,7 @@ class _NewBookAddState extends State<NewBookAdd> {
                       height: 40,
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary:
+                      backgroundColor:
                           Colors.transparent, // Hintergrundfarbe transparent
                       shadowColor: Colors.transparent,
                       padding: EdgeInsets.all(0),

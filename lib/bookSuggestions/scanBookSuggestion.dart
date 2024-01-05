@@ -6,6 +6,7 @@ import '../styles/farbcodes.dart';
 import 'package:bookieslist/widgets/bookieslist_widgets.dart';
 import '../libary/api_key.dart';
 
+//Api Anbindung prüfen, eventuell austauschen
 void main() {
   runApp(const MyApp());
 }
