@@ -56,62 +56,63 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/avatar.png
-    - assets/images/life_after.jpg
-    - assets/images/das-ist-erst.jpg
-    - assets/images/Fourth_wings.jpg
-    - assets/images/Huskyküsse.jpg
-    - assets/images/keep-my.jpg
-    - assets/images/wiccacreed.jpeg
-    - assets/images/erwachte-magie.jpg
-    - assets/images/bad-at-love.jpeg
     - assets/images/logo.png
-    - assets/images/werbung.jpeg
-    - assets/images/wir-wollen.jpg
-    - assets/images/vampires_of_vensaya.jpeg
-    - assets/images/das-biest.jpeg
-    - assets/images/verborgene-magie.jpeg
-    - assets/images/bis-zum-hellsten-morgen.webp
-    - assets/images/fallen-princes.jpeg
-    - assets/images/eine-frage-der-chemie.jpeg
-    - assets/images/check-mate.jpg
-    - assets/images/queen-of-myth.webp
-    - assets/images/a-night-of.webp
-    - assets/images/easthaven.jpeg
-    - assets/images/what-if.jpeg
-    - assets/images/autumn-leaf.jpeg
-    - assets/images/die-drachenhexe.jpeg
-    - assets/images/on-my-way.jpeg
-    - assets/images/mister-liberty.jpeg
-    - assets/images/bullshit-bingo.jpeg
-    - assets/images/Homecoming.jpeg
-    - assets/images/wing-special.webp
-    - assets/images/ruhe-vor-dem-sturm.jpg
-    - assets/images/hp-all.jpeg
-    - assets/images/all-in.jpg
-    - assets/images/stadt-der-freude.jpg
-    - assets/images/written-in-blood.png
-    - assets/images/trotze-der-nacht.png
-    - assets/images/better-with.jpeg
-    - assets/images/matt-perry.jpeg
-    - assets/images/eine.jpeg
-    - assets/images/princess-and-beast.jpeg
-    - assets/images/miamo-zesi.webp
-    - assets/images/destroyed-hearts.jpeg
-    - assets/images/rise-doom.webp
-    - assets/images/rise&doom.jpeg
-    - assets/images/rise-doom-3.jpg
-    - assets/images/panem-2.jpeg
-    - assets/images/panem-1.jpeg
-    - assets/images/panem-x.jpeg
-    - assets/images/belle-morte.webp
-    - assets/images/destroyed-souls-1.jpeg
-    - assets/images/wiccacreed-2.jpeg
+    - assets/images/splash.png
     - assets/images/scanning.png
     - assets/images/scanner-logo.png
-    - assets/images/splash.png
     - assets/images/home.png
-    - assets/images/wish.png
+    - assets/images/avatar.png
+    
+    - assets/bookimages/life_after.jpg
+    - assets/bookimages/das-ist-erst.jpg
+    - assets/bookimages/Fourth_wings.jpg
+    - assets/bookimages/Huskyküsse.jpg
+    - assets/bookimages/keep-my.jpg
+    - assets/bookimages/wiccacreed.jpeg
+    - assets/bookimages/erwachte-magie.jpg
+    - assets/bookimages/bad-at-love.jpeg
+    - assets/bookimages/werbung.jpeg
+    - assets/bookimages/wir-wollen.jpg
+    - assets/bookimages/vampires_of_vensaya.jpeg
+    - assets/bookimages/das-biest.jpeg
+    - assets/bookimages/verborgene-magie.jpeg
+    - assets/bookimages/bis-zum-hellsten-morgen.webp
+    - assets/bookimages/fallen-princes.jpeg
+    - assets/bookimages/eine-frage-der-chemie.jpeg
+    - assets/bookimages/check-mate.jpg
+    - assets/bookimages/queen-of-myth.webp
+    - assets/bookimages/a-night-of.webp
+    - assets/bookimages/easthaven.jpeg
+    - assets/bookimages/what-if.jpeg
+    - assets/bookimages/autumn-leaf.jpeg
+    - assets/bookimages/die-drachenhexe.jpeg
+    - assets/bookimages/on-my-way.jpeg
+    - assets/bookimages/mister-liberty.jpeg
+    - assets/bookimages/bullshit-bingo.jpeg
+    - assets/bookimages/Homecoming.jpeg
+    - assets/bookimages/wing-special.webp
+    - assets/bookimages/ruhe-vor-dem-sturm.jpg
+    - assets/bookimages/hp-all.jpeg
+    - assets/bookimages/all-in.jpg
+    - assets/bookimages/stadt-der-freude.jpg
+    - assets/bookimages/written-in-blood.png
+    - assets/bookimages/trotze-der-nacht.png
+    - assets/bookimages/better-with.jpeg
+    - assets/bookimages/matt-perry.jpeg
+    - assets/bookimages/eine.jpeg
+    - assets/bookimages/princess-and-beast.jpeg
+    - assets/bookimages/miamo-zesi.webp
+    - assets/bookimages/destroyed-hearts.jpeg
+    - assets/bookimages/rise-doom.webp
+    - assets/bookimages/rise&doom.jpeg
+    - assets/bookimages/rise-doom-3.jpg
+    - assets/bookimages/panem-2.jpeg
+    - assets/bookimages/panem-1.jpeg
+    - assets/bookimages/panem-x.jpeg
+    - assets/bookimages/belle-morte.webp
+    - assets/bookimages/destroyed-souls-1.jpeg
+    - assets/bookimages/wiccacreed-2.jpeg
+    - assets/bookimages/wish.png
   fonts:
     - family: DancingScript
       fonts:
