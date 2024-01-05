@@ -59,8 +59,7 @@ class _NewBookAddState extends State<NewBookAdd> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 16),
             child: Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.center, // Zentriert die Elemente
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 40,
@@ -82,6 +81,7 @@ class _NewBookAddState extends State<NewBookAdd> {
                             hintText: "Suchen...",
                             hintStyle: TextStyle(
                               color: lightGrey.withOpacity(0.5),
+                              //50% Durchsichtig
                             ),
                             border: InputBorder.none,
                           ),
@@ -90,7 +90,7 @@ class _NewBookAddState extends State<NewBookAdd> {
                     ],
                   ),
                 ),
-                SizedBox(width: 10), // Abstand zInputfeld und dem Button
+                SizedBox(width: 10), // Abstand Inputfeld und dem Button
                 Container(
                   width: 40,
                   height: 40,
