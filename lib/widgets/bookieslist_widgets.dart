@@ -171,7 +171,7 @@ Widget bookInfoContainer(double bookProgress, VoidCallback onUpdatePressed) {
             SizedBox(
               width: 80,
               height: 120,
-              child: Image.asset('assets/images/wiccacreed-2.jpeg'),
+              child: Image.asset('assets/bookimages/wiccacreed-2.jpeg'),
             ),
           ],
         ),

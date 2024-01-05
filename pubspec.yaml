@@ -62,7 +62,10 @@ flutter:
     - assets/images/scanner-logo.png
     - assets/images/home.png
     - assets/images/avatar.png
+    - assets/images/wish.png
     
+
+  # können alle raus nach erfolgreicher Api Anbindung nur aktuell zur UI erforderlich
     - assets/bookimages/life_after.jpg
     - assets/bookimages/das-ist-erst.jpg
     - assets/bookimages/Fourth_wings.jpg
@@ -112,7 +115,7 @@ flutter:
     - assets/bookimages/belle-morte.webp
     - assets/bookimages/destroyed-souls-1.jpeg
     - assets/bookimages/wiccacreed-2.jpeg
-    - assets/images/wish.png
+
   fonts:
     - family: DancingScript
       fonts:
