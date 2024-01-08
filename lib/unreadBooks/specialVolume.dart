@@ -49,6 +49,7 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
             const Text(
               "Limited Edition",
               style: TextStyle(
+                color: snowWhite,
                 fontFamily: 'DancingScript',
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
