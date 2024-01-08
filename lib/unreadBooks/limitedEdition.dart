@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../styles/farbcodes.dart';
 import 'package:bookieslist/libary/unread_books_datenbank.dart';
 import '../widgets/bookieslist_widgets.dart';
+import '../widgets/showDialog.dart';
 
 void main() {
   runApp(const LimitedEditionApp());
@@ -42,6 +43,7 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
           children: [
             IconButton(
               icon: const Icon(Icons.arrow_back),
+              color: snowWhite,
               onPressed: () {
                 // Pfad
               },
@@ -112,7 +114,7 @@ class _LimitedEditionScreenState extends State<LimitedEditionScreen> {
             final bookKey = limitedEdition.keys.elementAt(index - 1);
             return GestureDetector(
               onTap: () {
-                // Navigator.push
+                showAddBookDialog(context);
               },
               child: Container(
                 margin: const EdgeInsets.all(8),
