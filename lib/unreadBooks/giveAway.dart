@@ -58,7 +58,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 35),
+              SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -95,7 +95,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
-                  // Aktion für "Aus vorhandener Liste importieren"
+                  // navigiert zu Buch hinzufügen
                 },
                 style: ElevatedButton.styleFrom(
                   primary: snowWhite,
@@ -126,7 +126,7 @@ class _GiveAwayScreenState extends State<GiveAwayScreen> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
-                  // Aktion für Abbrechen
+                  // Aktion für "Aus vorhandener Liste importieren"
                 },
                 style: ElevatedButton.styleFrom(
                   primary: lightGrey,
